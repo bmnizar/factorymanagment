@@ -16,6 +16,7 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
 public class ApplicationConfig {
 	@Bean
 	public DriverManagerDataSource springSecurityDataSource() {
+		System.out.println();
 		DriverManagerDataSource driverManagerDataSource = new DriverManagerDataSource();
 		driverManagerDataSource.setDriverClassName(com.mysql.jdbc.Driver.class.getName());
 		driverManagerDataSource.setUrl("jdbc:mysql://localhost/FactoryManagmentDb");
