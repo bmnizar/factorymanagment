@@ -6,9 +6,9 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
 /**
- * @author BMN(BM.NIZAR) s71055
+ * 
  */
-/**
+/*
  * @author s715055
  *
  */
