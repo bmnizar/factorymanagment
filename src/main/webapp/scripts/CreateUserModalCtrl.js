@@ -2,10 +2,10 @@
 App
 .controller(
 	'CreateUserModalCtrl',
-	function (parentInput) {
+	function (parent) {
 	//var self=this;
 	var parent;
 	
-	 this.parent = parentInput;
+	 this.parent = parent;
 	}
 	);
