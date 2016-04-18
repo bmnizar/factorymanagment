@@ -28,7 +28,11 @@ App.factory('UserService', function($http,$rootScope, $q, $window){
 					var a= $http.post('http://localhost:8081/factorymanagment/createUser/', userToSend)
 							.then(
 									function(response){
+<<<<<<< HEAD
 									  // $rootScope.refresh();
+=======
+									  //$rootScope.refresh();
+>>>>>>> 4934b2949481aba3db684998fc49eb80b34d866d
 									  $rootScope.$broadcast('saveUserWithSuccess',response.data);
 										return response.data;
 									}, 
