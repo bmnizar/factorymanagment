@@ -5,7 +5,7 @@ App.factory('UserService', function($http,$rootScope, $q, $window){
 	return {
 		
 			fetchAllUsers: function() {
-					return $http.get('http://localhost:8081/MyDirectory/allUsers/')
+					return $http.get('http://localhost:8081/factorymanagment/allUsers/')
 							.then(
 									function(response){
 										return response.data;
@@ -25,7 +25,7 @@ App.factory('UserService', function($http,$rootScope, $q, $window){
 						"email" : user.email,
 						"ssoId": user.ssoId
 				};
-					var a= $http.post('http://localhost:8081/MyDirectory/createUser/', userToSend)
+					var a= $http.post('http://localhost:8081/factorymanagment/createUser/', userToSend)
 							.then(
 									function(response){
 									  //$rootScope.refresh();
@@ -43,7 +43,7 @@ App.factory('UserService', function($http,$rootScope, $q, $window){
 		    },
 		    
 		    updateUser: function(user){
-					return $http.put('http://localhost:8081/MyDirectory/updateUser/'+id, user)
+					return $http.put('http://localhost:8081/factorymanagment/updateUser/'+id, user)
 							.then(
 									function(response){
 										return response.data;
@@ -56,7 +56,7 @@ App.factory('UserService', function($http,$rootScope, $q, $window){
 			},
 		    
 			deleteUser: function(user){
-					return $http.delete('http://localhost:8081/MyDirectory/deleteUser/'+user)
+					return $http.delete('http://localhost:8081/factorymanagment/deleteUser/'+user)
 							.then(
 									function(response){
 										return response.data;

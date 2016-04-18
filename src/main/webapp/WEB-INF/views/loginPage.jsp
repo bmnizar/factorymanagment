@@ -35,20 +35,24 @@
 <script src="js/bootstrap.min.js"></script>
 <script
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-<script src="css/acceuil.css"></script>
- <!-- Stylesheets -->
-<!-- <link rel="stylesheet" href="css/acceuil.css">  -->
+<!-- <script src="css/acceuil.css"></script> -->
+<!-- Stylesheets -->
+<link rel="stylesheet" href="css/style.css">
 <title>Zollner | Accueil</title>
 </head>
 <body onload='document.loginForm.username.focus();'>
 
-<c:if test="${not empty error}">
-		<div>${error}</div>
+<%-- 	<c:if test="${not empty error}">
+		<div class="alert alert-danger fade in">
+			<a href="#" class="close" data-dismiss="alert">&times;</a> <strong>${error}</strong>
+		</div>
 	</c:if>
 	<c:if test="${not empty message}">
-		<div>${message}</div>
-	</c:if>
 
+		<div class="alert alert-success fade in">
+			<a href="#" class="close" data-dismiss="alert">&times;</a> <strong>${message}</strong>
+		</div>
+	</c:if> --%>
 	<nav class="navbar navbar navbar-static"
 		style="background-color: #BBD2E1;" role="navigation">
 		<div class="container-fluid">
@@ -105,13 +109,23 @@
 							method='POST' class="form-horizontal" role="form">
 
 
+<c:if test="${not empty error}">
+		<div class="alert alert-danger fade in">
+			<a href="#" class="close" data-dismiss="alert">&times;</a> <strong>${error}</strong>
+		</div>
+	</c:if>
+	<c:if test="${not empty message}">
 
+		<div class="alert alert-success fade in">
+			<a href="#" class="close" data-dismiss="alert">&times;</a> <strong>${message}</strong>
+		</div>
+	</c:if>
 							<div class="form-group">
 								<label class="control-label col-sm-4" for="username">Username&nbsp;
 									&nbsp; :</label>
 								<div class="col-sm-6">
-									<input type="text" class="form-control" id="username" value=''
-										placeholder="Your User Name">
+									<input type="text" class="form-control" name='username'
+										id="username" value='' placeholder="Your User Name">
 								</div>
 							</div>
 							<br>
@@ -120,8 +134,8 @@
 								<label class="control-label col-sm-4" for="pwd">Password&nbsp;
 									&nbsp;:</label>
 								<div class="col-sm-6">
-									<input type="password" class="form-control" id="pwd"
-										placeholder="Your Password">
+									<input type="password" name='password' class="form-control"
+										id="pwd" placeholder="Your Password">
 								</div>
 							</div>
 
