@@ -1,8 +1,7 @@
 'use strict';
 
 App.factory('UserService', function($http,$rootScope, $q, $window){
-
-	return {
+return {
 		
 			fetchAllUsers: function() {
 					return $http.get('http://localhost:8081/factorymanagment/allUsers/')
