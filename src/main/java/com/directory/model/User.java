@@ -29,12 +29,7 @@ public class User implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id = 1;
-
-	@Column(name = "SSO_ID", unique = true, nullable = false)
-	private String ssoId;
-
 	@NotEmpty
-
 	private String firstName;
 
 	@NotEmpty
@@ -44,6 +39,38 @@ public class User implements Serializable {
 	@NotEmpty
 	@Column(name = "EMAIL", nullable = false)
 	private String email;
+	@NotEmpty
+	@Column(name = "PHONE_NUMBER", nullable = false)
+	private String phoneNumber;
+	@NotEmpty
+	@Column(name = "ADRESS", nullable = false)
+	private String adress;
+	@NotEmpty
+	@Column(name = "ROLE", nullable = false)
+	private String role;
+	public String getPhoneNumber() {
+		return phoneNumber;
+	}
+
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
+	}
+
+	public String getAdress() {
+		return adress;
+	}
+
+	public void setAdress(String adress) {
+		this.adress = adress;
+	}
+
+	public String getRole() {
+		return role;
+	}
+
+	public void setRole(String role) {
+		this.role = role;
+	}
 
 	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private Set<UserInscription> userInscription = new HashSet<UserInscription>();
@@ -77,13 +104,7 @@ public class User implements Serializable {
 		this.id = id;
 	}
 
-	public String getSsoId() {
-		return ssoId;
-	}
 
-	public void setSsoId(String ssoId) {
-		this.ssoId = ssoId;
-	}
 
 	public String getFirstName() {
 		return firstName;
@@ -120,8 +141,8 @@ public class User implements Serializable {
 
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", ssoId=" + ssoId + ", firstName=" + firstName + ", lastName=" + lastName
-				+ ", email=" + email + "]";
+		return "User [id=" + id + ",firstName=" + firstName + ", lastName=" + lastName
+				+", email=" + email + ",phoneNumber=" + phoneNumber + ",adress=" + adress + ",role=" + role + "]";
 	}
 
 }

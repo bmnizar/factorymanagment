@@ -20,9 +20,11 @@ return {
 		    var userToSend = {
 						"firstName" : user.firstName,
 						"lastName" : user.lastName,
-						"homeAddress" : {location : user.homeAddress.location}	,
+						"password" :user.password,
 						"email" : user.email,
-						"ssoId": user.ssoId
+						"phoneNumber":user.phoneNumber,
+						"homeAddress" : {location : user.homeAddress.location}	,
+						"role": user.role
 				};
 					var a= $http.post('http://localhost:8081/factorymanagment/createUser/', userToSend)
 							.then(
@@ -30,7 +32,7 @@ return {
 <<<<<<< HEAD
 									  // $rootScope.refresh();
 =======
-									  //$rootScope.refresh();
+									  // $rootScope.refresh();
 >>>>>>> 4934b2949481aba3db684998fc49eb80b34d866d
 									  $rootScope.$broadcast('saveUserWithSuccess',response.data);
 										return response.data;

@@ -9,11 +9,13 @@ App
 	self.users = [];
 	var user = {
 	id:"",
-		firstName:"",
-		lastName:"",
-		homeAddress:"",
-		email:"",
-		ssoId:""
+	firstName : '',
+	lastName : '',
+	password:'',
+	email : '',
+	phoneNumber:'',
+	address : '',
+	role: ''
 	};
 	self.fetchAllUsers = function () {
 		UserService

@@ -45,22 +45,22 @@ public class TestUserOperationWithoutMocking {
 		}
 	}
 
-	private List<User> getMockedListOfUsers() {
-		List<User> listOfUsers = new ArrayList<User>();
-		User user1 = new User();
-
-		user1.setEmail("ali@yahoo.com");
-		user1.setFirstName("salah");
-		user1.setSsoId("5854854");
-		user1.setLastName("ben salah");
-		listOfUsers.add(user1);
-		User user2 = new User();
-
-		user2.setEmail("mohamed@yahoo.com");
-		user2.setFirstName("mohamed");
-		user2.setSsoId("985415785");
-		user2.setLastName("ben ammar");
-		listOfUsers.add(user2);
-		return listOfUsers;
-	}
+//	private List<User> getMockedListOfUsers() {
+//		List<User> listOfUsers = new ArrayList<User>();
+//		User user1 = new User();
+//
+//		user1.setEmail("ali@yahoo.com");
+//		user1.setFirstName("salah");
+//		user1.setSsoId("5854854");
+//		user1.setLastName("ben salah");
+//		listOfUsers.add(user1);
+//		User user2 = new User();
+//
+//		user2.setEmail("mohamed@yahoo.com");
+//		user2.setFirstName("mohamed");
+//		user2.setSsoId("985415785");
+//		user2.setLastName("ben ammar");
+//		listOfUsers.add(user2);
+//		return listOfUsers;
+//	}
 }

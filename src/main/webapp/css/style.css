@@ -1,13 +1,12 @@
 
 body { 
-		background:url(../images/backgroundbleu.jpg);
-
+		background: url(../images/img5.jpg);
+	
 		
-		
-/*   width: auto;
+  width: auto;
 		
 		-webkit-font-smoothing: antialiased; Fix for webkit rendering
-		-webkit-text-size-adjust: none; */
+		-webkit-text-size-adjust: none;
  }
  
 .navbar-static .nav > li > a:focus,
@@ -23,10 +22,10 @@ body {
 modal-body { 
    background-color: none !important; 
 }
-.panel {
+/* .panel {
 background:transparent;
 border-color:transparent;
-}
+}*/ */
   .modal-header, h4{
  
 	
@@ -40,10 +39,17 @@ border-color:transparent;
       text-align: center;
 	  color:black; 
 	  font-size:20px;
-font-family:verdana;	  
+		font-family:verdana;	  
   }
-
-.navbar {
+.navbar.brand.logo
+{
+  position: relative; width: 50px
+}
+.icon-bar{
+  background-color: #000;
+}
+.navbar 
+{
 
 
 font-family: Impact, Charcoal, sans-serif;
@@ -70,7 +76,7 @@ ul li.active a {
     -webkit-border-radius: 0;
     -moz-border-radius: 0;
     -moz-border-radius: 0;
-    background-color: none !important;
+ 
 }
 
 
@@ -90,17 +96,18 @@ ul:after {
   clear: both;
   visibility: hidden;
 }
-.ul li {
+ .ul li {
   display: inline-block;
   padding: 0;
   margin: 0;
 }
+
 .ul li a {
   color: #ffffff;
   text-decoration: none;
   display: block;
   padding: 15px 25px;
-  font-family: 'Open Sans', sans-serif;
+
 font-family:Impact, Charcoal, sans-serif;
 	text-align: center;
   font-weight: 700;
@@ -125,9 +132,10 @@ ul li a:hover:before {
 	
   width: 100%;
 }
+
 ul li a:after {
 
-  content: "";
+
   display: block;
   position: absolute;
   right: -3px;
@@ -137,10 +145,11 @@ ul li a:after {
   background: #ffffff;
   opacity: .5;
 }
+
 ul li a:before {
 
   content: "";
-  display: block;
+  display: block; 
   position: absolute;
   left: 0;
   bottom: 0;
@@ -153,23 +162,33 @@ ul li a:before {
   -o-transition: width .25s;
   transition: width .25s;
 }
+.inline-form input {
+  display: inline-block;
+  width: 100px;
+}
 ul li.last > a:after,
 ul li:last-child > a:after {
 	  background-color: #BBD2E1;
   display: none;
 }
+
 ul li.active a {
 	  background-color: #BBD2E1;
   color: #333333;
 }
+
 ul li.active a:before {
 
 	
   width: 100%;
 }
+
 ul li {
-    float: none;
+   /*  float: none;
     display: block;
+	 */
+	 float: left;
+  border-right: 4px solid #0F056B;
   }
   ul li a {
     width: 100%;
@@ -178,6 +197,16 @@ ul li {
     box-sizing: border-box;
   
   }
- 
+  .modal-header {
+	  font-size:18pt;
+text-align:center;
 
+    background-color: #BBD2E1;
 
+ }
+ .navbar-brand                {color: #222!important; font-size: 40px; font-weight:700;}
+.logo                        {position: relative; width: 100px}
+/*   ----------------------------- Login Style----------------------------------------  */
+.table th {
+   text-align: center;   
+}
