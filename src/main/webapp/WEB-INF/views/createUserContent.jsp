@@ -19,18 +19,12 @@
 										id="homeAddressLocation" placeholder="homeAddressLocation" />
 							<div class="dropdown">
 								<label  for="Role">Role</label>
-									<div class="controls">
-											<button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Select Role
-												<span class="caret"></span></button>
-										<ul class="dropdown-menu">
-											<li><a href="#">Responsable de Commande</a></li>
-											<li><a href="#">Responsable de  Production</a></li>
-											<li><a href="#">Responsable de Qualité</a></li>
-											<li><a href="#">Responsable de Maintenance</a></li>
-										    <li><a href="#">Responsable de ressource humaine</a></li>
-											<li><a href="#">Responsable de stock</a></li>
-			                            </ul>
-			                        </div>
+									<select class="selectpicker" ng-model="CreateUserModalCtrl.parent.user.role">
+  <option>Mustard</option>
+  <option>Ketchup</option>
+  <option>Relish</option>
+</select>
+
 											<br/>
 							</div>
 					

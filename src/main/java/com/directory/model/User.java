@@ -40,26 +40,21 @@ public class User implements Serializable {
 	private String email;
 
 	private String phoneNumber;
-	@NotEmpty
-	@Column(name = "ADRESS", nullable = false)
-	private String adress;
+
 	@NotEmpty
 	@Column(name = "ROLE", nullable = false)
 	private String role;
+	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	private Set<UserInscription> userInscription = new HashSet<UserInscription>();
+
+	private String homeAddress;
+
 	public String getPhoneNumber() {
 		return phoneNumber;
 	}
 
 	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
-	}
-
-	public String getAdress() {
-		return adress;
-	}
-
-	public void setAdress(String adress) {
-		this.adress = adress;
 	}
 
 	public String getRole() {
@@ -69,17 +64,7 @@ public class User implements Serializable {
 	public void setRole(String role) {
 		this.role = role;
 	}
-
-	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	private Set<UserInscription> userInscription = new HashSet<UserInscription>();
-
-
-	private String homeAddress;
-
-
-
-
-
+	@JsonIgnore
 	public Set<UserInscription> getUserInscription() {
 		return userInscription;
 	}
@@ -103,8 +88,6 @@ public class User implements Serializable {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-
-
 
 	public String getFirstName() {
 		return firstName;
@@ -141,8 +124,8 @@ public class User implements Serializable {
 
 	@Override
 	public String toString() {
-		return "User [id=" + id + ",firstName=" + firstName + ", lastName=" + lastName
-				+", email=" + email + ",phoneNumber=" + phoneNumber + ",adress=" + adress + ",role=" + role + "]";
+		return "User [id=" + id + ",firstName=" + firstName + ", lastName=" + lastName + ", email=" + email
+				+ ",phoneNumber=" + phoneNumber + ",adress=" + homeAddress + ",role=" + role + "]";
 	}
 
 }

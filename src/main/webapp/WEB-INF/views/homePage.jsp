@@ -30,6 +30,7 @@
 <script src="scripts/angular-animate.js"></script>
 <script src="scripts/angular-aria.js"></script>
 <script src="scripts/angular-messages.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/js/bootstrap-select.js"></script>
 <!-- <script src="scripts/angular-material.js"></script> -->
 <script src="scripts/angular-cookies.js"></script>
 <script src="scripts/bootbox.js"></script>
@@ -78,7 +79,7 @@
 		<div class="panel panel-success">
 							<div class="panel-heading  text-center" style="font-size:20px;color:black;">
 									List User 
-									<a class=" btn btn-primary" ng-click="ctrl.openCreateUser()" style="float:right;"><span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;Ajouter</a>
+									<a class=" btn btn-primary" ng-click="ctrl.openCreateUser()" style="float:right;"><span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;Add User</a>
 							</div>
 			<div class="panel-body">
 				<div class="col-xs-12">
