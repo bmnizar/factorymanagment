@@ -18,10 +18,9 @@ import javax.persistence.Table;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
-@Table(name = "DIR_USER")
+@Table(name = "Dir_USER")
 public class User implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -39,8 +38,7 @@ public class User implements Serializable {
 	@NotEmpty
 	@Column(name = "EMAIL", nullable = false)
 	private String email;
-	@NotEmpty
-	@Column(name = "PHONE_NUMBER", nullable = false)
+
 	private String phoneNumber;
 	@NotEmpty
 	@Column(name = "ADRESS", nullable = false)
@@ -75,9 +73,12 @@ public class User implements Serializable {
 	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private Set<UserInscription> userInscription = new HashSet<UserInscription>();
 
-	@OneToOne(cascade=CascadeType.ALL)
-//	@JsonManagedReference
-	private HomeAddress homeAddress;
+
+	private String homeAddress;
+
+
+
+
 
 	public Set<UserInscription> getUserInscription() {
 		return userInscription;
@@ -87,12 +88,11 @@ public class User implements Serializable {
 		this.userInscription = userInscription;
 	}
 
-	// @JsonIgnore
-	public HomeAddress getHomeAddress() {
+	public String getHomeAddress() {
 		return homeAddress;
 	}
 
-	public void setHomeAddress(HomeAddress homeAddress) {
+	public void setHomeAddress(String homeAddress) {
 		this.homeAddress = homeAddress;
 	}
 

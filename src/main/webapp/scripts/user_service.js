@@ -1,10 +1,11 @@
 'use strict';
 
 App.factory('UserService', function($http,$rootScope, $q, $window){
-return {
+
+	return {
 		
 			fetchAllUsers: function() {
-					return $http.get('http://localhost:8081/factorymanagment/allUsers/')
+					return $http.get('http://localhost:8082/factorymanagment/allUsers/')
 							.then(
 									function(response){
 										return response.data;
@@ -18,22 +19,18 @@ return {
 		   
 		    createUser: function(user){
 		    var userToSend = {
-						"firstName" : user.firstName,
-						"lastName" : user.lastName,
-						"password" :user.password,
-						"email" : user.email,
-						"phoneNumber":user.phoneNumber,
-						"homeAddress" : {location : user.homeAddress.location}	,
-						"role": user.role
+		    		"firstName" : user.firstName,
+					"lastName" : user.lastName,
+					"password" :user.password,
+					"email" : user.email,
+					"phoneNumber":user.phoneNumber,
+					"homeAddress" : user.location,
+					"role": user.role
 				};
-					var a= $http.post('http://localhost:8081/factorymanagment/createUser/', userToSend)
+					var a= $http.post('http://localhost:8082/factorymanagment/createUser/', userToSend)
 							.then(
 									function(response){
-<<<<<<< HEAD
-									  // $rootScope.refresh();
-=======
-									  // $rootScope.refresh();
->>>>>>> 4934b2949481aba3db684998fc49eb80b34d866d
+									  //$rootScope.refresh();
 									  $rootScope.$broadcast('saveUserWithSuccess',response.data);
 										return response.data;
 									}, 
@@ -48,7 +45,7 @@ return {
 		    },
 		    
 		    updateUser: function(user){
-					return $http.put('http://localhost:8081/factorymanagment/updateUser/'+id, user)
+					return $http.put('http://localhost:8082/factorymanagment/updateUser/'+id, user)
 							.then(
 									function(response){
 										return response.data;
@@ -61,7 +58,7 @@ return {
 			},
 		    
 			deleteUser: function(user){
-					return $http.delete('http://localhost:8081/factorymanagment/deleteUser/'+user)
+					return $http.delete('http://localhost:8082/factorymanagment/deleteUser/'+user)
 							.then(
 									function(response){
 										return response.data;

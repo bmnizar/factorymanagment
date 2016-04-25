@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-   <link rel="stylesheet" href="http://cdn.datatables.net/1.10.2/css/jquery.dataTables.min.css"></style>
+   <link rel="stylesheet" href="http://cdn.datatables.net/1.10.2/css/jquery.dataTables.min.css">
 <script type="text/javascript" src="http://cdn.datatables.net/1.10.2/js/jquery.dataTables.min.js"></script>
 
 <!-- code de test -->
@@ -68,7 +68,7 @@
 								<ul class="nav navbar-nav navbar-right">
 									<li><a href="#" data-toggle="modal" data-target="#loginModal"><span	class="glyphicon glyphicon-cog"></span> Paramétre</a>
 									</li>
-									<li><a href="PagePrincipale.html"><span class="glyphicon glyphicon-log-out"		></span>Déconnexion</a>
+									<li><a href="#"><span class="glyphicon glyphicon-log-out"		></span>Déconnexion</a>
 									</li>
 								</ul>
 						</div>
@@ -88,7 +88,7 @@
                          <tr>
 								<thead>
 									<tr>
-										<th>ID.</th>
+										<th>ID</th>
 										<th>firstName</th>
 										<th>lastName</th>
 										<th>Password</th>

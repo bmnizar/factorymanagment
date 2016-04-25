@@ -15,7 +15,7 @@
 									<input type="PhoneNumber" class="form-control" id="PhoneNumber"ng-model="CreateUserModalCtrl.parent.user.phoneNumber"
 										placeholder="Enter PhoneNumber" />
 								<label for="homeAddressLocation">Home Address</label> 
-									<input class="form-control" ng-model="CreateUserModalCtrl.parent.user.homeAddress.location"
+									<input class="form-control" ng-model="CreateUserModalCtrl.parent.user.location"
 										id="homeAddressLocation" placeholder="homeAddressLocation" />
 							<div class="dropdown">
 								<label  for="Role">Role</label>
