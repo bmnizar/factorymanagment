@@ -93,7 +93,10 @@ public class LoginSecurityConfig extends WebSecurityConfigurerAdapter {
 	 */
 	@Override
 	public void configure(WebSecurity web) throws Exception {
-		web.ignoring().antMatchers("/css/**").antMatchers("/scripts/**");
+
+		web.ignoring().antMatchers("/css/**").antMatchers("/scripts/**").antMatchers("/woff/**").antMatchers("/ttf/**")
+	    .antMatchers("*.woff").antMatchers("*.ttf");
+
+	 }
 		;
 	}
-}

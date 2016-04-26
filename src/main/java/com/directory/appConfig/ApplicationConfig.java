@@ -19,7 +19,7 @@ public class ApplicationConfig {
 		System.out.println();
 		DriverManagerDataSource driverManagerDataSource = new DriverManagerDataSource();
 		driverManagerDataSource.setDriverClassName(com.mysql.jdbc.Driver.class.getName());
-		driverManagerDataSource.setUrl("jdbc:mysql://localhost/FactoryManagmentDb");
+		driverManagerDataSource.setUrl("jdbc:mysql://localhost:3306/FactoryManagmentDb");
 		driverManagerDataSource.setUsername("admin");
 		driverManagerDataSource.setPassword("admin");
 

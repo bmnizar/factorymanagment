@@ -2,28 +2,18 @@
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html>
-<head>
+
 <head>
 <!-- <link href="scripts/angular-material.css" rel="stylesheet" /> -->
   <title>Administrateur de système</title>
     <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-   <link rel="stylesheet" href="http://cdn.datatables.net/1.10.2/css/jquery.dataTables.min.css">
-<script type="text/javascript" src="http://cdn.datatables.net/1.10.2/js/jquery.dataTables.min.js"></script>
-
-<!-- code de test -->
-
-
 
   <link rel="stylesheet" href="css/style.css">
    <title>Zollner |Service Administrative</title>
 
 <link rel="stylesheet" href="scripts/bootstrap.css">
 <script src="scripts/jquery-1.12.1.js"></script>
-
+<script src="scripts/bootstrap.css"></script>
 <script src="scripts/bootstrap.js"></script>
 <script src="scripts/angular.js"></script>
 <script src="scripts/ui-bootstrap-tpls-1.2.4.js"></script>
