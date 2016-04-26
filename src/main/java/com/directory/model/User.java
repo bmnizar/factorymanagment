@@ -35,6 +35,14 @@ public class User implements Serializable {
 	@Column(name = "LAST_NAME", nullable = false)
 	private String lastName;
 
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
 	@NotEmpty
 	@Column(name = "EMAIL", nullable = false)
 	private String email;
@@ -47,6 +55,9 @@ public class User implements Serializable {
 	@NotEmpty
 	@Column(name = "HOMEADRESS", nullable = false)
 	private String homeAddress;
+	@NotEmpty
+	@Column(name = "PASSWORD", nullable = false)
+	private String password;
 	
 	
 	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
@@ -130,7 +141,7 @@ public class User implements Serializable {
 	@Override
 	public String toString() {
 		return "User [id=" + id + ",firstName=" + firstName + ", lastName=" + lastName + ", email=" + email
-				+ ",phoneNumber=" + phoneNumber + ",homeAddress=" + homeAddress + ",role=" + role + "]";
+				+ ",phoneNumber=" + phoneNumber + ",homeAddress=" + homeAddress + ", role=" + role + ",password=" + password +" ]";
 	}
 
 }
