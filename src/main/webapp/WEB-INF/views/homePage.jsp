@@ -69,7 +69,7 @@
 		<div class="panel panel-success">
 							<div class="panel-heading  text-center" style="font-size:20px;color:black;">
 									List User 
-									<a class=" btn btn-primary" ng-click="ctrl.openCreateUser($event)" style="float:right;"><span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;Add User</a>
+									<a class=" btn btn-primary" ng-click="ctrl.openCreateUser()" style="float:right;"><span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;Add User</a>
 							</div>
 			<div class="panel-body">
 				<div class="col-xs-12">
@@ -103,9 +103,7 @@
 									<td>
 										<button type="button" ng-click="ctrl.openEditUser(u)"
 											class="btn btn-success custom-width">Edit</button>
-									</td>
-									<td>
-										<button type="button" ng-click="ctrl.openDeleteUser(u)"
+										<button type="button" ng-click="ctrl.remove(u.id)"
 											class="btn btn-danger custom-width">Remove</button>
 									</td>
 								</tr>

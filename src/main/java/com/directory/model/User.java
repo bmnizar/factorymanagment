@@ -11,6 +11,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -30,6 +31,7 @@ public class User implements Serializable {
 	private Integer id = 1;
 	@NotEmpty
 	private String firstName;
+
 
 	@NotEmpty
 	@Column(name = "LAST_NAME", nullable = false)

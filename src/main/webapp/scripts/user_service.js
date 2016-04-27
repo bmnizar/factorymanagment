@@ -56,9 +56,10 @@ App.factory('UserService', function($http,$rootScope, $q, $window){
 									}
 							);
 			},
-		    
-			deleteUser: function(user){
-					return $http.delete('http://localhost:8083/factorymanagment/deleteUser/'+user)
+		 
+/*
+			deleteUser: function(id){
+					return $http.delete('http://localhost:8083/factorymanagment/deleteUser/'+id)
 							.then(
 									function(response){
 										return response.data;
@@ -68,8 +69,19 @@ App.factory('UserService', function($http,$rootScope, $q, $window){
 										return $q.reject(errResponse);
 									}
 							);
-			}
-		
+			}*/
+		     deleteUser: function(id){
+                 return $http.delete('http://localhost:8080/Spring4MVCAngularJSExample/user/'+id)
+                         .then(
+                                 function(response){
+                                     return response.data;
+                                 }, 
+                                 function(errResponse){
+                                     console.error('Error while deleting user');
+                                     return $q.reject(errResponse);
+                                 }
+                         );
+         }
 	};
 
 });

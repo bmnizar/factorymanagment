@@ -1,87 +1,115 @@
 'use strict';
 
-App.controller('UserController', function($scope, UserService, $window, $log,
+App.controller(
+	'UserController',
+	function ($scope, UserService, $window, $log,
 		$uibModalStack, $uibModal, $rootScope) {
 	var self = this;
 	self.users = [];
 	var user = {
-		id : "",
-		firstName : '',
-		lastName : '',
-		password : '',
-		email : '',
-		phoneNumber : '',
-		address : '',
-		role : ''
+	id:"",
+	firstName : '',
+	lastName : '',
+	password:'',
+	email : '',
+	phoneNumber:'',
+	address : '',
+	role: ''
 	};
-	self.fetchAllUsers = function() {
-		UserService.fetchAllUsers().then(function(d) {
+	self.fetchAllUsers = function () {
+		UserService
+		.fetchAllUsers()
+		.then(
+			function (d) {
 
 			self.users = d;
-			console.log('----------Start Printing users----------');
+			console
+			.log('----------Start Printing users----------');
 			for (var i = 0; i < self.users.length; i++) {
-				console.log('FirstName ' + self.users[i].firstName);
+				console
+				.log('FirstName '
+					 + self.users[i].firstName);
 			}
 
-			console.log('----------End Printing users----------');
-		}, function(errResponse) {
+			console
+			.log('----------End Printing users----------');
+		},
+			function (errResponse) {
 			window.alert(errResponse);
-			console.error('Error while fetching Currencies');
+			console
+			.error('Error while fetching Currencies');
 		});
 	};
-	self.saveUser = function() {
-
+	self.saveUser = function (user) {
+	
 		UserService.createUser(user);
 		$log.log("saving user");
 		$uibModalStack.dismissAll();
 
-		$rootScope.$on('saveUserWithSuccess', function(event, data) {
+		$rootScope.$on('saveUserWithSuccess', function (event,
+				data) {
 
 			self.fetchAllUsers();
 
 		});
 	};
-	self.openCreateUser = function() {
+	self.openCreateUser = function () {
 
 		var modalInstance = $uibModal.open({
-			animation : true,
-			templateUrl : 'createUserContent',
-			controller : 'CreateUserModalCtrl',
-			controllerAs : 'CreateUserModalCtrl', // as modal so no need to
-													// use in modal template
-			resolve : {
-				items : function() {
-					return $scope.items;
-				},
-				parent : function() { // pass self object as a parent to
-										// 'ModalCtrl'
-					return self;
+				animation : true,
+				templateUrl : 'createUserContent',
+				controller : 'CreateUserModalCtrl',
+				controllerAs:'CreateUserModalCtrl', // as modal so no need to use in modal template
+				resolve : {
+					items : function () {
+						return $scope.items;
+					},
+					parent : function () { // pass self object as a parent to 'ModalCtrl'
+						return self;
+					}
 				}
-			}
-		});
+			});
 
-		modalInstance.result.then(function(selectedItem) {
+		modalInstance.result.then(function (selectedItem) {
 			$scope.selected = selectedItem;
-		}, function() {
+		}, function () {
 			$log.info('Modal dismissed at: ' + new Date());
 		});
 	};
-	self.openEditUser = function(user) {
+	 self.deleteUser = function(id){
+         UserService.deleteUser(id)
+                 .then(
+                         self.fetchAllUsers, 
+                         function(errResponse){
+                              console.error('Error while deleting User.');
+                         } 
+             );
+     };
+	self.openEditUser = function (user) {
 
 		var modalInstance = $uibModal.open({
-			animation : true,
-			templateUrl : 'editUserContent',
-			controller : 'UserController',
-			resolve : {
-				items : function() {
-					return $scope.items;
+				animation : true,
+				templateUrl : 'editUserContent',
+				controller : 'UserController',
+				resolve : {
+					items : function () {
+						return $scope.items;
+					}
 				}
-			}
-		});
-
-		modalInstance.result.then(function(selectedItem) {
+			});
+		  self.deleteUser = function(id){
+              UserService.deleteUser(id)
+                      .then(
+                              self.fetchAllUsers, 
+                              function(errResponse){
+                                   console.error('Error while deleting User.');
+                              } 
+                  );
+          };
+ 
+		modalInstance.result.then(function (selectedItem) {
 			$scope.selected = selectedItem;
-		}, function() {
+		}, function () {
 			$log.info('Modal dismissed at: ' + new Date());
 		});
 	};
