@@ -28,7 +28,7 @@ public class User implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Integer id = 1;
+	private long id;
 	@NotEmpty
 	private String firstName;
 
@@ -99,11 +99,12 @@ public class User implements Serializable {
 		this.homeAddress = homeAddress;
 	}
 
-	public Integer getId() {
+
+	public long getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 

@@ -3,16 +3,16 @@ App.controller('CreateUserCtrl', function($rootScope, UserService, $uibModal,
 
 	var self = this;
 	self.user = {
+		id : '',
 		firstName : '',
 		lastName : '',
-		password:'',
+		password : '',
 		email : '',
-		phoneNumber:'',
+		phoneNumber : '',
 		address : '',
-		role: ''
+		role : ''
 	};
 
 	var modalInstance;
 
-	
 });

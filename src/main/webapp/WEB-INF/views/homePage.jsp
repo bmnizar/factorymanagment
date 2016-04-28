@@ -29,6 +29,7 @@
 <script src="scripts/user_service.js"></script>
 <script src="scripts/user_controller.js"></script>
 <script src="scripts/CreateUserModalCtrl.js"></script>
+<script src="scripts/DeleteUserModalCtrl.js"></script>
 
 </head>
 <body ng-app="myApp">
@@ -93,7 +94,7 @@
 		
 						<tbody>
 								<tr ng-repeat="u in ctrl.users">
-									<td><span ng-bind="u.ssoId"></span></td>
+									<td><span ng-bind="u.id"></span></td>
 									<td><span ng-bind="u.firstName"></span></td>
 									<td><span ng-bind="u.lastName"></span></td>
 									<td><span ng-bind="u.password"></span></td>
@@ -103,7 +104,7 @@
 									<td>
 										<button type="button" ng-click="ctrl.openEditUser(u)"
 											class="btn btn-success custom-width">Edit</button>
-										<button type="button" ng-click="ctrl.remove(u.id)"
+										<button type="button" ng-click="ctrl.openDeleteUser(u)"
 											class="btn btn-danger custom-width">Remove</button>
 									</td>
 								</tr>

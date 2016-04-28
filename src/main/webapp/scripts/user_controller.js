@@ -76,15 +76,35 @@ App.controller(
 			$log.info('Modal dismissed at: ' + new Date());
 		});
 	};
-	 self.deleteUser = function(id){
-         UserService.deleteUser(id)
-                 .then(
-                         self.fetchAllUsers, 
-                         function(errResponse){
-                              console.error('Error while deleting User.');
-                         } 
-             );
-     };
+//	 Open Modal Button Delete
+	self.openDeleteUser = function (selectedUserToDelete) {
+		
+		var modalInstance = $uibModal.open({
+			animation : true,
+			templateUrl : 'deleteUserContent',
+			controller : 'DeleteUserModalCtrl',
+
+		    resolve: {
+		    	selectedUserToDelete : function () {
+					return selectedUserToDelete;
+				},
+				parent : function () { // pass self object as a parent to 'ModalCtrl'
+					return self;
+				}
+		      
+		    }
+		});
+
+	modalInstance.result.then(function (selectedItem) {
+		$scope.selected = selectedItem;
+	}, function () {
+		$log.info('Modal dismissed at: ' + new Date());
+	});
+};
+
+
+
+	
 	self.openEditUser = function (user) {
 
 		var modalInstance = $uibModal.open({
@@ -97,14 +117,15 @@ App.controller(
 					}
 				}
 			});
-		  self.deleteUser = function(id){
-              UserService.deleteUser(id)
+		  self.deleteUser = function(){
+              UserService.deleteUser(null)
                       .then(
                               self.fetchAllUsers, 
                               function(errResponse){
                                    console.error('Error while deleting User.');
                               } 
                   );
+				  $uibModalStack.dismissAll();
           };
  
 		modalInstance.result.then(function (selectedItem) {

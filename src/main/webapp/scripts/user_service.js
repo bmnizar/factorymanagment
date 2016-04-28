@@ -19,6 +19,7 @@ App.factory('UserService', function($http,$rootScope, $q, $window){
 		   
 		    createUser: function(user){
 		    var userToSend = {
+		    		"id":user.id,
 		    		"firstName" : user.firstName,
 					"lastName" : user.lastName,
 					"password" :user.password,
@@ -70,8 +71,8 @@ App.factory('UserService', function($http,$rootScope, $q, $window){
 									}
 							);
 			}*/
-		     deleteUser: function(id){
-                 return $http.delete('http://localhost:8080/Spring4MVCAngularJSExample/user/'+id)
+		     deleteUser: function(user){
+                 return $http.delete('http://localhost:8083/factorymanagment/deleteUser/'+user)
                          .then(
                                  function(response){
                                      return response.data;
