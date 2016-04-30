@@ -22,7 +22,7 @@ import com.fasterxml.jackson.datatype.hibernate4.Hibernate4Module;
 @EnableWebMvc
 @Configuration
 @ComponentScan({ "com.directory.*" })
-@Import(value = { LoginSecurityConfig.class })
+/*@Import(value = { LoginSecurityConfig.class })*/
 public class LoginApplicationConfig extends WebMvcConfigurerAdapter {
 	@Override
 	public void configureViewResolvers(ViewResolverRegistry registry) {

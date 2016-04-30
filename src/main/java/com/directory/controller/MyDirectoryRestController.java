@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
@@ -19,7 +20,7 @@ public class MyDirectoryRestController {
 
 	@Autowired
 	UserOperation userOperation; // Service which will do all data
-									// retrieval/manipulation work
+	// retrieval/manipulation work
 
 	// -------------------Retrieve All
 	// Users--------------------------------------------------------
@@ -32,19 +33,6 @@ public class MyDirectoryRestController {
 
 		}
 		return new ResponseEntity<List<User>>(users, HttpStatus.OK);
-	}
-
-	@RequestMapping(value = "/createUser/", method = RequestMethod.POST, consumes = {
-			"application/json;charset=UTF-8;text/html" })
-	public ResponseEntity<Void> createUser(@RequestBody User user, UriComponentsBuilder ucBuilder) {
-		System.out.println("Creating User " + user.getFirstName());
-		// User user = new User();
-		userOperation.saveUser(user);
-
-		HttpHeaders headers = new HttpHeaders();
-		headers.setLocation(ucBuilder.path("/createUser/{user}").buildAndExpand(user.getId()).toUri());
-		return new ResponseEntity<Void>(headers, HttpStatus.CREATED);
-
 	}
 
 	@RequestMapping(value = "/updateUser/", method = RequestMethod.POST, consumes = {
@@ -60,16 +48,27 @@ public class MyDirectoryRestController {
 
 	}
 
-	@RequestMapping(value = "/deleteUser/", method = RequestMethod.POST, consumes = {
+	@RequestMapping(value = "/createUser/", method = RequestMethod.POST, consumes = {
 			"application/json;charset=UTF-8;text/html" })
-	public ResponseEntity<Void> deleteUser(@RequestBody User user, UriComponentsBuilder ucBuilder) {
+	public ResponseEntity<Void> createUser(@RequestBody User user, UriComponentsBuilder ucBuilder) {
 		System.out.println("Creating User " + user.getFirstName());
+		// User user = new User();
+		userOperation.saveUser(user);
+
+		HttpHeaders headers = new HttpHeaders();
+		headers.setLocation(ucBuilder.path("/createUser/{user}").buildAndExpand(user.getId()).toUri());
+		return new ResponseEntity<Void>(headers, HttpStatus.CREATED);
+
+	}
+
+	@RequestMapping(value = "/deleteUser/", method = RequestMethod.DELETE, consumes = {
+			"application/json;charset=UTF-8;text/html" })
+	public ResponseEntity<User> deleteUser(@RequestBody User user) {
+		System.out.println("Deleting User " + user.getFirstName());
 		// User user = new User();
 		userOperation.deleteUser(user);
 
-		HttpHeaders headers = new HttpHeaders();
-		headers.setLocation(ucBuilder.path("/deleteUser/{user}").buildAndExpand(user.getId()).toUri());
-		return new ResponseEntity<Void>(headers, HttpStatus.CREATED);
+		return new ResponseEntity<User>(HttpStatus.NO_CONTENT);
 
 	}
 }

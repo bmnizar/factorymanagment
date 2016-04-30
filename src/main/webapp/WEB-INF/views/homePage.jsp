@@ -26,6 +26,7 @@
 <script src="scripts/bootbox.js"></script>
 <script src="scripts/app.js"></script>
 <script src="scripts/createUser.js"></script>
+<script src="scripts/deleteUser.js"></script>
 <script src="scripts/user_service.js"></script>
 <script src="scripts/user_controller.js"></script>
 <script src="scripts/CreateUserModalCtrl.js"></script>
