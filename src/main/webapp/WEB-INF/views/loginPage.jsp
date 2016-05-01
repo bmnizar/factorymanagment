@@ -7,91 +7,54 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- Latest compiled and minified CSS -->
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
-	integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
-	crossorigin="anonymous">
-<link
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"
-	rel="stylesheet">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" 
+				integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" 
+				integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
 
-<!-- Optional theme -->
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css"
-	integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r"
-	crossorigin="anonymous">
-
-<!-- Latest compiled and minified JavaScript -->
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
-	integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
-	crossorigin="anonymous"></script>
-<!-- Mobile Specific Metas -->
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, maximum-scale=1" />
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-
+   <!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" 
+				integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
-<script
-	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-<!-- <script src="css/acceuil.css"></script> -->
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <!-- Stylesheets -->
 <link rel="stylesheet" href="css/style.css">
 <title>Zollner | Accueil</title>
 </head>
 <body onload='document.loginForm.username.focus();'>
 
-<%-- 	<c:if test="${not empty error}">
-		<div class="alert alert-danger fade in">
-			<a href="#" class="close" data-dismiss="alert">&times;</a> <strong>${error}</strong>
-		</div>
-	</c:if>
-	<c:if test="${not empty message}">
-
-		<div class="alert alert-success fade in">
-			<a href="#" class="close" data-dismiss="alert">&times;</a> <strong>${message}</strong>
-		</div>
-	</c:if> --%>
-	<nav class="navbar navbar navbar-static"
-		style="background-color: #BBD2E1;" role="navigation">
+	<nav class="navbar navbar navbar-static" style="background-color:#BBD2E1;" role="navigation" >
 		<div class="container-fluid">
 			<div class="navbar-header">
-				<button type="button" class="navbar-toggle" data-toggle="collapse"
-					data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-
-					<span class="icon-bar"></span> <span class="icon-bar"></span> <span
-						class="icon-bar"></span>
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+							
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="#">Logo</a>
-
 			</div>
+			<img style="float:left; margin-left:-0.9%;margin-right:1%; " src='images/images.png' width="50px" height="50px"/>
 			<div id="navbar" class="navbar-collapse collapse">
-				<ul class="nav navbar-nav">
-					<li class="active"><a href="#"><span
-							class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a></li>
-					<li><a href="#"> <span
-							class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
-							About
-					</a></li>
-
-					<li><a href="#"><span class="fa fa-envelope-o"></span>
-							Contact</a></li>
-				</ul>
-				<ul class="nav navbar-nav navbar-right">
-					<li><a href="#" data-toggle="modal" data-target="#loginModal"><span
-							class="glyphicon glyphicon-log-in"></span> login</a></li>
-				</ul>
+				<div id="navbar" class="navbar-collapse collapse">
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="#"> <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>About</a>
+						</li>
+						<li><a href="#"><span class="fa fa-envelope-o"></span>Contact</a>
+						</li>
+					</ul>
+				</div>
 			</div>
 		</div>
 	</nav>
 
 
 	<div class="container">
-		<div id="loginbox" style="margin-top: 50px;"
-			class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
-			<div class="panel panel-info">
-				<div class="panel-heading">
+		<div id="loginbox" style="margin-top: 50px;"style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+			<div class="panel panel-info" style="background:transparent;border-color:transparent;">
+				<div class="panel-heading" style="color:black;">
 					<div class="panel-title text-center">
 						<h4>
 							<span class="glyphicon glyphicon-lock"></span> Authentification

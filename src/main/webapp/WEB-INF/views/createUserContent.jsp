@@ -1,22 +1,22 @@
 
 					<form role="form"> 
 							 	<label for="FirstName">FirstName</label> 
-									<input type="FirstName"ng-model="CreateUserModalCtrl.parent.user.firstName"class="form-control" id="FirstName" placeholder="Enter FirstName" />
-								<label for="lastName">LastName</label> 
-									<input type="LastName"class="form-control" id="LastName"ng-model="CreateUserModalCtrl.parent.user.lastName"
+									<input type="text"ng-model="CreateUserModalCtrl.parent.user.firstName"class="form-control" id="FirstName" placeholder="Enter FirstName" />
+								<label for="text">LastName</label> 
+									<input type="text"class="form-control" id="LastName"ng-model="CreateUserModalCtrl.parent.user.lastName"
 										placeholder="Enter lastName" />
-								<label for="Password">Password</label> 
-									<input type="Password"class="form-control" id="Password"ng-model="CreateUserModalCtrl.parent.user.password"
-										placeholder="Enter Password" />
+								<label for="pwd">Password</label> 
+									<input class="form-control" id="pwd"ng-model="CreateUserModalCtrl.parent.user.password"
+										type="password" placeholder="Enter Password" />
 								<label for="email">Emailaddress</label> 
 									 <input type="email"ng-model="CreateUserModalCtrl.parent.user.email" class="form-control"
 											id="email" placeholder="Enter email" />
-								<label for="lastName">PhoneNumber</label> 
-									<input type="PhoneNumber" class="form-control" id="PhoneNumber"ng-model="CreateUserModalCtrl.parent.user.phoneNumber"
+								<label for="phoneNumber">PhoneNumber</label> 
+									<input type="text" class="form-control" id="PhoneNumber"ng-model="CreateUserModalCtrl.parent.user.phoneNumber"
 										placeholder="Enter PhoneNumber" />
 								<label for="homeAddressLocation">Home Address</label> 
 									<input class="form-control" ng-model="CreateUserModalCtrl.parent.user.location"
-										id="homeAddressLocation" placeholder="homeAddressLocation" />
+										type="text"id="homeAddressLocation" placeholder="homeAddressLocation" />
 							<div class="dropdown">
 								<label  for="Role">Role</label>
 									<select class="selectpicker" ng-model="CreateUserModalCtrl.parent.user.role">

@@ -6,12 +6,20 @@
 <head>
 <!-- <link href="scripts/angular-material.css" rel="stylesheet" /> -->
   <title>Administrateur de système</title>
-    <meta charset="utf-8">
-
-  <link rel="stylesheet" href="css/style.css">
-   <title>Zollner |Service Administrative</title>
+<meta charset="utf-8">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" 
+				integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Optional theme -->
 
 <link rel="stylesheet" href="scripts/bootstrap.css">
+   <!-- Latest compiled and minified JavaScript -->
+
 <script src="scripts/jquery-1.12.1.js"></script>
 <script src="scripts/bootstrap.css"></script>
 <script src="scripts/bootstrap.js"></script>
@@ -21,7 +29,6 @@
 <script src="scripts/angular-aria.js"></script>
 <script src="scripts/angular-messages.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/js/bootstrap-select.js"></script>
-<!-- <script src="scripts/angular-material.js"></script> -->
 <script src="scripts/angular-cookies.js"></script>
 <script src="scripts/bootbox.js"></script>
 <script src="scripts/app.js"></script>
@@ -31,6 +38,13 @@
 <script src="scripts/user_controller.js"></script>
 <script src="scripts/CreateUserModalCtrl.js"></script>
 <script src="scripts/DeleteUserModalCtrl.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+<title>Zollner |Service Administrative</title>
+<link rel="stylesheet" href="css/style.css">
 
 </head>
 <body ng-app="myApp">
@@ -61,7 +75,7 @@
 								<ul class="nav navbar-nav navbar-right">
 									<li><a href="#" data-toggle="modal" data-target="#loginModal"><span	class="glyphicon glyphicon-cog"></span> Paramétre</a>
 									</li>
-									<li><a href="#"><span class="glyphicon glyphicon-log-out"		></span>Déconnexion</a>
+									<li><a href="#"><span class="glyphicon glyphicon-log-out"></span>Déconnexion</a>
 									</li>
 								</ul>
 						</div>

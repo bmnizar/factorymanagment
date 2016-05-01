@@ -7,10 +7,10 @@ App.controller(
  var self = this;
  self.users = [];
  var user = {
- id:"",
+ id:null,
  firstName : '',
  lastName : '',
- password:'',
+ password :'',
  email : '',
  phoneNumber:'',
  address : '',
@@ -67,10 +67,10 @@ App.controller(
                         parent : function () { // pass self object as a parent to 'ModalCtrl'
                                         $log.info('check ' + $scope.CreateUserModalCtrl);
                                         self.user = {
-                                                        id : "",
+                                                        id : '',
                                                         firstName : '',
-                                                        lastName : '',
-                                                        password : '',
+                                                        lastName : null,
+                                                        password : null,
                                                         email : '',
                                                         phoneNumber : '',
                                                         address : '',
@@ -127,6 +127,10 @@ App.controller(
   });
           };
 
+    self.reset = function(){
+              self.user={id:null,firstName : '',lastName : '',password :'',email : '',phoneNumber:'',address : '',role: ''};
+              $scope.myForm.$setPristine(); //reset Form
+          };
  
  self.openEditUser = function (user) {
 
@@ -140,8 +144,7 @@ App.controller(
      }
     }
    });
-   
- 
+     
   modalInstance.result.then(function (selectedItem) {
    $scope.selected = selectedItem;
   }, function () {
