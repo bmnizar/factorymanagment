@@ -8,29 +8,29 @@
 					<div class="modal-body">
 						<div class="form-group">
 							<label for="nom">Nom</label> 
-							<input class="form-control " type="text" placeholder="Imed">
+							<input class="form-control " type="text" >
 			  
 						</div>
 						<div class="form-group">
 							<label for="prenom">Prénom</label> 
 				
-							<input class="form-control " type="text" placeholder="Ben salah">
+							<input class="form-control " type="text">
 						</div>
 						<div class="form-group">
 							<label for="pwd">Mot de passe</label> 
-							<input class="form-control " type="text" placeholder="Imed">
+							<input class="form-control " type="text" >
 						</div>
 						<div class="form-group">
 							<label for="telf">Télephone</label> 
-							<input class="form-control " type="text" placeholder="+21698789654">
+							<input class="form-control " type="text">
 						</div>
 						<div class="form-group">
 							<label for="email">Email</label> 
-							<input class="form-control" placeholder="bensalah.imed@gmail.com">
+							<input class="form-control" >
 						</div>
 						<div class="form-group">
 							<label for="role">Role</label> 
-							<input class="form-control" placeholder="Responsable de  Production">
+							<input class="form-control" >
 						</div>
 					</div>
 						<div class="modal-footer ">

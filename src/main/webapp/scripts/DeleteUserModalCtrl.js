@@ -1,10 +1,13 @@
 'use strict';
-App.controller('DeleteUserModalCtrl', function($scope,parent,selectedUserToDelete) {
- // var self=this;
- var parent;
+App.controller('DeleteUserModalCtrl', function($scope,parent,selectedUserToDelete,$uibModalInstance) {
+ /////// Button Cancel/////////////
+ 	$scope.cancel = function () {
+    $uibModalInstance.dismiss('cancel');
+  }
+var parent;
 var selectedUserToDelete;
 this.selectedUserToDelete=selectedUserToDelete;
- this.parent = parent;   
+this.parent = parent;   
   
  
 });

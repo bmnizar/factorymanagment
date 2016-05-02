@@ -2,8 +2,7 @@
 
 App.controller(
  'UserController',
- function ($scope, UserService, $window, $log,
-  $uibModalStack, $uibModal, $rootScope) {
+ function ($scope, UserService, $window, $log,$uibModalStack, $uibModal, $rootScope,$filter,ngTableParams) {
  var self = this;
  self.users = [];
  var user = {
@@ -16,6 +15,17 @@ App.controller(
  address : '',
  role: ''
  };
+ ////////////////////////DataTable///////////////////////////////
+ $scope. usersTable  =  new ngTableParams ( { 
+        page :  1 , 
+        count :  10 
+    } ,  { 
+        total : $scope. users . length ,  
+        getData :  function  ( $defer , params )  { 
+            $scope. data  = $scope. users . slice ( ( params. page ( )  -  1 )  * params. count ( ) , params. page ( )  * params. count ( ) ) ; 
+            $defer. resolve ( $scope. data ) ; 
+        } 
+    } ) ;
  self.fetchAllUsers = function () {
   UserService
   .fetchAllUsers()

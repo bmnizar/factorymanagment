@@ -5,7 +5,7 @@
 
 <head>
 <!-- <link href="scripts/angular-material.css" rel="stylesheet" /> -->
-  <title>Administrateur de système</title>
+  <title>Service De Gestion de Commande</title>
 <meta charset="utf-8">
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
@@ -18,13 +18,8 @@
   <!-- Optional theme -->
 <link href="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.5.4/bootstrap-select.min.css" rel="stylesheet" />
 <link rel="stylesheet" href="scripts/bootstrap.css">
-<!-- Datatable script -->
-    
-         <link  rel = "stylesheet"  href = "https://rawgit.com/esvit/ng-table/master/dist/ng-table.min.css" > 
-        <script  src = "https://rawgit.com/esvit/ng-table/master/dist/ng-table.min.js" > </script >
-         <link  href = "app/resources/css/style.css"  rel = "stylesheet"  type = "text/css" /> 
-        <
    <!-- Latest compiled and minified JavaScript -->
+
 <script src="scripts/jquery-1.12.1.js"></script>
 <script src="scripts/bootstrap.css"></script>
 <script src="scripts/bootstrap.js"></script>
@@ -41,7 +36,6 @@
 <script src="scripts/deleteUser.js"></script>
 <script src="scripts/user_service.js"></script>
 <script src="scripts/user_controller.js"></script>
-
 <script src="scripts/CreateUserModalCtrl.js"></script>
 <script src="scripts/DeleteUserModalCtrl.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -73,8 +67,10 @@
 						<img style="float:left; margin-left:-1%;margin-right:1%; " src='images/images.png' width="50px" height="50px"/>
 						<div class="navbar-collapse collapse" id="navbar-main" >
 							<div class="col-md-6">
-								<ul class="nav navbar-nav">
-									<li class="active"><a href="#">Gestion Utulisateur</span></a>
+							<ul class="nav navbar-nav">
+									<li><a href="PagePrincipaleResponsableCommande.html">Gestion Commanede</span></a>
+									</li>
+									<li class="active"><a href="DocumentCommande.html">Gestion Des Documents</a>
 									</li>
 								</ul>
 							</div>
@@ -89,21 +85,21 @@
 	</nav>
 	<div class="container">
 		<div class="panel panel-success">
-							<div class="panel-heading  text-center" style="font-size:25px;font-family:Impact;color:black;">
-									List Utilisateur 
+							<div class="panel-heading  text-center" style="font-size:20px;color:black;">
+									List Commande 
 									<a class=" btn btn-primary" ng-click="ctrl.openCreateUser()" style="float:right;"><span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;Ajouter Utilisateur</a>
 							</div>
 			<div class="panel-body">
 				<div class="col-xs-12">
 
            <!--  --------------------------   Tableau------------------------------------------------------------------- -->
-  				<table ng table = "usersTable"  id="myTable" class="table table-bordered" > 
+  				<table id="myTable" class="table table-bordered" > 
                          <tr>
 								<thead>
 									<tr>
-										<th>ID</th>
-										<th>Nom</th>
-										<th>Prenom</th>
+										<th>NumeroCommande</th>
+										<th>Date de Réception</th>
+										<th>Date de livraison</th>
 										<th>Mot de passe</th>
 										<th>Email</th>
 										<th>Telephone</th>
