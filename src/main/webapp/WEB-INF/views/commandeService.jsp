@@ -100,10 +100,6 @@
 										<th>NumeroCommande</th>
 										<th>Date de Réception</th>
 										<th>Date de livraison</th>
-										<th>Mot de passe</th>
-										<th>Email</th>
-										<th>Telephone</th>
-										<th>Role</th>
 										<th>Modifier</th>
 										<th>Supprimer</th>
 									
