@@ -2,7 +2,7 @@
 
 App.controller(
  'UserController',
- function ($scope, UserService, $window, $log,$uibModalStack, $uibModal, $rootScope,$filter,ngTableParams) {
+ function ($scope, UserService, $window, $log,$uibModalStack, $uibModal, $rootScope, ngTableParams) {
  var self = this;
  self.users = [];
  var user = {
