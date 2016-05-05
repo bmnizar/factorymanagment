@@ -4,6 +4,7 @@ App.controller(
 	'UserController',
 	function ($scope, UserService, $window, $log, $uibModalStack, $uibModal, $rootScope, $filter, NgTableParams, $resource) {
 	var self = this;
+
 	self.users = [];
 	var user = {
 		id : null,
@@ -12,7 +13,6 @@ App.controller(
 		password : '',
 		email : '',
 		phoneNumber : '',
-		address : '',
 		role : ''
 	};
 
@@ -92,6 +92,16 @@ App.controller(
 
 		});
 	};
+	self.addProduct = function(product){
+        UserService.addProduct(product)
+                .then(
+                self.fetchAllProduct, 
+                        function(errResponse){
+                             console.error('Error while add product.');
+                        } 
+            );
+    };
+    
 	self.openCreateUser = function () {
 		var modalInstance = $uibModal.open({
 				animation : true,
@@ -112,8 +122,7 @@ App.controller(
 							password : null,
 							email : '',
 							phoneNumber : '',
-							address : '',
-							role : ''
+							role :''
 						};
 						return self;
 					}
@@ -174,7 +183,6 @@ App.controller(
 			password : '',
 			email : '',
 			phoneNumber : '',
-			address : '',
 			role : ''
 		};
 		$scope.myForm.$setPristine(); //reset Form

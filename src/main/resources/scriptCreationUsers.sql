@@ -8,11 +8,8 @@ CREATE TABLE IF NOT EXISTS `application_users` (
 ) ;
 
 INSERT INTO `application_users` (`username`, `password`, `enabled`) VALUES
-('ali', 'ali', 1),
-('salah', 'salah', 1),
-('ammar', 'ammar', 1),
 ('rafik', 'rafik', 1),
-('nizar', 'nizar', 1);
+('commande', 'commande', 1);
 
 
 
@@ -28,8 +25,7 @@ CREATE TABLE IF NOT EXISTS `application_users_roles` (
 
 
 INSERT INTO `application_users_roles` (`user_role_id`, `username`, `role`) VALUES
-(2, 'ammar', 'HumarRessourceServiceRole'),
-(4, 'nizar', 'MaintenanceServiceRole'),
+(2, 'commande', 'CommandeServiceRole'),
 (5, 'ali', 'ProductionServiceRole'),
 (87, 'rafik', 'AdminRole');
 

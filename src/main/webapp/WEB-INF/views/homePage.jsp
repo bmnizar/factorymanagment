@@ -13,8 +13,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-
-
+   <!-- Style Bootstrap-->
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
    <!-- Latest compiled and minified JavaScript -->
 <script src="scripts/jquery-1.12.1.js"></script>
 <link href="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.5.4/bootstrap-select.css" rel="stylesheet" />
@@ -120,7 +120,7 @@
 		
 						<tbody>
 								<tr ng-repeat="u in $data">
-									<td sortable="'id'" ><span ng-bind="u.id"></span></td>
+									<td data-title="'id'" sortable="'id'" ><span ng-bind="u.id"></span></td>
 									<td sortable="'firstName'" ><span ng-bind="u.firstName"></span></td>
 									<td sortable="'lastName'"  ><span ng-bind="u.lastName"></span></td>
 									<td sortable="'password'"  ><span ng-bind="u.password"></span></td>

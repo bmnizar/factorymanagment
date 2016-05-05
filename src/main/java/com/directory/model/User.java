@@ -1,24 +1,19 @@
 package com.directory.model;
 
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinTable;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.directory.appConfig.AdminRole;
 
 @Entity
 @Table(name = "Dir_USER")
@@ -32,11 +27,14 @@ public class User implements Serializable {
 	@NotEmpty
 	private String firstName;
 
-
 	@NotEmpty
 	@Column(name = "LAST_NAME", nullable = false)
 	private String lastName;
-
+	
+	
+	/* @Column(name = "role", nullable = false)
+	 @Enumerated(EnumType.STRING)
+    private AdminRole adminRoleType;*/
 	public String getPassword() {
 		return password;
 	}
@@ -54,18 +52,10 @@ public class User implements Serializable {
 	@NotEmpty
 	@Column(name = "ROLE", nullable = false)
 	private String role;
-	@NotEmpty
-	@Column(name = "HOMEADRESS", nullable = false)
-	private String homeAddress;
+
 	@NotEmpty
 	@Column(name = "PASSWORD", nullable = false)
 	private String password;
-	
-	
-	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	private Set<UserInscription> userInscription = new HashSet<UserInscription>();
-
-
 
 	public String getPhoneNumber() {
 		return phoneNumber;
@@ -82,23 +72,6 @@ public class User implements Serializable {
 	public void setRole(String role) {
 		this.role = role;
 	}
-	@JsonIgnore
-	public Set<UserInscription> getUserInscription() {
-		return userInscription;
-	}
-
-	public void setUserInscription(Set<UserInscription> userInscription) {
-		this.userInscription = userInscription;
-	}
-
-	public String getHomeAddress() {
-		return homeAddress;
-	}
-
-	public void setHomeAddress(String homeAddress) {
-		this.homeAddress = homeAddress;
-	}
-
 
 	public long getId() {
 		return id;
@@ -132,19 +105,12 @@ public class User implements Serializable {
 		this.email = email;
 	}
 
-	@JsonIgnore
-	public Set<UserInscription> getUserDocuments() {
-		return userInscription;
-	}
-
-	public void setUserDocuments(Set<UserInscription> UserInscriptions) {
-		this.userInscription = UserInscriptions;
-	}
-
 	@Override
 	public String toString() {
 		return "User [id=" + id + ",firstName=" + firstName + ", lastName=" + lastName + ", email=" + email
-				+ ",phoneNumber=" + phoneNumber + ",homeAddress=" + homeAddress + ", role=" + role + ",password=" + password +" ]";
+				+ ",phoneNumber=" + phoneNumber + ", role=" + role + ",password=" + password + " ]";
 	}
+
+
 
 }

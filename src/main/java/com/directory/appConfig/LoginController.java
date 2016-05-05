@@ -32,14 +32,11 @@ public class LoginController {
 			model.setViewName("homePage");
 			return model;
 		}
-		if (applicationRole.equals(ApplicationRole.HumarRessourceServiceRole)) {
-			model.setViewName("humanRessourceService");
+		if (applicationRole.equals(ApplicationRole.CommandeServiceRole)) {
+			model.setViewName("commandeService");
 			return model;
 		}
-		if (applicationRole.equals(ApplicationRole.MaintenanceServiceRole)) {
-			model.setViewName("maintenanceService");
-			return model;
-		}
+		
 		if (applicationRole.equals(ApplicationRole.ProductionServiceRole)) {
 			model.setViewName("productionService");
 			return model;
@@ -55,7 +52,12 @@ public class LoginController {
 		model.setViewName("homePage");
 		return model;
 	}
-
+	@RequestMapping(value = { "/commandeService" }, method = RequestMethod.GET)
+	public ModelAndView commandeService() {
+		ModelAndView model = new ModelAndView();
+		model.setViewName("commandeService");
+		return model;
+	}
 	@RequestMapping(value = { "/createUserContent" }, method = RequestMethod.GET)
 	public ModelAndView createUserContent() {
 		ModelAndView model = new ModelAndView();

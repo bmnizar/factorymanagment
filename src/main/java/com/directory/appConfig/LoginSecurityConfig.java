@@ -31,7 +31,7 @@ public class LoginSecurityConfig extends WebSecurityConfigurerAdapter {
 				.jdbcAuthentication().dataSource(driverManagerDataSource);
 
 		JdbcUserDetailsManagerConfigurer<AuthenticationManagerBuilder> usersByUsernameQuery = jdbcUserDetailsManagerConfigurer
-				.usersByUsernameQuery("select	 username,password,enabled from application_users where username=? ");
+				.usersByUsernameQuery("select username,password,enabled from application_users where username=? ");
 		usersByUsernameQuery
 				.authoritiesByUsernameQuery("select username ,role from application_users_roles where username=? ");
 	}
@@ -53,7 +53,7 @@ public class LoginSecurityConfig extends WebSecurityConfigurerAdapter {
 		// .and().exceptionHandling().accessDeniedPage("/loginPage?error");
 		http.authorizeRequests().antMatchers("/homePage").access("hasRole('AdminRole')")
 				.antMatchers("/productionService").access("hasRole('ProductionServiceRole')")
-				.antMatchers("/maintenanceService").access("hasRole('MaintenanceServiceRole')").and().formLogin()
+				.antMatchers("/commandeService/**").access("hasRole('CommandeServiceRole')").and().formLogin()
 				.loginPage("/loginPage").usernameParameter("username").passwordParameter("password").and().logout()
 				.logoutSuccessUrl("/loginPage?logout").and().exceptionHandling().accessDeniedPage("/loginPage?error")
 				.and().addFilterAfter(new CsrfHeaderFilter(), CsrfFilter.class);

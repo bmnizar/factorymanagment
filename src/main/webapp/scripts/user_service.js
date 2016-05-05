@@ -23,7 +23,6 @@ App.factory('UserService', function($http, $rootScope, $q, $window) {
 				"password" : user.password,
 				"email" : user.email,
 				"phoneNumber" : user.phoneNumber,
-				"homeAddress" : user.location,
 				"role" : user.role
 			};
 			var a = $http.post(
@@ -40,7 +39,28 @@ App.factory('UserService', function($http, $rootScope, $q, $window) {
 
 			return null;
 		},
+		saveProduct : function(product) {
+			var productToSend = {
+				"id" : product.id,
+				"refProduct" : product.refProduct,
+				"nameProduct" : product.nameProduct,
+				"priceProduct" : product.priceProduct,
+				"category" : product.category
+			};
+			var a = $http.post(
+					'http://localhost:8083/factorymanagment/saveProduct/',
+					productToSend).then(function(response) {
+				// $rootScope.refresh();
+				$rootScope.$broadcast('saveUserWithSuccess', response.data);
+				return response.data;
+			}, function(errResponse) {
+				window.alert(errResponse);
+				console.error('Error while saving product');
+				return $q.reject(errResponse);
+			});
 
+			return null;
+		},
 		updateUser : function(user) {
 			var userToSend = {
 				"id" : user.id,
@@ -49,7 +69,7 @@ App.factory('UserService', function($http, $rootScope, $q, $window) {
 				"password" : user.password,
 				"email" : user.email,
 				"phoneNumber" : user.phoneNumber,
-				"homeAddress" : user.location,
+	
 				"role" : user.role
 			};
 
@@ -71,7 +91,6 @@ App.factory('UserService', function($http, $rootScope, $q, $window) {
 				"password" : user.password,
 				"email" : user.email,
 				"phoneNumber" : user.phoneNumber,
-				"homeAddress" : 'dfdfsd',
 				"role" : user.role
 			};
 			$http({

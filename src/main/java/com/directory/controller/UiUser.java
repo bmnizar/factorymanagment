@@ -10,7 +10,7 @@ public class UiUser implements Serializable {
 	private String password;
 	private String email;
 	private String mobilePone;
-	private String address;
+
 	private String Role;
 
 	public String getId() {
@@ -69,13 +69,7 @@ public class UiUser implements Serializable {
 		this.email = email;
 	}
 
-	public String getAddress() {
-		return address;
-	}
 
-	public void setAddress(String address) {
-		this.address = address;
-	}
 
 	/*
 	 * (non-Javadoc)

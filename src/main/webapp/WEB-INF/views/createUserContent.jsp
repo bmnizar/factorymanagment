@@ -55,22 +55,10 @@
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-md-12">
-
-				<div class="form-group">
-					<label for="field-5" class="control-label">Adresse</label> <input
-						type="text" class="form-control " id="field-5"
-						placeholder="Votre Adresse">
-				</div>
-
-			</div>
-		</div>
-
-		<div class="row">
 			<div class="col-md-6">
 
 				<div class="form-group">
-					<label for="field-6" class="control-label">Télephone</label> <input
+					<label for="field-6" class="control-label">Telephone</label> <input
 						type="text" id="PhoneNumber"
 						ng-model="CreateUserModalCtrl.parent.user.phoneNumber"
 						class="form-control" placeholder="Votre Télephone">

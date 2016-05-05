@@ -2,5 +2,5 @@
 package com.directory.appConfig;
 
 public enum ApplicationRole {
-	HumarRessourceServiceRole,AdminRole,ProductionServiceRole,MaintenanceServiceRole,ROLE_ANONYMOUS
+	AdminRole,ProductionServiceRole,CommandeServiceRole,ROLE_ANONYMOUS
 }
