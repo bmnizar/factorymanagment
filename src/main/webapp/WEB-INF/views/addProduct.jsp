@@ -174,7 +174,7 @@
 				<div class="col-xs-12">
 
            <!----------------------------   Tableau------------------------------------------------------------------- -->
-  				<table ng-table="tableParams"  id="myTable" class="table table-bordered" show-filter="true" > 
+  				<table ng-table="tableParams"  id="ProductTable" class="table table-bordered" show-filter="true" > 
                          <tr>
 								<thead>
 									<tr>

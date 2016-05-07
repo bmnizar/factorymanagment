@@ -1,31 +1,18 @@
 'use strict';
-App.controller('SaveProductCtrl', function($scope,UserService, $rootScope, $filter, NgTableParams, $resource,$log) {
+App.controller('SaveProductCtrl', function ($scope, UserService, $rootScope, $filter, NgTableParams, $resource, $log) {
 	// var self=this;
-	var self=this;
+	var self = this;
 	self.products = [];
-var product={
-		
-				"id" :'',
-				"refProduct" :'',
-				"nameProduct" : '',
-				"priceProduct" : '',
-				"category" :'' 
-				};
-				
-	self.fetchAllProducts = function () {
+	var product = {
 
-		/*
-		var Api = $resource("http://localhost:8083/factorymanagment/allUsers/");
-		this.tableParams = new NgTableParams({}, {
-		getData : function (params) {
-		var urll=params.url();
-		return Api.get(urll).$promise.then(function (data) {
-		self.data = data;
-		params.total(users.inlineCount); // recal. page nav controls
-		return data.results;
-		});
-		}
-		});*/
+		"id" : '',
+		"refProduct" : '',
+		"nameProduct" : '',
+		"priceProduct" : '',
+		"category" : ''
+	};
+
+	self.fetchAllProducts = function () {
 
 		UserService
 		.fetchAllProducts()
@@ -37,10 +24,10 @@ var product={
 					page : 1, // show first page
 					count : 5, // count per page
 					sorting : {
-						NameProduct : 'asc' // initial sorting
+						nameProduct : 'asc' // initial sorting
 					},
 					filter : {
-						NameProduct : '' // initial filter
+						nameProduct : '' // initial filter
 					}
 				}, {
 					total : allProductsFromServer.length, // length of data
@@ -75,20 +62,18 @@ var product={
 			.error('Error while fetching Currencies');
 		});
 	};
-				
-				self.addProduct = function(product){
-        UserService.saveProduct(product)
-                $log.log("saving product");
-	
+
+	self.addProduct = function (product) {
+		UserService.saveProduct(product)
+		$log.log("saving product");
 
 		$rootScope.$on('saveProductWithSuccess', function (event,
 				data) {
 
 			self.fetchAllProducts();
-     	});
+		});
 	};
-	
-	
+
 	self.fetchAllProducts();
-    
+
 });

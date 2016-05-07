@@ -1,31 +1,31 @@
 'use strict';
 
-App.factory('UserService', function($http, $rootScope, $q, $window) {
+App.factory('UserService', function ($http, $rootScope, $q, $window) {
 
 	return {
 
-		fetchAllUsers : function() {
+		fetchAllUsers : function () {
 			return $http
-					.get('http://localhost:8083/factorymanagment/allUsers/')
-					.then(function(response) {
-						return response.data;
-					}, function(errResponse) {
-						console.error('Error while fetching users');
-						return $q.reject(errResponse);
-					});
+			.get('http://localhost:8083/factorymanagment/allUsers/')
+			.then(function (response) {
+				return response.data;
+			}, function (errResponse) {
+				console.error('Error while fetching users');
+				return $q.reject(errResponse);
+			});
 		},
-			fetchAllProducts : function() {
+		fetchAllProducts : function () {
 			return $http
-					.get('http://localhost:8083/factorymanagment/allProducts/')
-					.then(function(response) {
-						return response.data;
-					}, function(errResponse) {
-						console.error('Error while fetching product');
-						return $q.reject(errResponse);
-					});
+			.get('http://localhost:8083/factorymanagment/allProducts/')
+			.then(function (response) {
+				return response.data;
+			}, function (errResponse) {
+				console.error('Error while fetching product');
+				return $q.reject(errResponse);
+			});
 		},
 
-		createUser : function(user) {
+		createUser : function (user) {
 			var userToSend = {
 				"id" : user.id,
 				"firstName" : user.firstName,
@@ -37,19 +37,19 @@ App.factory('UserService', function($http, $rootScope, $q, $window) {
 			};
 			var a = $http.post(
 					'http://localhost:8083/factorymanagment/createUser/',
-					userToSend).then(function(response) {
-				// $rootScope.refresh();
-				$rootScope.$broadcast('saveUserWithSuccess', response.data);
-				return response.data;
-			}, function(errResponse) {
-				window.alert(errResponse);
-				console.error('Error while creating user');
-				return $q.reject(errResponse);
-			});
+					userToSend).then(function (response) {
+					// $rootScope.refresh();
+					$rootScope.$broadcast('saveUserWithSuccess', response.data);
+					return response.data;
+				}, function (errResponse) {
+					window.alert(errResponse);
+					console.error('Error while creating user');
+					return $q.reject(errResponse);
+				});
 
 			return null;
 		},
-		saveProduct : function(product) {
+		saveProduct : function (product) {
 			var productToSend = {
 				"id" : product.id,
 				"refProduct" : product.refProduct,
@@ -59,19 +59,19 @@ App.factory('UserService', function($http, $rootScope, $q, $window) {
 			};
 			var a = $http.post(
 					'http://localhost:8083/factorymanagment/saveProduct/',
-					productToSend).then(function(response) {
-				// $rootScope.refresh();
-				$rootScope.$broadcast('saveProductWithSuccess', response.data);
-				return response.data;
-			}, function(errResponse) {
-				window.alert(errResponse);
-				console.error('Error while saving product');
-				return $q.reject(errResponse);
-			});
+					productToSend).then(function (response) {
+					// $rootScope.refresh();
+					$rootScope.$broadcast('saveProductWithSuccess', response.data);
+					return response.data;
+				}, function (errResponse) {
+					window.alert(errResponse);
+					console.error('Error while saving product');
+					return $q.reject(errResponse);
+				});
 
 			return null;
 		},
-		updateUser : function(user) {
+		updateUser : function (user) {
 			var userToSend = {
 				"id" : user.id,
 				"firstName" : user.firstName,
@@ -79,21 +79,21 @@ App.factory('UserService', function($http, $rootScope, $q, $window) {
 				"password" : user.password,
 				"email" : user.email,
 				"phoneNumber" : user.phoneNumber,
-	
+
 				"role" : user.role
 			};
 
 			return $http.put(
-					'http://localhost:8083/factorymanagment/updateUser/',
-					userToSend).then(function(response) {
+				'http://localhost:8083/factorymanagment/updateUser/',
+				userToSend).then(function (response) {
 				return response.data;
-			}, function(errResponse) {
+			}, function (errResponse) {
 				console.error('Error while updating user');
 				return $q.reject(errResponse);
 			});
 		},
 
-		deleteUser : function(user) {
+		deleteUser : function (user) {
 			var userToSend = {
 				"id" : user.id,
 				"firstName" : user.firstName,
@@ -110,10 +110,10 @@ App.factory('UserService', function($http, $rootScope, $q, $window) {
 				headers : {
 					"Content-Type" : "application/json;charset=utf-8"
 				}
-			}).then(function(response) {
+			}).then(function (response) {
 				$rootScope.$broadcast('deleteUserWithSuccess', response.data);
 				return response.data;
-			}, function(errResponse) {
+			}, function (errResponse) {
 				console.error('Error while deleting user');
 				return $q.reject(errResponse);
 			});

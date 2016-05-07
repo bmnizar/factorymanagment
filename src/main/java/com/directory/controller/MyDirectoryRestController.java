@@ -39,6 +39,7 @@ public class MyDirectoryRestController {
 		}
 		return new ResponseEntity<List<User>>(users, HttpStatus.OK);
 	}
+
 	@RequestMapping(value = "/allProducts/", method = RequestMethod.GET)
 	public ResponseEntity<List<Product>> listAllProducts() {
 		List<Product> products = productOperation.getAllProducts();
@@ -80,7 +81,7 @@ public class MyDirectoryRestController {
 	public ResponseEntity<Void> saveProduct(@RequestBody Product product, UriComponentsBuilder ucBuilder) {
 		System.out.println("Creating Product " + product.getNameProduct());
 		// User user = new User();
-		productOperation.saveProduct(product);
+		productOperation.saveProduct(product);  
 
 		HttpHeaders headers = new HttpHeaders();
 		headers.setLocation(ucBuilder.path("/saveProduct/{product}").buildAndExpand(product.getRefProduct()).toUri());
