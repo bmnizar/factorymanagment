@@ -40,8 +40,8 @@
 												
 												<ul class="dropdown-menu" style="background-color:#BBD2E1";>
 												
-												  <li style="border-right:none"><a href="AjouterCommande.html">AjouteCommande</a></li>
-												  <li style="border-right:none"><a href="AjouterProduit.html">AjouteProduit</a></li>
+												  <li style="border-right:none"><a href="AjouterCommande">AjouteCommande</a></li>
+												  <li style="border-right:none"><a href="addProduct">AjouteProduit</a></li>
 												  <li style="border-right:none"><a href="PagePrincipaleResponsableCommande.html">ConsulterCommande</a></li> 
 
 												</ul>

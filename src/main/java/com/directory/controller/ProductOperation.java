@@ -58,7 +58,7 @@ public class ProductOperation {
 
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Transactional(readOnly = true)
-	public List<Product> getAllProduct() {
+	public List<Product> getAllProducts() {
 		SessionImpl session = (SessionImpl) em.getDelegate();
 		Criteria createCriteria = session.createCriteria(Product.class);
 		List list = createCriteria.list();

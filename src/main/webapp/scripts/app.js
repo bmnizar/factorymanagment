@@ -1,5 +1,5 @@
 'use strict';
-var App = angular.module('myApp',['ngCookies', 'ngMessages','ngResource', 'ngRoute','ui.bootstrap','ngTable']);//App
+var App = angular.module('myApp',['ngCookies', 'ngMessages','ngResource', 'ngRoute','ui.bootstrap','ngTable','ngMessages']);//App
 //.factory('XSRFInterceptor', function ($cookies, $log) {
 //
 //  var XSRFInterceptor = {

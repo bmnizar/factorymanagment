@@ -21,7 +21,7 @@ import com.directory.model.User;
 public class MyDirectoryRestController {
 
 	@Autowired
-	UserOperation userOperation; 
+	UserOperation userOperation;
 	@Autowired
 	ProductOperation productOperation;
 	// Service which will do all data
@@ -38,6 +38,15 @@ public class MyDirectoryRestController {
 
 		}
 		return new ResponseEntity<List<User>>(users, HttpStatus.OK);
+	}
+	@RequestMapping(value = "/allProducts/", method = RequestMethod.GET)
+	public ResponseEntity<List<Product>> listAllProducts() {
+		List<Product> products = productOperation.getAllProducts();
+		if (products.isEmpty()) {
+			return new ResponseEntity<List<Product>>(HttpStatus.NO_CONTENT);
+
+		}
+		return new ResponseEntity<List<Product>>(products, HttpStatus.OK);
 	}
 
 	@RequestMapping(value = "/updateUser/", method = RequestMethod.POST, consumes = {
@@ -65,27 +74,27 @@ public class MyDirectoryRestController {
 		return new ResponseEntity<Void>(headers, HttpStatus.CREATED);
 
 	}
+
 	@RequestMapping(value = "/saveProduct/", method = RequestMethod.POST, consumes = {
-	"application/json;charset=UTF-8;text/html" })
-public ResponseEntity<Void> saveProduct(@RequestBody Product product, UriComponentsBuilder ucBuilder) {
-System.out.println("Creating User " + product.getNameProduct());
-// User user = new User();
-productOperation.saveProduct(product);
+			"application/json;charset=UTF-8;text/html" })
+	public ResponseEntity<Void> saveProduct(@RequestBody Product product, UriComponentsBuilder ucBuilder) {
+		System.out.println("Creating Product " + product.getNameProduct());
+		// User user = new User();
+		productOperation.saveProduct(product);
 
-HttpHeaders headers = new HttpHeaders();
-headers.setLocation(ucBuilder.path("/saveProduct/{product}").buildAndExpand(product.getRefProduct()).toUri());
-return new ResponseEntity<Void>(headers, HttpStatus.CREATED);
+		HttpHeaders headers = new HttpHeaders();
+		headers.setLocation(ucBuilder.path("/saveProduct/{product}").buildAndExpand(product.getRefProduct()).toUri());
+		return new ResponseEntity<Void>(headers, HttpStatus.CREATED);
 
-}
+	}
 
- 
-	/////////////////////////////add enum Application Role///////////////
-	/*  @RequestMapping(value = "/new/actionStates", method = RequestMethod.GET)
-	  @ResponseBody
-	  public List<String> returnApplicationRole(){
-	       return userOperation.enumToStringList(ApplicationRole.class);
-	  }
-*/
+	///////////////////////////// add enum Application Role///////////////
+	/*
+	 * @RequestMapping(value = "/new/actionStates", method = RequestMethod.GET)
+	 * 
+	 * @ResponseBody public List<String> returnApplicationRole(){ return
+	 * userOperation.enumToStringList(ApplicationRole.class); }
+	 */
 	@RequestMapping(value = "/deleteUser/", method = RequestMethod.DELETE, consumes = {
 			"application/json;charset=UTF-8;text/html" })
 	public ResponseEntity<User> deleteUser(@RequestBody User user) {
@@ -96,14 +105,15 @@ return new ResponseEntity<Void>(headers, HttpStatus.CREATED);
 		return new ResponseEntity<User>(HttpStatus.NO_CONTENT);
 
 	}
+
 	@RequestMapping(value = "/deleteProduct/", method = RequestMethod.DELETE, consumes = {
-	"application/json;charset=UTF-8;text/html" })
-public ResponseEntity<Product> deleteProduct(@RequestBody Product product) {
-System.out.println("Deleting Product " + product.getNameProduct());
-// User user = new User();
-productOperation.deleteProduct(product);
+			"application/json;charset=UTF-8;text/html" })
+	public ResponseEntity<Product> deleteProduct(@RequestBody Product product) {
+		System.out.println("Deleting Product " + product.getNameProduct());
+		// User user = new User();
+		productOperation.deleteProduct(product);
 
-return new ResponseEntity<Product>(HttpStatus.NO_CONTENT);
+		return new ResponseEntity<Product>(HttpStatus.NO_CONTENT);
 
-}
+	}
 }

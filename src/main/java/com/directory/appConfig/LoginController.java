@@ -14,7 +14,13 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class LoginController {
-
+	@RequestMapping(value = { "/addProduct" }, method = RequestMethod.GET)
+	public ModelAndView addProduct() {
+		System.out.println();
+		ModelAndView model = new ModelAndView();
+		model.setViewName("addProduct");
+		return model;
+	}
 	@RequestMapping(value = { "/" }, method = RequestMethod.GET)
 	public ModelAndView welcomePage() {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();

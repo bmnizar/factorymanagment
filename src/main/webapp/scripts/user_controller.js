@@ -15,6 +15,7 @@ App.controller(
 		phoneNumber : '',
 		role : ''
 	};
+	
 
 	self.fetchAllUsers = function () {
 
@@ -92,16 +93,7 @@ App.controller(
 
 		});
 	};
-	self.addProduct = function(product){
-        UserService.addProduct(product)
-                .then(
-                self.fetchAllProduct, 
-                        function(errResponse){
-                             console.error('Error while add product.');
-                        } 
-            );
-    };
-    
+	
 	self.openCreateUser = function () {
 		var modalInstance = $uibModal.open({
 				animation : true,

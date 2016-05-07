@@ -7,35 +7,11 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
-	integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
-	crossorigin="anonymous">
-<link
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"
-	rel="stylesheet">
-<!-- Optional theme -->
-<link
-	href="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.5.4/bootstrap-select.min.css"
-	rel="stylesheet" />
-<link rel="stylesheet" href="scripts/bootstrap.css">
-<!-- Latest compiled and minified JavaScript -->
-<link rel="stylesheet"
-	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-<script
-	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
-   <!-- Style Bootstrap-->
-  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-   <!-- Latest compiled and minified JavaScript -->
+
 <script src="scripts/jquery-1.12.1.js"></script>
 <link href="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.5.4/bootstrap-select.css" rel="stylesheet" />
 <link rel="stylesheet" href="scripts/bootstrap.css">
-
-<script src="scripts/bootstrap.css"></script>
 <script src="scripts/bootstrap.js"></script>
 <script src="scripts/angular.js"></script>
 <script src="scripts/ui-bootstrap-tpls-1.2.4.js"></script>
@@ -54,6 +30,7 @@
 
 <script src="scripts/app.js"></script>
 
+<script src="scripts/saveProductCtrl.js"></script>
 <script src="scripts/user_service.js"></script>
 <script src="scripts/user_controller.js"></script>
 
@@ -71,7 +48,8 @@
 </head>
 <body ng-app="myApp">
 
-		<div class="generic-container" ng-controller="UserController as ctrl">
+		<div class="generic-container" ng-controller="SaveProductCtrl as ctrl">
+		
 
 		
 	<nav class="navbar navbar navbar-static" style="background-color:#BBD2E1;" role="navigation" >
@@ -119,20 +97,22 @@
 
 		<center><div id="azerty"></div></center>
 
-				  <div class="col-md-offset-2 col-md-8">
+				  <div class="col-md-5 col-md-6">
 					<div class="panel panel-default">
 					  <div class="panel-heading text-center"style="color:black;">
 					   Ajouter  Produit
 					  </div>
 					 <div class="panel-body">
+						<form name="myForm">
 								<div class="row">
 									<div class="col-md-12">
 
 										<div class="form-group">
 											<label for="refCommande" class="control-label">Reference Produit</label> 
 											<input
-												type="text" ng-model="ctrl.product.refProduct"
+												type="text"  ng-model="ctrl.product.refProduct"
 												class="form-control" id="refCommande" placeholder="Reference Produit">
+												
 										</div>
 									</div>
 
@@ -175,11 +155,65 @@
 						<br>
 						<br>
 						<div class="modal-footer ">
-							<button type="button" class="btn btn-primary btn-lg center-block" ng-click="SaveProductCtrl.parent.saveProduct(SaveProductCtrl.parent.product)" style="width: 70%;"><span class="glyphicon glyphicon-ok-sign"></span>Ajouter</button>
+							<button type="button" class="btn btn-primary btn-lg center-block" ng-click="ctrl.addProduct(ctrl.product)" style="width: 40%;"><span class="glyphicon glyphicon-ok-sign"></span>Ajouter</button>
 						</div>
+					</form>
 					</div>
 				</div>
 			</div>
+<!--//////////////////////////////////////Tableau /////////////////////////////////////////-->
+
+ <div class="col-md-7 col-md-6">
+ 
+ 	<div class="panel panel-default">
+							<div class="panel-heading  text-center" style="color:black;">
+									List Des Produits 
+								
+							</div>
+			<div class="panel-body">
+				<div class="col-xs-12">
+
+           <!----------------------------   Tableau------------------------------------------------------------------- -->
+  				<table ng-table="tableParams"  id="myTable" class="table table-bordered" show-filter="true" > 
+                         <tr>
+								<thead>
+									<tr>
+									
+										<th>Reference Produit</th>
+										<th>Nom du  Produit</th>
+										<th>Prix du  Produit</th>
+										<th>Catégorie</th>
+										
+										<th>Modifier</th>
+										<th>Supprimer</th>
+									
+									</tr>
+								</thead>
+	                    
+		
+						<tbody>
+								<tr ng-repeat="p in $data">
+							
+									<td sortable="'refProduct'" ><span ng-bind="p.refProduct"></span></td>
+									<td sortable="'nameProduct'"  ><span ng-bind="p.nameProduct"></span></td>
+									<td sortable="'priceProduct"  ><span ng-bind="p.priceProduct"></span></td>
+									<td sortable="'category'"  ><span ng-bind="p.category"></span></td>
+									
+									<td>
+										<button type="button" ng-click="ctrl.openEditUser(u)"
+											class="btn btn-primary btn center-block"><span class="glyphicon glyphicon-pencil"></span></button>
+									</td>
+									<td>
+										<button type="button" ng-click="ctrl.openDeleteUser(u)"
+											class="btn btn-danger btn center-block"><span class="glyphicon glyphicon-trash"></span></button>
+									</td>
+								</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+
 		</div>
 
 </body>

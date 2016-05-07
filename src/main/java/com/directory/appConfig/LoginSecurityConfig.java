@@ -53,7 +53,7 @@ public class LoginSecurityConfig extends WebSecurityConfigurerAdapter {
 		// .and().exceptionHandling().accessDeniedPage("/loginPage?error");
 		http.authorizeRequests().antMatchers("/homePage").access("hasRole('AdminRole')")
 				.antMatchers("/productionService").access("hasRole('ProductionServiceRole')")
-				.antMatchers("/commandeService/**").access("hasRole('CommandeServiceRole')").and().formLogin()
+				.antMatchers("/commandeService/").access("hasRole('CommandeServiceRole')").and().formLogin()
 				.loginPage("/loginPage").usernameParameter("username").passwordParameter("password").and().logout()
 				.logoutSuccessUrl("/loginPage?logout").and().exceptionHandling().accessDeniedPage("/loginPage?error")
 				.and().addFilterAfter(new CsrfHeaderFilter(), CsrfFilter.class);

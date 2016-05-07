@@ -14,6 +14,16 @@ App.factory('UserService', function($http, $rootScope, $q, $window) {
 						return $q.reject(errResponse);
 					});
 		},
+			fetchAllProducts : function() {
+			return $http
+					.get('http://localhost:8083/factorymanagment/allProducts/')
+					.then(function(response) {
+						return response.data;
+					}, function(errResponse) {
+						console.error('Error while fetching product');
+						return $q.reject(errResponse);
+					});
+		},
 
 		createUser : function(user) {
 			var userToSend = {
@@ -51,7 +61,7 @@ App.factory('UserService', function($http, $rootScope, $q, $window) {
 					'http://localhost:8083/factorymanagment/saveProduct/',
 					productToSend).then(function(response) {
 				// $rootScope.refresh();
-				$rootScope.$broadcast('saveUserWithSuccess', response.data);
+				$rootScope.$broadcast('saveProductWithSuccess', response.data);
 				return response.data;
 			}, function(errResponse) {
 				window.alert(errResponse);

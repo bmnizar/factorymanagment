@@ -25,7 +25,7 @@ public class Product implements Serializable{
 	
 	@NotEmpty
 	@Column(name = "PRICE_PRODUCT", nullable = false)
-	private Double priceProduct;
+	private String priceProduct;
 	
 	@NotEmpty
 	@Column(name = "CATEGORY", nullable = false)
@@ -65,13 +65,13 @@ public class Product implements Serializable{
 
 
 
-	public Double getPriceProduct() {
+	public String getPriceProduct() {
 		return priceProduct;
 	}
 
 
 
-	public void setPriceProduct(Double priceProduct) {
+	public void setPriceProduct(String priceProduct) {
 		this.priceProduct = priceProduct;
 	}
 
