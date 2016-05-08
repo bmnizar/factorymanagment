@@ -1,4 +1,4 @@
-package com.directory.model;
+package com.factorymanagement.model;
 
 import java.io.Serializable;
 import java.util.Date;

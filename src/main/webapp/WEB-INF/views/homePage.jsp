@@ -1,10 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html>
 
 <head>
-<!-- <link href="scripts/angular-material.css" rel="stylesheet" /> -->
+
   <title>Administrateur de systeme</title>
 <meta charset="utf-8">
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
@@ -12,17 +9,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-
-   <!-- Style Bootstrap-->
-  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-   <!-- Latest compiled and minified JavaScript -->
 <script src="scripts/jquery-1.12.1.js"></script>
 <link href="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.5.4/bootstrap-select.css" rel="stylesheet" />
-<link rel="stylesheet" href="scripts/bootstrap.css">
-
-    
-      
-
 <script src="scripts/bootstrap.css"></script>
 <script src="scripts/bootstrap.js"></script>
 <script src="scripts/angular.js"></script>

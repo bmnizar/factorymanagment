@@ -1,4 +1,4 @@
-package com.directory.controller;
+package com.factorymanagement.dao;
 
 import java.util.List;
 
@@ -13,18 +13,18 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.factorymanagement.model.Product;
+import com.factorymanagement.model.ProductConstruction;
 
 @Repository
 @Transactional
-public class ProductOperation {
+public class ProductConstructionOperationDAO {
 	@PersistenceContext(unitName = "jpa-directory")
 	private EntityManager em;
 
 	@Transactional(propagation = Propagation.REQUIRED)
-	public void saveProduct(Product product) {
-		Long nextLong = RandomUtils.nextLong(0, 10000L);
-		// user.setId(nextLong.intValue());
-		Product merge = em.merge(product);
+	public void saveProductConstruction(ProductConstruction productConstruction) {
+
+		ProductConstruction merge = em.merge(productConstruction);
 		System.out.println(" merged ");
 		em.persist(merge);
 
@@ -32,10 +32,9 @@ public class ProductOperation {
 	}
 
 	@Transactional(propagation = Propagation.REQUIRED)
-	public void deleteProduct(Product product) {
-		Long nextLong = RandomUtils.nextLong(0, 10000L);
-		// user.setId(nextLong.intValue());
-		Product merge = em.merge(product);
+	public void deleteProductConstruction(ProductConstruction productConstruction) {
+
+		ProductConstruction merge = em.merge(productConstruction);
 		System.out.println(" merged ");
 		em.remove(merge);
 
@@ -57,9 +56,9 @@ public class ProductOperation {
 
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Transactional(readOnly = true)
-	public List<Product> getAllProducts() {
+	public List<ProductConstruction> getAllProductConstruction() {
 		SessionImpl session = (SessionImpl) em.getDelegate();
-		Criteria createCriteria = session.createCriteria(Product.class);
+		Criteria createCriteria = session.createCriteria(ProductConstruction.class);
 		List list = createCriteria.list();
 		return list;
 

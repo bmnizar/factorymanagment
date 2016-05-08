@@ -1,0 +1,56 @@
+
+package com.factorymanagement.model;
+
+import javax.persistence.Entity;
+
+@Entity
+public class TimeEntity {
+	@javax.persistence.Id
+	private long Id;
+	private Integer numberOfDays;
+	private Integer numberOfHours;
+	private Integer numberOfMinutes;
+
+	public long getId() {
+		return Id;
+	}
+
+	public void setId(long id) {
+		Id = id;
+	}
+
+	public Integer getNumberOfDays() {
+		return numberOfDays;
+	}
+
+	public void setNumberOfDays(Integer numberOfDays) {
+		this.numberOfDays = numberOfDays;
+	}
+
+	public Integer getNumberOfHours() {
+		return numberOfHours;
+	}
+
+	public void setNumberOfHours(Integer numberOfHours) {
+		this.numberOfHours = numberOfHours;
+	}
+
+	public Integer getNumberOfMinutes() {
+		return numberOfMinutes;
+	}
+
+	public void setNumberOfMinutes(Integer numberOfMinutes) {
+		this.numberOfMinutes = numberOfMinutes;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return numberOfDays + "-" + numberOfHours + "-" + numberOfMinutes;
+	}
+}

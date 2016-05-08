@@ -17,8 +17,8 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.directory.model.User;
-import com.directory.model.UserInscription;
+import com.factorymanagement.model.User;
+import com.factorymanagement.model.UserInscription;
 
 @Repository
 @Transactional

@@ -1,4 +1,4 @@
-package com.directory.model;
+package com.factorymanagement.model;
 
 public enum CommandeType {
 	Normal,Urgent;

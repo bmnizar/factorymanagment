@@ -1,6 +1,7 @@
 package com.directory.service;
 import java.util.List;
-import com.directory.model.Product;
+
+import com.factorymanagement.model.Product;
 
 public interface ProductService {
 	Product findById(long id);

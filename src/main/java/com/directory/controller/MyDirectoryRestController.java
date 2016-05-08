@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import com.directory.appConfig.ApplicationRole;
-import com.directory.model.Product;
-import com.directory.model.User;
+import com.factorymanagement.model.Product;
+import com.factorymanagement.model.User;
 
 @RestController
 public class MyDirectoryRestController {
