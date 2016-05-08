@@ -1,33 +1,35 @@
 'use strict';
 
-App.factory('UserService', function ($http, $rootScope, $q, $window, $resource) {
+productConstructionApp.factory('ProductConstructionService', function ($http, $rootScope, $q, $window, $resource) {
 
 	return {
 
 		fetchAllProductConstruction : function () {
-		var ressourceResult=		$resource('/allProductConstruction/');
-	
-			return  ressourceResult.query()
-			.then(function (response) {
-				return response.data;
-			}, function (errResponse) {
-				console.error('Error while fetching users');
-				return $q.reject(errResponse);
-			});
+			var ressourceResultQuery = $resource('http://localhost:8083/factorymanagment/allProductConstruction/').query();
+
+			ressourceResultQuery.$promise.then(
+        //success
+        function( value ){
+		return value;
+		},
+        //error
+        function( error ){
+		$window.alert(error);
 		}
-	
-	,
-		
+      );
+			return ressourceResultQuery;
+
+		},
 
 		saveProductConstruction : function (productConstruction) {
 			var productConstructionToSend = {
 
-					"id" : productConstruction.id,
-					"productId" : productConstruction.product.id,	
-					"productDuration" : productConstruction.productDuration
-				
-				};
-			var jsonProductConstructionToSend =JSON.stringify(productConstructionToSend); 
+				"id" : productConstruction.id,
+				"productId" : productConstruction.product.id,
+				"productDuration" : productConstruction.productDuration
+
+			};
+			var jsonProductConstructionToSend = JSON.stringify(productConstructionToSend);
 			var a = $http.post(
 					'http://localhost:8083/factorymanagment/createProductConstruction/',
 					productConstructionToSend).then(function (response) {
@@ -42,15 +44,15 @@ App.factory('UserService', function ($http, $rootScope, $q, $window, $resource) 
 
 			return null;
 		},
-		
-		updateProductConstruction: function (productConstruction) {
+
+		updateProductConstruction : function (productConstruction) {
 			var productConstructionToSend = {
 
-					"id" : productConstruction.id,
-					"productId" : productConstruction.product.id,	
-					"productDuration" : productConstruction.productDuration
-				
-				};
+				"id" : productConstruction.id,
+				"productId" : productConstruction.product.id,
+				"productDuration" : productConstruction.productDuration
+
+			};
 
 			return $http.put(
 				'http://localhost:8083/factorymanagment/updateProductConstruction/',
@@ -65,12 +67,12 @@ App.factory('UserService', function ($http, $rootScope, $q, $window, $resource) 
 		deleteProductConstruction : function (productConstruction) {
 			var productConstructionToSend = {
 
-					"id" : productConstruction.id,
-					"productId" : productConstruction.product.id,	
-					"productDuration" : productConstruction.productDuration
-				
-				};
-		
+				"id" : productConstruction.id,
+				"productId" : productConstruction.product.id,
+				"productDuration" : productConstruction.productDuration
+
+			};
+
 			$http({
 				url : 'http://localhost:8083/factorymanagment/deleteProductConstruction/',
 				method : 'DELETE',
@@ -89,6 +91,4 @@ App.factory('UserService', function ($http, $rootScope, $q, $window, $resource) 
 		}
 	};
 
-}
-
-);
+});

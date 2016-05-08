@@ -25,8 +25,8 @@ public class ProductConstructionRest {
 	@Autowired
 	ProductConstructionOperationDAO productConstructionOperationDAO;
 
-	@RequestMapping(value = "/allProductConstruction/", method = RequestMethod.GET)
-	public ResponseEntity<List<ProductConstruction>> listAllUsers() {
+	@RequestMapping(value = "/allProductConstruction/", method = RequestMethod.GET) 
+	public ResponseEntity<List<ProductConstruction>> getAllProductConstructions() {  
 		List<ProductConstruction> listProductConstruction = productConstructionOperationDAO.getAllProductConstruction();
 		if (listProductConstruction.isEmpty()) {
 			return new ResponseEntity<List<ProductConstruction>>(HttpStatus.NO_CONTENT);

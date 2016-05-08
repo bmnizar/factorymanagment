@@ -1,7 +1,8 @@
 'use strict';
-App.controller('ProductConstructionCtrl', function ($scope, ProductConstructionService, $rootScope, $filter, productConstructionTableTableParams, $resource, $log) {
+productConstructionApp.controller('ProductConstructionCtrl', function ($scope, ProductConstructionService, $rootScope, $filter, NgTableParams, $resource, $log) {
 
 	var self = this;
+	
 	self.listOfProductConstruction = [];
 	var product = {
 
@@ -27,7 +28,7 @@ App.controller('ProductConstructionCtrl', function ($scope, ProductConstructionS
 			function (allProductsConstructionFromServer) {
 
 			self.product = allProductsConstructionFromServer;
-			$scope.tableParams = new productConstructionTableTableParams({
+			$scope.productConstructionTableTableParams = new   NgTableParams({
 					page : 1, // show first page
 					count : 5, // count per page
 					sorting : {
@@ -93,7 +94,7 @@ App.controller('ProductConstructionCtrl', function ($scope, ProductConstructionS
 	
 	
 	// Open Modal Button Delete
-	self.opendeleteProductConstruction = function (selectedProductConstructionToDelete) {
+	self.openDeleteProductConstruction = function (selectedProductConstructionToDelete) {
 
 		var modalInstance = $uibModal.open({
 				animation : true,
@@ -150,6 +151,6 @@ App.controller('ProductConstructionCtrl', function ($scope, ProductConstructionS
 		});
 	};
 
-	self.fetchAllProductConstruction();
+	//self.fetchAllProductConstruction();
 
 });

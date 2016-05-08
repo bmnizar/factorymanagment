@@ -14,6 +14,20 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class MainFrontController {
+	@RequestMapping(value = { "/CalculerDureeFabrication" }, method = RequestMethod.GET)
+	public ModelAndView calculateConstructionDuration() {
+		System.out.println();
+		ModelAndView model = new ModelAndView();
+		model.setViewName("CalculerDureeFabrication");
+		return model;
+	}
+	@RequestMapping(value = { "/PagePrincipaleResponsableProduction" }, method = RequestMethod.GET)
+	public ModelAndView productResponsible() {
+		System.out.println();
+		ModelAndView model = new ModelAndView();
+		model.setViewName("PagePrincipaleResponsableProduction");
+		return model;
+	}
 	@RequestMapping(value = { "/FicheProduit" }, method = RequestMethod.GET)
 	public ModelAndView productConstructionList() {
 		System.out.println();
