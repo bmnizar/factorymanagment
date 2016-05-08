@@ -14,6 +14,13 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class MainFrontController {
+	@RequestMapping(value = { "/Planification" }, method = RequestMethod.GET)
+	public ModelAndView schedularCalendar() {
+		System.out.println();
+		ModelAndView model = new ModelAndView();     
+		model.setViewName("Planification");
+		return model;
+	}
 	@RequestMapping(value = { "/CalculerDureeFabrication" }, method = RequestMethod.GET)
 	public ModelAndView calculateConstructionDuration() {
 		System.out.println();
