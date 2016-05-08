@@ -21,12 +21,12 @@ App.factory('UserService', function ($http, $rootScope, $q, $window, $resource) 
 
 		saveProductConstruction : function (productConstruction) {
 			var productConstructionToSend = {
-				"id" : productConstruction.id,
-				"refProduct" : productConstruction.firstName,
-				"nameProduct" : productConstruction.lastName,
-				"productDuration" : productConstruction.password
-			
-			};
+
+					"id" : productConstruction.id,
+					"productId" : productConstruction.product.id,	
+					"productDuration" : productConstruction.productDuration
+				
+				};
 			var jsonProductConstructionToSend =JSON.stringify(productConstructionToSend); 
 			var a = $http.post(
 					'http://localhost:8083/factorymanagment/createProductConstruction/',
@@ -45,10 +45,10 @@ App.factory('UserService', function ($http, $rootScope, $q, $window, $resource) 
 		
 		updateProductConstruction: function (productConstruction) {
 			var productConstructionToSend = {
+
 					"id" : productConstruction.id,
-					"refProduct" : productConstruction.firstName,
-					"nameProduct" : productConstruction.lastName,
-					"productDuration" : productConstruction.password
+					"productId" : productConstruction.product.id,	
+					"productDuration" : productConstruction.productDuration
 				
 				};
 
@@ -64,10 +64,10 @@ App.factory('UserService', function ($http, $rootScope, $q, $window, $resource) 
 
 		deleteProductConstruction : function (productConstruction) {
 			var productConstructionToSend = {
+
 					"id" : productConstruction.id,
-					"refProduct" : productConstruction.firstName,
-					"nameProduct" : productConstruction.lastName,
-					"productDuration" : productConstruction.password
+					"productId" : productConstruction.product.id,	
+					"productDuration" : productConstruction.productDuration
 				
 				};
 		

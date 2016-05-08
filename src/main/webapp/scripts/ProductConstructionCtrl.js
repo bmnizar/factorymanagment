@@ -1,13 +1,20 @@
 'use strict';
-App.controller('ProductConstructionCtrl', function ($scope, ProductConstructionService, $rootScope, $filter, NgTableParams, $resource, $log) {
+App.controller('ProductConstructionCtrl', function ($scope, ProductConstructionService, $rootScope, $filter, productConstructionTableTableParams, $resource, $log) {
 
 	var self = this;
 	self.listOfProductConstruction = [];
+	var product = {
+
+			"id" : '',
+			"refProduct" : '',
+			"nameProduct" : '',
+			"priceProduct" : '',
+			"category" : ''
+		};
 	var productConstruction = {
 
 		"id" : '',
-		"refProduct" : '',
-		"nameProduct" : '',
+		"productId" : product.id,	
 		"productDuration" : ''
 	
 	};
@@ -20,7 +27,7 @@ App.controller('ProductConstructionCtrl', function ($scope, ProductConstructionS
 			function (allProductsConstructionFromServer) {
 
 			self.product = allProductsConstructionFromServer;
-			$scope.tableParams = new NgTableParams({
+			$scope.tableParams = new productConstructionTableTableParams({
 					page : 1, // show first page
 					count : 5, // count per page
 					sorting : {

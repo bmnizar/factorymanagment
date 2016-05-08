@@ -13,7 +13,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-public class LoginController {
+public class MainFrontController {
+	@RequestMapping(value = { "/FicheProduit" }, method = RequestMethod.GET)
+	public ModelAndView productConstructionList() {
+		System.out.println();
+		ModelAndView model = new ModelAndView();
+		model.setViewName("FicheProduit");
+		return model;
+	}
 	@RequestMapping(value = { "/addProduct" }, method = RequestMethod.GET)
 	public ModelAndView addProduct() {
 		System.out.println();

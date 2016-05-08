@@ -173,13 +173,13 @@
 							<div class="form-group">
 								<!-- Name field -->
 								<label class="control-label " for="name">Nom de Produit</label>
-								<input class="form-control" ng-model="ctrl.productConstruction.nameProduct" id="ref" name="ref" type="text" />
+								<input class="form-control" ng-model="ctrl.productConstruction.product.nameProduct" id="ref" name="ref" type="text" />
 							</div>
 
 							<div class="form-group">
 								<!-- Name field -->
 								<label class="control-label " for="name">Réference
-									Produit</label> <input ng-model="ctrl.productConstruction.refProduct" class="form-control" id="ref" name="ref"
+									Produit</label> <input ng-model="ctrl.productConstruction.product.refProduct" class="form-control" id="ref" name="ref"
 									type="text" />
 							</div>
 
@@ -246,8 +246,8 @@
 						<tbody>
 								<tr ng-repeat="productConstruction in $data">
 									<td data-title="'id'" sortable="'id'" ><span ng-bind="productConstruction.id"></span></td>
-									<td sortable="'refProduct'" ><span ng-bind="productConstruction.refProduct"></span></td>
-									<td sortable="'nameProduct'"  ><span ng-bind="productConstruction.nameProduct"></span></td>
+									<td sortable="'refProduct'" ><span ng-bind="productConstruction.product.refProduct"></span></td>
+									<td sortable="'nameProduct'"  ><span ng-bind="productConstruction.product.nameProduct"></span></td>
 									<td sortable="'productDuration'"  ><span ng-bind="productConstruction.productDuration"></span></td>
 
 								<td><p data-placement="top" data-toggle="tooltip"

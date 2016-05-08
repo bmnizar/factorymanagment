@@ -1,10 +1,14 @@
 
 package com.factorymanagement.model;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 
 @Entity
-public class TimeEntity {
+public class TimeEntity implements Serializable{
+
+	private static final long serialVersionUID = 1L;
 	@javax.persistence.Id
 	private long Id;
 	private Integer numberOfDays;

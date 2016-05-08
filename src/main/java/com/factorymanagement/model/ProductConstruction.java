@@ -16,6 +16,7 @@ public class ProductConstruction implements Serializable {
 	
 	@OneToOne
 	private Product relatedProduct;
+	@OneToOne
 	private TimeEntity timeEntity;
 
 	public long getId() {
