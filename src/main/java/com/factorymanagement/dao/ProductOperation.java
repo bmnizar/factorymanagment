@@ -7,6 +7,7 @@ import javax.persistence.PersistenceContext;
 
 import org.apache.commons.lang3.RandomUtils;
 import org.hibernate.Criteria;
+import org.hibernate.criterion.Restrictions;
 import org.hibernate.internal.SessionImpl;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Propagation;
@@ -62,6 +63,16 @@ public class ProductOperation {
 		Criteria createCriteria = session.createCriteria(Product.class);
 		List list = createCriteria.list();
 		return list;
+
+	}
+
+	public Product findProductByName(String relatedProductName) {
+		SessionImpl session = (SessionImpl) em.getDelegate();
+		Criteria createCriteria = session.createCriteria(Product.class);
+		Criteria add = createCriteria.add(Restrictions.eq("nameProduct", relatedProductName));
+		List list = add.list();
+		Product product = (Product) list.get(0);
+		return product;
 
 	}
 
