@@ -1,4 +1,4 @@
-package com.directory.appConfig;
+package com.factorymanagement.appConfig;
 
 import org.springframework.security.web.context.AbstractSecurityWebApplicationInitializer;
 

@@ -1,4 +1,4 @@
-package com.directory.appConfig;
+package com.factorymanagement.appConfig;
 
 public enum AdminRole {
 	ResponsableCommande,

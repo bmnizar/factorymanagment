@@ -1,4 +1,4 @@
-package com.directory.service;
+package com.factorymanagement.dao;
 import java.util.List;
 
 import com.factorymanagement.model.Product;

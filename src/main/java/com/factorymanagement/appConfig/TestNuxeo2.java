@@ -1,5 +1,5 @@
 
-package com.directory.appConfig;
+package com.factorymanagement.appConfig;
 
 import org.nuxeo.client.api.NuxeoClient;
 import org.nuxeo.client.api.objects.Document;

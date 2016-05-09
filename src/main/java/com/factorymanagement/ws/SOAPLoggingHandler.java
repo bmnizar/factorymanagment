@@ -1,4 +1,4 @@
-package com.directory.ws;
+package com.factorymanagement.ws;
 
 import java.io.PrintStream;
 import java.util.Map;

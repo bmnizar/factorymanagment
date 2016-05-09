@@ -13,7 +13,7 @@ import javax.persistence.Table;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
-import com.directory.appConfig.AdminRole;
+import com.factorymanagement.appConfig.AdminRole;
 
 @Entity
 @Table(name = "Dir_USER")

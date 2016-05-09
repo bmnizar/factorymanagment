@@ -1,4 +1,4 @@
-package com.directory.appConfig;
+package com.factorymanagement.appConfig;
 
 import java.util.Properties;
 
@@ -23,13 +23,11 @@ import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
 @EnableTransactionManagement
 public class PersistenceContext {
 
-
-
 	@Bean
 	LocalContainerEntityManagerFactoryBean entityManagerFactory() {
 		LocalContainerEntityManagerFactoryBean entityManagerFactoryBean = new LocalContainerEntityManagerFactoryBean();
 		entityManagerFactoryBean.setPersistenceUnitName("jpa-directory");
-		
+
 		return entityManagerFactoryBean;
 	}
 

@@ -1,13 +1,13 @@
 
-package com.directory.unitTesting;
+package com.factorymanagement.unitTesting;
 
 import java.util.List;
 
 import javax.xml.ws.Endpoint;
 import javax.xml.ws.handler.Handler;
 
-import com.directory.ws.MyWebServiceImpl;
-import com.directory.ws.SOAPLoggingHandler;
+import com.factorymanagement.ws.MyWebServiceImpl;
+import com.factorymanagement.ws.SOAPLoggingHandler;
 
 /**
  * @author BMN(BM.NIZAR) s71055

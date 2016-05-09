@@ -1,5 +1,4 @@
-
-package com.directory.controller;
+package com.factorymanagement.model;
 
 import java.io.Serializable;
 

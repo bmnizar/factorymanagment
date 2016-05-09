@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import com.directory.appConfig.ApplicationRole;
+import com.factorymanagement.appConfig.ApplicationRole;
 import com.factorymanagement.dao.ProductConstructionOperationDAO;
 import com.factorymanagement.model.Product;
 import com.factorymanagement.model.ProductConstruction;

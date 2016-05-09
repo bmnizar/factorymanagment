@@ -1,5 +1,4 @@
-package com.directory.controller;
-
+package com.factorymanagement.dao;
 import java.util.HashSet;
 import java.util.List;
 

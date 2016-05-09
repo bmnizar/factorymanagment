@@ -1,4 +1,4 @@
-package com.directory.appConfig;
+package com.factorymanagement.appConfig;
 
 import java.util.Collection;
 import java.util.Iterator;

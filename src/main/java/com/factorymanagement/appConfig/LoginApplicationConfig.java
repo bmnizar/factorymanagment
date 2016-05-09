@@ -1,4 +1,4 @@
-package com.directory.appConfig;
+package com.factorymanagement.appConfig;
 
 import java.util.List;
 
@@ -21,7 +21,7 @@ import com.fasterxml.jackson.datatype.hibernate4.Hibernate4Module;
 
 @EnableWebMvc
 @Configuration
-@ComponentScan({ "com.directory.*" })
+@ComponentScan({ "com.factorymanagement.*" })
 /*@Import(value = { LoginSecurityConfig.class })*/
 public class LoginApplicationConfig extends WebMvcConfigurerAdapter {
 	@Override

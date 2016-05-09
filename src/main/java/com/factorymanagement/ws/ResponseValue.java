@@ -1,5 +1,5 @@
 
-package com.directory.ws;
+package com.factorymanagement.ws;
 
 
 public class ResponseValue {

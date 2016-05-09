@@ -1,5 +1,5 @@
 
-package com.directory.ws;
+package com.factorymanagement.ws;
 
 import javax.jws.WebMethod;
 import javax.jws.WebParam;

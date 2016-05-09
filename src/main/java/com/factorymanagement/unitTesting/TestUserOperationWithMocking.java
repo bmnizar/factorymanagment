@@ -1,20 +1,15 @@
 
-package com.directory.unitTesting;
+package com.factorymanagement.unitTesting;
 
-import static org.junit.Assert.*;
-
-import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.commons.lang3.RandomUtils;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 
-import com.directory.controller.UserOperation;
+import com.factorymanagement.dao.UserOperation;
 import com.factorymanagement.model.User;
 
 import mockit.Expectations;
