@@ -1,23 +1,28 @@
 'use strict';
+/*
+var ressourceResultQuery = $resource('http://localhost:8083/factorymanagment/allProductConstruction/');
+ressourceResultQuery.get(function (value) {
+return value;
+},
+function (error) {
+$window.alert(error);
+});
 
+return ressourceResultQuery;
+ */
 productConstructionApp.factory('ProductConstructionService', function ($http, $rootScope, $q, $window, $resource) {
 
 	return {
 
 		fetchAllProductConstruction : function () {
-			var ressourceResultQuery = $resource('http://localhost:8083/factorymanagment/allProductConstruction/').query();
-
-			ressourceResultQuery.$promise.then(
-        //success
-        function( value ){
-		return value;
-		},
-        //error
-        function( error ){
-		$window.alert(error);
-		}
-      );
-			return ressourceResultQuery;
+			return $http
+			.get('http://localhost:8083/factorymanagment/allProductConstruction/')
+			.then(function (response) {
+				return response.data;
+			}, function (errResponse) {
+				console.error('Error while fetching users');
+				return $q.reject(errResponse);
+			});
 
 		},
 
@@ -25,7 +30,7 @@ productConstructionApp.factory('ProductConstructionService', function ($http, $r
 			var productConstructionToSend = {
 
 				"id" : productConstruction.id,
-				"productId" : productConstruction.product.id,
+				"relatedProductName" : productConstruction.relatedProductName,
 				"productDuration" : productConstruction.productDuration
 
 			};
@@ -46,10 +51,10 @@ productConstructionApp.factory('ProductConstructionService', function ($http, $r
 		},
 
 		updateProductConstruction : function (productConstruction) {
-			var productConstructionToSend = {
+		var productConstructionToSend = {
 
 				"id" : productConstruction.id,
-				"productId" : productConstruction.product.id,
+				"relatedProductName" : productConstruction.relatedProductName,
 				"productDuration" : productConstruction.productDuration
 
 			};
@@ -65,10 +70,10 @@ productConstructionApp.factory('ProductConstructionService', function ($http, $r
 		},
 
 		deleteProductConstruction : function (productConstruction) {
-			var productConstructionToSend = {
+		var productConstructionToSend = {
 
 				"id" : productConstruction.id,
-				"productId" : productConstruction.product.id,
+				"relatedProductName" : productConstruction.relatedProductName,
 				"productDuration" : productConstruction.productDuration
 
 			};

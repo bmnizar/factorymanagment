@@ -1,59 +1,98 @@
 'use strict';
-productConstructionApp.controller('ProductConstructionCtrl', function ($scope, ProductConstructionService, $rootScope, $filter, NgTableParams, $resource, $log) {
+productConstructionApp
+.controller(
+	'ProductConstructionCtrl',
+	function ($scope, ProductConstructionService, $rootScope, UserService,
+		$filter, NgTableParams, $resource, $log, $uibModal,$uibModalStack) {
 
 	var self = this;
-	
-	self.listOfProductConstruction = [];
-	var product = {
+	self.selectedproductConstruction = '';
+	self.listOfProducts = [];
 
-			"id" : '',
-			"refProduct" : '',
-			"nameProduct" : '',
-			"priceProduct" : '',
-			"category" : ''
-		};
 	var productConstruction = {
 
 		"id" : '',
-		"productId" : product.id,	
+		"relatedProductName" : '',
+		"relatedProductReference" : '',
 		"productDuration" : ''
-	
-	};
 
-	self.fetchAllProductConstruction= function () {
+	};
+	self.fetchAllProducts = function () {
+		UserService
+		.fetchAllProducts()
+		.then(
+			function (
+				dataFromServer) {
+			self.listOfProducts = dataFromServer;
+		},
+			function (errResponse) {
+			window.alert(errResponse);
+			console
+			.error('Error while fetching Currencies');
+		});
+	};
+	self.fetchAllProductConstruction = function () {
 
 		ProductConstructionService
 		.fetchAllProductConstruction()
 		.then(
-			function (allProductsConstructionFromServer) {
+			function (
+				allProductsConstructionFromServer) {
 
-			self.product = allProductsConstructionFromServer;
-			$scope.productConstructionTableTableParams = new   NgTableParams({
-					page : 1, // show first page
-					count : 5, // count per page
+			$scope.productConstructionTableTableParams = new NgTableParams({
+					page : 1, // show
+					// first
+					// page
+					count : 5, // count per
+					// page
 					sorting : {
-						refProduct : 'asc' // initial sorting
+						relatedProductName : 'asc' // initial
+						// sorting
 					},
 					filter : {
-						refProduct : '' // initial filter
+						relatedProductName : '',
+						relatedProductReference : ''
+
 					}
 				}, {
-					total : allProductsConstructionFromServer.length, // length of data
-					getData : function ($defer, params) {
-						// use build-in angular filter
-						var isFilter = params.filter();
-						var filteredData = isFilter ?
-							$filter('filter')(allProductsConstructionFromServer, isFilter) :
-							allProductsFromServer;
-						var oderByy = params.orderBy();
-						var isSorting = params.sorting();
-						var orderedData = isSorting ?
-							$filter('orderBy')(filteredData, oderByy) : filteredData;
+					total : allProductsConstructionFromServer.length,
 
-						$defer.resolve(orderedData.slice((params.page() - 1) * params.count(), params.page() * params.count()));
+					getData : function (
+						$defer, params) {
+
+						var isFilter = params
+							.filter();
+						var filteredData = isFilter ? $filter(
+								'filter')
+							(
+								allProductsConstructionFromServer,
+								isFilter)
+							 : allProductsFromServer;
+						var oderByy = params
+							.orderBy();
+						var isSorting = params
+							.sorting();
+						var orderedData = isSorting ? $filter(
+								'orderBy')
+							(
+								filteredData,
+								oderByy)
+							 : filteredData;
+
+						$defer
+						.resolve(orderedData
+							.slice(
+								(params
+									.page() - 1)
+								 * params
+								.count(),
+								params
+								.page()
+								 * params
+								.count()));
 					}
 				});
-			
+
 		},
 			function (errResponse) {
 			window.alert(errResponse);
@@ -67,15 +106,24 @@ productConstructionApp.controller('ProductConstructionCtrl', function ($scope, P
 				animation : true,
 				templateUrl : 'editProductConstructionContent',
 				controller : 'EditProductConstructionModalCtrl',
-				controllerAs : 'EditProductConstructionModalCtrl', // as modal so no need to use in modal template
+				controllerAs : 'EditProductConstructionModalCtrl', // as
+				// modal
+				// so
+				// no
+				// need
+				// to
+				// use
+				// in
+				// modal
+				// template
 				resolve : {
 					items : function () {
-				
+
 						return $scope.items;
 					},
-					parent : function () { // pass self object as a parent to 'ModalCtrl'
-					
-					
+					parent : function () { // pass self object as a
+						// parent to 'ModalCtrl'
+
 						return self;
 					}
 				}
@@ -88,25 +136,40 @@ productConstructionApp.controller('ProductConstructionCtrl', function ($scope, P
 			$log.info('Modal dismissed at: ' + new Date());
 		});
 	};
-	
-	
-	
-	
-	
-	// Open Modal Button Delete
-	self.openDeleteProductConstruction = function (selectedProductConstructionToDelete) {
 
-		var modalInstance = $uibModal.open({
+	// Open Modal Button Delete
+	self.triggerSelectedProductConstruction = function (
+		productConstruction) {
+		 var newProductConstruction= angular.copy(productConstruction);
+		self.selectedproductConstruction = newProductConstruction;
+	};
+
+	// Open Modal Button Delete
+	self.openDeleteProductConstruction = function (
+		selectedProductConstructionToDelete) {
+
+		var modalInstance = $uibModal
+			.open({
 				animation : true,
 				templateUrl : 'deleteProductConstructionContent',
 				controller : 'DeleteProductConstructionModalCtrl',
-				controllerAs : 'DeleteProductConstructionModalCtrl', // as modal so no need to use in
+				controllerAs : 'DeleteProductConstructionModalCtrl', // as
+				// modal
+				// so
+				// no
+				// need
+				// to
+				// use
+				// in
 				// modal template
 				resolve : {
 					selectedProductConstructionToDelete : function () {
 						return selectedProductConstructionToDelete;
 					},
-					parent : function () { // pass self object as a parent to 'ModalCtrl'
+					parent : function () { // pass self
+						// object as a
+						// parent to
+						// 'ModalCtrl'
 						return self;
 					}
 
@@ -120,37 +183,37 @@ productConstructionApp.controller('ProductConstructionCtrl', function ($scope, P
 		});
 	};
 
-	self.deleteProductConstruction = function (productConstruction) {
+	self.deleteProductConstruction = function (
+		) {
 
-		ProductConstructionService.deleteProductConstruction(productConstruction);
+		ProductConstructionService
+		.deleteProductConstruction(self.selectedproductConstruction);
 		$uibModalStack.dismissAll();
-		$rootScope.$on('deleteProductConstructionWithSuccess', function (event,
-				data) {
-
+		$rootScope.$on('deleteProductConstructionWithSuccess',
+			function (event, data) {
+$uibModalStack.dismissAll();
 			self.fetchAllProductConstruction();
 
 		});
 	};
 	self.cancelProductConstruction = function () {
 
-
 		$uibModalStack.dismissAll();
-	
+
 	};
-	
-	
-	
+
 	self.addProductConstruction = function (productConstruction) {
-		ProductConstructionService.saveProductConstruction(productConstruction)
+		ProductConstructionService
+		.saveProductConstruction(productConstruction)
 		$log.log("saving product");
 
-		$rootScope.$on('saveProductConstructionWithSuccess', function (event,
-				data) {
+		$rootScope.$on('saveProductConstructionWithSuccess',
+			function (event, data) {
 
 			self.fetchAllProductConstruction();
 		});
 	};
-
-	//self.fetchAllProductConstruction();
+	self.fetchAllProducts();
+	self.fetchAllProductConstruction();
 
 });

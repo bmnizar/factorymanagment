@@ -13,8 +13,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import com.directory.appConfig.ApplicationRole;
+import com.factorymanagement.appConfig.ApplicationRole;
 import com.factorymanagement.dao.ProductConstructionOperationDAO;
+import com.factorymanagement.dao.ProductOperation;
 import com.factorymanagement.model.Product;
 import com.factorymanagement.model.ProductConstruction;
 import com.factorymanagement.model.User;
@@ -24,10 +25,20 @@ public class ProductConstructionRest {
 
 	@Autowired
 	ProductConstructionOperationDAO productConstructionOperationDAO;
+	@Autowired
+	ProductOperation productOperation;
 
-	@RequestMapping(value = "/allProductConstruction/", method = RequestMethod.GET) 
-	public ResponseEntity<List<ProductConstruction>> getAllProductConstructions() {  
+	@RequestMapping(value = "/allProductConstruction/", method = RequestMethod.GET)
+	public ResponseEntity<List<ProductConstruction>> getAllProductConstructions() {
 		List<ProductConstruction> listProductConstruction = productConstructionOperationDAO.getAllProductConstruction();
+		for (ProductConstruction productConstruction : listProductConstruction) {
+			Product relatedProduct = productConstruction.getRelatedProduct();
+			String relatedProductName = relatedProduct.getNameProduct();
+			String relatedProductReference = relatedProduct.getRefProduct();  
+			productConstruction.setRelatedProductName(relatedProductName);
+			productConstruction.setRelatedProductReference(relatedProductReference);
+			 
+		}
 		if (listProductConstruction.isEmpty()) {
 			return new ResponseEntity<List<ProductConstruction>>(HttpStatus.NO_CONTENT);
 
@@ -40,7 +51,10 @@ public class ProductConstructionRest {
 	public ResponseEntity<Void> updateProductConstruction(@RequestBody ProductConstruction productConstruction,
 			UriComponentsBuilder ucBuilder) {
 		System.out.println("Updating productConstruction ");
-		// User user = new User();
+	
+		String relatedProductName = productConstruction.getRelatedProductName();
+		Product relatedProduct = productOperation.findProductByName(relatedProductName);
+		productConstruction.setRelatedProduct(relatedProduct);
 		productConstructionOperationDAO.saveProductConstruction(productConstruction);
 
 		HttpHeaders headers = new HttpHeaders();
@@ -56,10 +70,13 @@ public class ProductConstructionRest {
 			UriComponentsBuilder ucBuilder) {
 		System.out.println("Creating productConstruction ");
 		// User user = new User();
+		String relatedProductName = productConstruction.getRelatedProductName();
+		Product relatedProduct = productOperation.findProductByName(relatedProductName);
+		productConstruction.setRelatedProduct(relatedProduct);
 		productConstructionOperationDAO.saveProductConstruction(productConstruction);
 
 		HttpHeaders headers = new HttpHeaders();
-		headers.setLocation(ucBuilder.path("/updateProductConstruction/{productConstruction}")
+		headers.setLocation(ucBuilder.path("/createProductConstruction/{productConstruction}")
 				.buildAndExpand(productConstruction.getId()).toUri());
 		return new ResponseEntity<Void>(headers, HttpStatus.CREATED);
 
@@ -69,7 +86,9 @@ public class ProductConstructionRest {
 			"application/json;charset=UTF-8;text/html" })
 	public ResponseEntity<User> deleteUser(@RequestBody ProductConstruction productConstruction) {
 		System.out.println("Deleting productConstruction ");
-
+		String relatedProductName = productConstruction.getRelatedProductName();
+		Product relatedProduct = productOperation.findProductByName(relatedProductName);
+		productConstruction.setRelatedProduct(relatedProduct);
 		productConstructionOperationDAO.deleteProductConstruction(productConstruction);
 
 		return new ResponseEntity<User>(HttpStatus.NO_CONTENT);
