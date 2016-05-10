@@ -14,6 +14,14 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class MainFrontController {
+	
+	@RequestMapping(value = { "/SchedularModalContent" }, method = RequestMethod.GET)
+	public ModelAndView schedularModalContent() {
+		System.out.println();
+		ModelAndView model = new ModelAndView();     
+		model.setViewName("SchedularModalContent");
+		return model;
+	}
 	@RequestMapping(value = { "/Planification" }, method = RequestMethod.GET)
 	public ModelAndView schedularCalendar() {
 		System.out.println();
@@ -35,11 +43,11 @@ public class MainFrontController {
 		model.setViewName("PagePrincipaleResponsableProduction");
 		return model;
 	}
-	@RequestMapping(value = { "/FicheProduit" }, method = RequestMethod.GET)
+	@RequestMapping(value = { "/FicheProduitFabrication" }, method = RequestMethod.GET)
 	public ModelAndView productConstructionList() {
 		System.out.println();
 		ModelAndView model = new ModelAndView();
-		model.setViewName("FicheProduit");
+		model.setViewName("FicheProduitFabrication");
 		return model;
 	}
 	@RequestMapping(value = { "/addProduct" }, method = RequestMethod.GET)

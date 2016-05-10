@@ -24,6 +24,10 @@ public class ProductConstruction implements Serializable {
 	@JsonSerialize
 	@JsonDeserialize
 	private String relatedProductName;
+	@Transient
+	@JsonSerialize
+	@JsonDeserialize
+	private String relatedProductReference;
 	@OneToOne
 	private Product relatedProduct;
 
@@ -59,6 +63,14 @@ public class ProductConstruction implements Serializable {
 
 	public void setRelatedProductName(String relatedProductName) {
 		this.relatedProductName = relatedProductName;
+	}
+
+	public String getRelatedProductReference() {
+		return relatedProductReference;
+	}
+
+	public void setRelatedProductReference(String relatedProductReference) {
+		this.relatedProductReference = relatedProductReference;
 	}
 
 }

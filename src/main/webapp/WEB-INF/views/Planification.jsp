@@ -9,32 +9,49 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- Style CSS Bootstrap -->
-  <link rel="stylesheet" href="http://angular-ui.github.io/ui-calendar/bower_components/bootstrap-css/css/bootstrap.css" />
-    <link rel="stylesheet" href="http://angular-ui.github.io/ui-calendar/bower_components/fullcalendar/dist/fullcalendar.css">
-   
-   
-   <script src="http://angular-ui.github.io/ui-calendar/bower_components/jquery/dist/jquery.js"></script>
-<script src="http://angular-ui.github.io/ui-calendar/bower_components/angular/angular.js"></script>
-<script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.9.0.js"></script>
-<script src="http://angular-ui.github.io/ui-calendar/bower_components/moment/moment.js"></script>
-    <script src="http://angular-ui.github.io/ui-calendar/bower_components/fullcalendar/dist/fullcalendar.js"></script>
-    <script src="http://angular-ui.github.io/ui-calendar/bower_components/fullcalendar/dist/gcal.js"></script>
-	<script src="http://angular-ui.github.io/ui-calendar/src/calendar.js"></script>
+<link rel="stylesheet"
+	href="http://angular-ui.github.io/ui-calendar/bower_components/bootstrap-css/css/bootstrap.css" />
+<link rel="stylesheet"
+	href="http://angular-ui.github.io/ui-calendar/bower_components/fullcalendar/dist/fullcalendar.css">
+<link
+	href="http://mattlewis92.github.io/angular-bootstrap-calendar/dist/css/angular-bootstrap-calendar.css"
+	rel="stylesheet">
+<script
+	src="http://cdnjs.cloudflare.com/ajax/libs/interact.js/1.2.4/interact.js"></script>
 
+<script
+	src="http://angular-ui.github.io/ui-calendar/bower_components/jquery/dist/jquery.js"></script>
+<script
+	src="http://angular-ui.github.io/ui-calendar/bower_components/angular/angular.js"></script>
+<script
+	src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.9.0.js"></script>
+<script
+	src="http://angular-ui.github.io/ui-calendar/bower_components/moment/moment.js"></script>
+<script
+	src="http://angular-ui.github.io/ui-calendar/bower_components/fullcalendar/dist/fullcalendar.js"></script>
+<script
+	src="http://angular-ui.github.io/ui-calendar/bower_components/fullcalendar/dist/gcal.js"></script>
+<script src="http://angular-ui.github.io/ui-calendar/src/calendar.js"></script>
+<script
+	src="http://mattlewis92.github.io/angular-bootstrap-calendar/dist/js/angular-bootstrap-calendar-tpls.js"></script>
 
-	<script src="scripts/angular-animate.js"></script>
+<script src="scripts/angular-animate.js"></script>
 <script src="scripts/angular-aria.js"></script>
 <script src="scripts/angular-messages.js"></script>
 
-<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-route.js"></script>
-<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-resource.js"></script>
+<script
+	src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-route.js"></script>
+<script
+	src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-resource.js"></script>
 <script src="scripts/angular-cookies.js"></script>
-<script  src = "https://rawgit.com/esvit/ng-table/master/dist/ng-table.js" > </script >
+<script src="https://rawgit.com/esvit/ng-table/master/dist/ng-table.js">
+	
+</script>
 <script src="scripts/bootbox.js"></script>
+<script src="scripts/SchedularHelper.js"></script>
 
-
-   <script src="scripts/SchedularCalendarApp.js"></script>
-     <script src="scripts/SchedularCalendarCtrl.js"></script>
+<script src="scripts/SchedularCalendarApp.js"></script>
+<script src="scripts/SchedularCalendarCtrl.js"></script>
 
 <link rel="stylesheet" href="css/style.css">
 
@@ -43,12 +60,12 @@
 
 <title>Zollner |Service Commande</title>
 
-<link rel="stylesheet" href="css/style.css">
+
 </head>
 <body ng-app="SchedularCalendarApp">
 
 
-<div ng-controller="schedularCalendarCtrl">
+	<div ng-controller="schedularCalendarCtrl">
 
 		<nav class="navbar navbar navbar-static"
 			style="background-color: #BBD2E1;" role="navigation">
@@ -66,8 +83,7 @@
 							class="icon-bar"></span>
 					</button>
 				</div>
-				<br>
-				<br> <img
+				<br> <br> <img
 					style="float: left; margin-left: -1%; margin-right: 0%;"
 					src='images/images.png' width="50px" height="50px" />
 				<div class="navbar-collapse collapse">
@@ -93,13 +109,183 @@
 
 
 
-			<!--------------------------------------------------------------Calendar------------------------------------------------------------->
-		<div ui-calendar="uiConfig.calendar" class="span8 calendar" 
-			ng-model="eventSources"></div> 
-			
+			<!--------------------------------------------------------------Start of Calendar------------------------------------------------------------->
+		<h2 class="text-center">{{ vm.calendarTitle }}</h2>
 
-</div>
+  <div class="row">
+
+    <div class="col-md-6 text-center">
+      <div class="btn-group">
+
+        <button
+          class="btn btn-primary"
+          mwl-date-modifier
+          date="vm.viewDate"
+          decrement="vm.calendarView">
+          Previous
+        </button>
+        <button
+          class="btn btn-default"
+          mwl-date-modifier
+          date="vm.viewDate"
+          set-to-today>
+          Today
+        </button>
+        <button
+          class="btn btn-primary"
+          mwl-date-modifier
+          date="vm.viewDate"
+          increment="vm.calendarView">
+          Next
+        </button>
+      </div>
+    </div>
+
+    <br class="visible-xs visible-sm">
+
+    <div class="col-md-6 text-center">
+      <div class="btn-group">
+        <label class="btn btn-primary" ng-model="vm.calendarView" uib-btn-radio="'year'">Year</label>
+        <label class="btn btn-primary" ng-model="vm.calendarView" uib-btn-radio="'month'">Month</label>
+        <label class="btn btn-primary" ng-model="vm.calendarView" uib-btn-radio="'week'">Week</label>
+        <label class="btn btn-primary" ng-model="vm.calendarView" uib-btn-radio="'day'">Day</label>
+      </div>
+    </div>
+
+  </div>
+
+  <br>
+
+  <mwl-calendar
+    events="vm.events"
+    view="vm.calendarView"
+    view-title="vm.calendarTitle"
+    view-date="vm.viewDate"
+    on-event-click="vm.eventClicked(calendarEvent)"
+    on-event-times-changed="vm.eventTimesChanged(calendarEvent); calendarEvent.startsAt = calendarNewEventStart; calendarEvent.endsAt = calendarNewEventEnd"
+    edit-event-html="'<i class=\'glyphicon glyphicon-pencil\'></i>'"
+    delete-event-html="'<i class=\'glyphicon glyphicon-remove\'></i>'"
+    on-edit-event-click="vm.eventEdited(calendarEvent)"
+    on-delete-event-click="vm.eventDeleted(calendarEvent)"
+    cell-is-open="vm.isCellOpen"
+    day-view-start="06:00"
+    day-view-end="22:00"
+    day-view-split="30"
+    cell-modifier="vm.modifyCell(calendarCell)">
+  </mwl-calendar>
+
+  <br><br><br>
+
+  <h3 id="event-editor">
+    Edit events
+    <button
+      class="btn btn-primary pull-right"
+      ng-click="vm.events.push({title: 'New event', type: 'important', draggable: true, resizable: true})">
+      Add new
+    </button>
+    <div class="clearfix"></div>
+  </h3>
+
+  <table class="table table-bordered">
+
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Type</th>
+        <th>Starts at</th>
+        <th>Ends at</th>
+        <th>Remove</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr ng-repeat="event in vm.events track by $index">
+        <td>
+          <input
+            type="text"
+            class="form-control"
+            ng-model="event.title">
+        </td>
+        <td>
+          <select ng-model="event.type" class="form-control">
+            <option value="important">Important</option>
+            <option value="warning">Warning</option>
+            <option value="info">Info</option>
+            <option value="inverse">Inverse</option>
+            <option value="success">Success</option>
+            <option value="special">Special</option>
+          </select>
+        </td>
+        <td>
+          <p class="input-group" style="max-width: 250px">
+            <input
+              type="text"
+              class="form-control"
+              readonly
+              uib-datepicker-popup="dd MMMM yyyy"
+              ng-model="event.startsAt"
+              is-open="event.startOpen"
+              close-text="Close" >
+            <span class="input-group-btn">
+              <button
+                type="button"
+                class="btn btn-default"
+                ng-click="vm.toggle($event, 'startOpen', event)">
+                <i class="glyphicon glyphicon-calendar"></i>
+              </button>
+            </span>
+          </p>
+          <uib-timepicker
+            ng-model="event.startsAt"
+            hour-step="1"
+            minute-step="15"
+            show-meridian="true">
+          </uib-timepicker>
+        </td>
+        <td>
+          <p class="input-group" style="max-width: 250px">
+            <input
+              type="text"
+              class="form-control"
+              readonly
+              uib-datepicker-popup="dd MMMM yyyy"
+              ng-model="event.endsAt"
+              is-open="event.endOpen"
+              close-text="Close">
+            <span class="input-group-btn">
+              <button
+                type="button"
+                class="btn btn-default"
+                ng-click="vm.toggle($event, 'endOpen', event)">
+                <i class="glyphicon glyphicon-calendar"></i>
+              </button>
+            </span>
+          </p>
+          <uib-timepicker
+            ng-model="event.endsAt"
+            hour-step="1"
+            minute-step="15"
+            show-meridian="true">
+          </uib-timepicker>
+        </td>
+        <td>
+          <button
+            class="btn btn-danger"
+            ng-click="vm.events.splice($index, 1)">
+            Delete
+          </button>
+        </td>
+      </tr>
+    </tbody>
+
+  </table>
+				
+			<!--------------------------------------------------------------End of Calendar------------------------------------------------------------->
+				
+
+
 		</div>
-		
+	</div>
+
 </body>
 </html>

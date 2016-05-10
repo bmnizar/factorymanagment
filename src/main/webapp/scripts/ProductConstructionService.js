@@ -51,10 +51,10 @@ productConstructionApp.factory('ProductConstructionService', function ($http, $r
 		},
 
 		updateProductConstruction : function (productConstruction) {
-			var productConstructionToSend = {
+		var productConstructionToSend = {
 
 				"id" : productConstruction.id,
-				"productId" : productConstruction.product.id,
+				"relatedProductName" : productConstruction.relatedProductName,
 				"productDuration" : productConstruction.productDuration
 
 			};
@@ -70,10 +70,10 @@ productConstructionApp.factory('ProductConstructionService', function ($http, $r
 		},
 
 		deleteProductConstruction : function (productConstruction) {
-			var productConstructionToSend = {
+		var productConstructionToSend = {
 
 				"id" : productConstruction.id,
-				"productId" : productConstruction.product.id,
+				"relatedProductName" : productConstruction.relatedProductName,
 				"productDuration" : productConstruction.productDuration
 
 			};

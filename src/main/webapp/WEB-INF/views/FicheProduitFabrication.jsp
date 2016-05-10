@@ -64,8 +64,7 @@
 							class="icon-bar"></span>
 					</button>
 				</div>
-				<br>
-				<br> <img
+				<br> <br> <img
 					style="float: left; margin-left: -1%; margin-right: 0%;"
 					src='images/images.png' width="50px" height="50px" />
 				<div class="navbar-collapse collapse">
@@ -159,7 +158,70 @@
 			</div>
 		</div>
 		<div class="col-md-8">
+<div class="modal fade" id="updateProductConstructionModalId"
+				role="dialog" aria-labelledby="ajoute" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal"
+								aria-hidden="true">
+								<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+							</button>
+							<h4 class="modal-title custom_align"
+								style="font-size: 25px; color: black;" id="Heading">
+								<span class="glyphicon glyphicon-saved"></span> Modification Fabrique Produit
+							</h4>
+						</div>
+						<div class="modal-body">
+							<form role="form">
+								<div class="form-group">
+									<!-- Name field -->
+									<label class="control-label " for="name">Nom de Produit</label>
+									<select name="singleSelect"
+										ng-model="ctrl.productConstruction.relatedProductName">
+										<option ng-repeat="option in ctrl.listOfProducts"
+											value="{{option.nameProduct}}">{{option.nameProduct}}</option>
+									</select>
+								</div>
 
+
+								<div class="form-group">
+									<!-- Email field -->
+									<label class="control-label " for="df">Durée de
+										Fabrication (unité)<span class="asteriskField">*</span>
+									</label> <input ng-model="ctrl.productConstruction.productDuration"
+										type="time" id="constructionTimeId" name="input"
+										ng-model="sample.value" placeholder="HH:mm:ss" min="06:00:00"
+										max="24:00:00" required />
+								</div>
+						</div>
+						<div class="modal-footer ">
+							<div class="form-group">
+
+								<button id="submit" value="Sauvegarder" style="float: left;"
+									type="button" class="btn col-md-6 btn-success"
+									ng-click="ctrl.addProductConstruction(ctrl.productConstruction)"
+									data-dismiss="modal">
+									<span class="glyphicon glyphicon-ok-sign"></span> Enregistrer
+								</button>
+								<button name="closeSaveProductConstructionId" id="submit"
+									value="Annuler" type="button" class="btn col-xs-5 btn-warning"
+									style="float: center;" data-dismiss="modal">
+									<span class="glyphicon glyphicon-remove"></span> Annuler
+								</button>
+
+							</div>
+
+						</div>
+						</form>
+						<!-- /.modal-content -->
+					</div>
+					<!-- /.modal-dialog -->
+				</div>
+
+
+
+			</div>
 			<div class="modal fade" id="createProductConstructionModalId"
 				role="dialog" aria-labelledby="ajoute" aria-hidden="true">
 				<div class="modal-dialog">
@@ -243,40 +305,32 @@
 							id="productConstructionTable" class="table table-bordered"
 							show-filter="true">
 
-							<thead>
-								<tr>
-									<th>Nom de produit</th>
-									<th>Réference de produit</th>
-									<th>Durée de Fabrication</th>
-									<th>Modifier</th>
-									<th>Supprimer</th>
-								</tr>
-							</thead>
+						
 							<tbody>
 								<tr ng-repeat="productConstruction in $data">
-									<td data-title="'id'" sortable="'id'"><span
-										ng-bind="productConstruction.id"></span></td>
-									<td sortable="'refProduct'"><span
-										ng-bind="productConstruction.product.refProduct"></span></td>
-									<td sortable="'nameProduct'"><span
-										ng-bind="productConstruction.product.nameProduct"></span></td>
-									<td sortable="'productDuration'"><span
+
+
+									<td  data-title="'Nom de produit'" sortable="'relatedProductName'"  filter="{relatedProductName: 'text'}" ><span
+										ng-bind="productConstruction.relatedProductName"></span></td>
+									<td data-title="'Reference de produit'" filter="{relatedProductReference: 'text'}" sortable="'relatedProductReference'"><span
+										ng-bind="productConstruction.relatedProductReference"></span></td>
+									<td  data-title="'duree de fabrication'"  filter="{productDuration: 'text'}" sortable="'productDuration'"><span
 										ng-bind="productConstruction.productDuration"></span></td>
 
 									<td><p data-placement="top" data-toggle="tooltip"
 											title="Edit">
-											<button class="btn btn-primary btn center-block"
-												ng-click="ctrl.openEditProductConstruction(productConstruction)"
-												data-title="Edit" data-toggle="modal" data-target="#edit">
+											<button class="btn btn-primary btn center-block" "showUpdateProductConstructionModalId"
+												
+												data-title="Edit" data-toggle="modal" data-target="#updateProductConstructionModalId" xx>
 												<span class="glyphicon glyphicon-pencil"></span>
 											</button>
 										</p></td>
 									<td><p data-placement="top" data-toggle="tooltip"
 											title="Delete">
-											<button class="btn btn-danger btn center-block"
-												ng-click="ctrl.openDeleteProductConstruction(productConstruction)"
+											<button class="btn btn-danger btn center-block" id="showDeleteProductConstructionModalId" ng-click="ctrl.tigerSelectedProductConstruction(productConstruction)"
+												
 												data-title="Delete" data-toggle="modal"
-												data-target="#delete">
+												data-target="#deleteProductConstructionModalId">
 												<span class="glyphicon glyphicon-trash"></span>
 											</button>
 										</p></td>
@@ -325,7 +379,7 @@
 
 
 
-						<div class="modal fade" id="delete" tabindex="-1" role="dialog"
+						<div class="modal fade" id="deleteProductConstructionModalId" tabindex="-1" role="dialog"
 							aria-labelledby="edit" aria-hidden="true">
 							<div class="modal-dialog">
 								<div class="modal-content">
@@ -335,7 +389,7 @@
 											<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
 										</button>
 										<h4 class="modal-title custom_align" id="Heading">Supprimer
-											Produit</h4>
+											Fabrique Produit</h4>
 									</div>
 									<div class="modal-body">
 
@@ -346,10 +400,10 @@
 
 									</div>
 									<div class="modal-footer ">
-										<button type="button" class="btn btn-success">
+										<button type="button" class="btn btn-success" id="confirmDeleteProductConstructionButton" data-dismiss="modal" ng-click="ctrl.deleteProductConstruction()">
 											<span class="glyphicon glyphicon-ok-sign"></span> Oui
 										</button>
-										<button type="button" class="btn btn-default"
+										<button type="button" class="btn btn-default" id="hideDeleteProductConstructionModalId"
 											data-dismiss="modal">
 											<span class="glyphicon glyphicon-remove"></span> Non
 										</button>
@@ -364,6 +418,26 @@
 		</div>
 	</div>
 	<script>
+		$(document).ready(function() {
+			$("#confirmDeleteProductConstructionButton").click(function() {
+				$("#deleteProductConstructionModalId").modal('hide');
+			});
+		});
+	$(document).ready(function() {
+			$("#hideDeleteProductConstructionModalId").click(function() {
+				$("#deleteProductConstructionModalId").modal('hide');
+			});
+		});
+		$(document).ready(function() {
+			$("#showUpdateProductConstructionModalId").click(function() {
+				$("#updateProductConstructionModalId").modal('show');
+			});
+		});
+	$(document).ready(function() {
+			$("#showDeleteProductConstructionModalId").click(function() {
+				$("#deleteProductConstructionModalId").modal('show');
+			});
+		});
 		$(document).ready(function() {
 			$("#closeSaveProductConstructionId").click(function() {
 				$("#createProductConstructionModalId").modal('hide');

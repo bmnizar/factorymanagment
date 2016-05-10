@@ -32,8 +32,12 @@ public class ProductConstructionRest {
 	public ResponseEntity<List<ProductConstruction>> getAllProductConstructions() {
 		List<ProductConstruction> listProductConstruction = productConstructionOperationDAO.getAllProductConstruction();
 		for (ProductConstruction productConstruction : listProductConstruction) {
-			String relatedProductName = productConstruction.getRelatedProductName();
+			Product relatedProduct = productConstruction.getRelatedProduct();
+			String relatedProductName = relatedProduct.getNameProduct();
+			String relatedProductReference = relatedProduct.getRefProduct();  
 			productConstruction.setRelatedProductName(relatedProductName);
+			productConstruction.setRelatedProductReference(relatedProductReference);
+			 
 		}
 		if (listProductConstruction.isEmpty()) {
 			return new ResponseEntity<List<ProductConstruction>>(HttpStatus.NO_CONTENT);

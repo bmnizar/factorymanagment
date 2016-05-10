@@ -3,27 +3,27 @@ productConstructionApp
 .controller(
 	'ProductConstructionCtrl',
 	function ($scope, ProductConstructionService, $rootScope, UserService,
-		$filter, NgTableParams, $resource, $log) {
+		$filter, NgTableParams, $resource, $log, $uibModal,$uibModalStack) {
 
 	var self = this;
-
+	self.selectedproductConstruction = '';
 	self.listOfProducts = [];
-	self.listOfProductConstruction = [];
 
 	var productConstruction = {
 
 		"id" : '',
 		"relatedProductName" : '',
+		"relatedProductReference" : '',
 		"productDuration" : ''
 
 	};
-	self.fetchAllProducts= function () {
+	self.fetchAllProducts = function () {
 		UserService
 		.fetchAllProducts()
 		.then(
 			function (
 				dataFromServer) {
-			self.listOfProducts=dataFromServer;
+			self.listOfProducts = dataFromServer;
 		},
 			function (errResponse) {
 			window.alert(errResponse);
@@ -39,7 +39,6 @@ productConstructionApp
 			function (
 				allProductsConstructionFromServer) {
 
-			self.product = allProductsConstructionFromServer;
 			$scope.productConstructionTableTableParams = new NgTableParams({
 					page : 1, // show
 					// first
@@ -47,21 +46,20 @@ productConstructionApp
 					count : 5, // count per
 					// page
 					sorting : {
-						refProduct : 'asc' // initial
+						relatedProductName : 'asc' // initial
 						// sorting
 					},
 					filter : {
-						refProduct : '' // initial
-						// filter
+						relatedProductName : '',
+						relatedProductReference : ''
+
 					}
 				}, {
-					total : allProductsConstructionFromServer.length, // length
-					// of
-					// data
+					total : allProductsConstructionFromServer.length,
+
 					getData : function (
 						$defer, params) {
-						// use build-in
-						// angular filter
+
 						var isFilter = params
 							.filter();
 						var filteredData = isFilter ? $filter(
@@ -140,6 +138,12 @@ productConstructionApp
 	};
 
 	// Open Modal Button Delete
+	self.tigerSelectedProductConstruction = function (
+		productConstruction) {
+		self.selectedproductConstruction = productConstruction;
+	};
+
+	// Open Modal Button Delete
 	self.openDeleteProductConstruction = function (
 		selectedProductConstructionToDelete) {
 
@@ -179,14 +183,14 @@ productConstructionApp
 	};
 
 	self.deleteProductConstruction = function (
-		productConstruction) {
+		) {
 
 		ProductConstructionService
-		.deleteProductConstruction(productConstruction);
+		.deleteProductConstruction(self.selectedproductConstruction);
 		$uibModalStack.dismissAll();
 		$rootScope.$on('deleteProductConstructionWithSuccess',
 			function (event, data) {
-
+$uibModalStack.dismissAll();
 			self.fetchAllProductConstruction();
 
 		});
@@ -208,7 +212,7 @@ productConstructionApp
 			self.fetchAllProductConstruction();
 		});
 	};
-self.fetchAllProducts();
-	 self.fetchAllProductConstruction();
+	self.fetchAllProducts();
+	self.fetchAllProductConstruction();
 
 });
