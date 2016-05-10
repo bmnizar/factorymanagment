@@ -2,7 +2,7 @@
 SchedularCalendarApp
 		.controller(
 				'schedularCalendarCtrl',
-				function($scope, $rootScope, $filter, $resource, $log,
+				function($scope, $rootScope, $filter, $log,
 						$compile, moment, alert) {
 
 

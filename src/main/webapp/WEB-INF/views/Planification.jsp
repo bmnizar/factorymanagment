@@ -8,52 +8,24 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- Style CSS Bootstrap -->
-<link rel="stylesheet"
-	href="http://angular-ui.github.io/ui-calendar/bower_components/bootstrap-css/css/bootstrap.css" />
-<link rel="stylesheet"
-	href="http://angular-ui.github.io/ui-calendar/bower_components/fullcalendar/dist/fullcalendar.css">
-<link
-	href="http://mattlewis92.github.io/angular-bootstrap-calendar/dist/css/angular-bootstrap-calendar.css"
-	rel="stylesheet">
-<script
-	src="http://cdnjs.cloudflare.com/ajax/libs/interact.js/1.2.4/interact.js"></script>
-
-<script
-	src="http://angular-ui.github.io/ui-calendar/bower_components/jquery/dist/jquery.js"></script>
-<script
-	src="http://angular-ui.github.io/ui-calendar/bower_components/angular/angular.js"></script>
-<script
-	src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.9.0.js"></script>
-<script
-	src="http://angular-ui.github.io/ui-calendar/bower_components/moment/moment.js"></script>
-<script
-	src="http://angular-ui.github.io/ui-calendar/bower_components/fullcalendar/dist/fullcalendar.js"></script>
-<script
-	src="http://angular-ui.github.io/ui-calendar/bower_components/fullcalendar/dist/gcal.js"></script>
-<script src="http://angular-ui.github.io/ui-calendar/src/calendar.js"></script>
-<script
-	src="http://mattlewis92.github.io/angular-bootstrap-calendar/dist/js/angular-bootstrap-calendar-tpls.js"></script>
-
-<script src="scripts/angular-animate.js"></script>
-<script src="scripts/angular-aria.js"></script>
-<script src="scripts/angular-messages.js"></script>
-
-<script
-	src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-route.js"></script>
-<script
-	src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-resource.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/interact.js/1.2.4/interact.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-animate.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.14.3/ui-bootstrap-tpls.min.js"></script>
+    <script src="http://mattlewis92.github.io/angular-bootstrap-calendar/dist/js/angular-bootstrap-calendar-tpls.min.js"></script>
+   
 <script src="scripts/angular-cookies.js"></script>
-<script src="https://rawgit.com/esvit/ng-table/master/dist/ng-table.js">
-	
-</script>
 <script src="scripts/bootbox.js"></script>
+<script src="scripts/SchedularCalendarApp.js"></script>
 <script src="scripts/SchedularHelper.js"></script>
 
-<script src="scripts/SchedularCalendarApp.js"></script>
+
 <script src="scripts/SchedularCalendarCtrl.js"></script>
 
 <link rel="stylesheet" href="css/style.css">
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://mattlewis92.github.io/angular-bootstrap-calendar/dist/css/angular-bootstrap-calendar.min.css" rel="stylesheet">
 
 
 
@@ -65,7 +37,7 @@
 <body ng-app="SchedularCalendarApp">
 
 
-	<div ng-controller="schedularCalendarCtrl">
+	<div ng-controller="schedularCalendarCtrl as vm">
 
 		<nav class="navbar navbar navbar-static"
 			style="background-color: #BBD2E1;" role="navigation">
@@ -90,7 +62,7 @@
 
 					<ul class="nav navbar-nav">
 						<li><a href="PagePrincipaleResponsableProduction.html">Commande</span></a></li>
-						<li><a href="CalculerDuréeFabrication.html"> Durée de
+						<li><a href="C.html"> Duree de
 								fabrication</a></li>
 						<li><a href="FicheProduit.html"> Fiche de production</a></li>
 						<li class="active"><a href="#">Planification</a></li>
@@ -100,7 +72,7 @@
 					<ul class="nav navbar-nav navbar-right">
 
 						<li><a href="PagePrincipale.html"><span
-								class="glyphicon glyphicon-log-out"></span>Déconnexion</a></li>
+								class="glyphicon glyphicon-log-out"></span>Dennexion</a></li>
 					</ul>
 				</div>
 			</div>

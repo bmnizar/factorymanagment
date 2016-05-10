@@ -178,7 +178,7 @@
 									<!-- Name field -->
 									<label class="control-label " for="name">Nom de Produit</label>
 									<select name="singleSelect"
-										ng-model="ctrl.productConstruction.relatedProductName">
+										ng-model="ctrl.selectedproductConstruction.relatedProductName">
 										<option ng-repeat="option in ctrl.listOfProducts"
 											value="{{option.nameProduct}}">{{option.nameProduct}}</option>
 									</select>
@@ -189,10 +189,10 @@
 									<!-- Email field -->
 									<label class="control-label " for="df">Durée de
 										Fabrication (unité)<span class="asteriskField">*</span>
-									</label> <input ng-model="ctrl.productConstruction.productDuration"
-										type="time" id="constructionTimeId" name="input"
-										ng-model="sample.value" placeholder="HH:mm:ss" min="06:00:00"
-										max="24:00:00" required />
+									</label> <input ng-model="ctrl.selectedproductConstruction.productDuration"
+										 id="constructionTimeId" name="input"
+									
+										 required />
 								</div>
 						</div>
 						<div class="modal-footer ">
@@ -200,7 +200,7 @@
 
 								<button id="submit" value="Sauvegarder" style="float: left;"
 									type="button" class="btn col-md-6 btn-success"
-									ng-click="ctrl.addProductConstruction(ctrl.productConstruction)"
+									ng-click="ctrl.addProductConstruction(ctrl.selectedproductConstruction)"
 									data-dismiss="modal">
 									<span class="glyphicon glyphicon-ok-sign"></span> Enregistrer
 								</button>
@@ -254,9 +254,9 @@
 									<label class="control-label " for="df">Durée de
 										Fabrication (unité)<span class="asteriskField">*</span>
 									</label> <input ng-model="ctrl.productConstruction.productDuration"
-										type="time" id="constructionTimeId" name="input"
-										ng-model="sample.value" placeholder="HH:mm:ss" min="06:00:00"
-										max="24:00:00" required />
+										id="constructionTimeId" name="input"
+										
+										 required />
 								</div>
 						</div>
 						<div class="modal-footer ">
@@ -320,14 +320,14 @@
 									<td><p data-placement="top" data-toggle="tooltip"
 											title="Edit">
 											<button class="btn btn-primary btn center-block" "showUpdateProductConstructionModalId"
-												
-												data-title="Edit" data-toggle="modal" data-target="#updateProductConstructionModalId" xx>
+												ng-click="ctrl.triggerSelectedProductConstruction(productConstruction)"
+												data-title="Edit" data-toggle="modal" data-target="#updateProductConstructionModalId" >
 												<span class="glyphicon glyphicon-pencil"></span>
 											</button>
 										</p></td>
 									<td><p data-placement="top" data-toggle="tooltip"
 											title="Delete">
-											<button class="btn btn-danger btn center-block" id="showDeleteProductConstructionModalId" ng-click="ctrl.tigerSelectedProductConstruction(productConstruction)"
+											<button class="btn btn-danger btn center-block" id="showDeleteProductConstructionModalId" ng-click="ctrl.triggerSelectedProductConstruction(productConstruction)"
 												
 												data-title="Delete" data-toggle="modal"
 												data-target="#deleteProductConstructionModalId">

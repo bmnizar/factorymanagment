@@ -138,9 +138,10 @@ productConstructionApp
 	};
 
 	// Open Modal Button Delete
-	self.tigerSelectedProductConstruction = function (
+	self.triggerSelectedProductConstruction = function (
 		productConstruction) {
-		self.selectedproductConstruction = productConstruction;
+		 var newProductConstruction= angular.copy(productConstruction);
+		self.selectedproductConstruction = newProductConstruction;
 	};
 
 	// Open Modal Button Delete
