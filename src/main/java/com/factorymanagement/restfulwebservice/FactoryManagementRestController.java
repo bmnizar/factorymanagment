@@ -40,15 +40,7 @@ public class FactoryManagementRestController {
 		return new ResponseEntity<List<User>>(users, HttpStatus.OK);
 	}
 
-	@RequestMapping(value = "/allProducts/", method = RequestMethod.GET)
-	public ResponseEntity<List<Product>> listAllProducts() {
-		List<Product> products = productOperation.getAllProducts();
-		if (products.isEmpty()) {
-			return new ResponseEntity<List<Product>>(HttpStatus.NO_CONTENT);
 
-		}
-		return new ResponseEntity<List<Product>>(products, HttpStatus.OK);
-	}
 
 	@RequestMapping(value = "/updateUser/", method = RequestMethod.POST, consumes = {
 			"application/json;charset=UTF-8;text/html" })
@@ -76,18 +68,7 @@ public class FactoryManagementRestController {
 
 	}
 
-	@RequestMapping(value = "/saveProduct/", method = RequestMethod.POST, consumes = {
-			"application/json;charset=UTF-8;text/html" })
-	public ResponseEntity<Void> saveProduct(@RequestBody Product product, UriComponentsBuilder ucBuilder) {
-		System.out.println("Creating Product " + product.getNameProduct());
-		// User user = new User();
-		productOperation.saveProduct(product);  
-
-		HttpHeaders headers = new HttpHeaders();
-		headers.setLocation(ucBuilder.path("/saveProduct/{product}").buildAndExpand(product.getRefProduct()).toUri());
-		return new ResponseEntity<Void>(headers, HttpStatus.CREATED);
-
-	}
+	
 
 	///////////////////////////// add enum Application Role///////////////
 	/*
@@ -106,7 +87,27 @@ public class FactoryManagementRestController {
 		return new ResponseEntity<User>(HttpStatus.NO_CONTENT);
 
 	}
+	/*@RequestMapping(value = "/saveProduct/", method = RequestMethod.POST, consumes = {
+	"application/json;charset=UTF-8;text/html" })
+public ResponseEntity<Void> saveProduct(@RequestBody Product product, UriComponentsBuilder ucBuilder) {
+System.out.println("Creating Product " + product.getNameProduct());
+// User user = new User();
+productOperation.saveProduct(product);  
 
+HttpHeaders headers = new HttpHeaders();
+headers.setLocation(ucBuilder.path("/saveProduct/{product}").buildAndExpand(product.getRefProduct()).toUri());
+return new ResponseEntity<Void>(headers, HttpStatus.CREATED);
+
+}
+	@RequestMapping(value = "/allProducts/", method = RequestMethod.GET)
+	public ResponseEntity<List<Product>> listAllProducts() {
+		List<Product> products = productOperation.getAllProducts();
+		if (products.isEmpty()) {
+			return new ResponseEntity<List<Product>>(HttpStatus.NO_CONTENT);
+
+		}
+		return new ResponseEntity<List<Product>>(products, HttpStatus.OK);
+	}
 	@RequestMapping(value = "/deleteProduct/", method = RequestMethod.DELETE, consumes = {
 			"application/json;charset=UTF-8;text/html" })
 	public ResponseEntity<Product> deleteProduct(@RequestBody Product product) {
@@ -116,5 +117,5 @@ public class FactoryManagementRestController {
 
 		return new ResponseEntity<Product>(HttpStatus.NO_CONTENT);
 
-	}
+	}*/
 }

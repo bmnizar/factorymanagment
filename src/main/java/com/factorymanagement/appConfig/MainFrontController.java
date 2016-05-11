@@ -36,6 +36,13 @@ public class MainFrontController {
 		model.setViewName("CalculerDureeFabrication");
 		return model;
 	}
+	@RequestMapping(value = { "/Product" }, method = RequestMethod.GET)
+	public ModelAndView product() {
+		System.out.println();
+		ModelAndView model = new ModelAndView();
+		model.setViewName("Product");
+		return model;
+	}
 	@RequestMapping(value = { "/PagePrincipaleResponsableProduction" }, method = RequestMethod.GET)
 	public ModelAndView productResponsible() {
 		System.out.println();
@@ -127,11 +134,11 @@ public class MainFrontController {
 
 		ModelAndView model = new ModelAndView();
 		if (error != null) {
-			model.addObject("error", "Invalid Credentials provided.");
+			model.addObject("error", "Error....!");
 		}
 
 		if (logout != null) {
-			model.addObject("message", "Logged out from JournalDEV successfully.");
+			model.addObject("message", "Logged successfully.");
 		}
 
 		model.setViewName("loginPage");

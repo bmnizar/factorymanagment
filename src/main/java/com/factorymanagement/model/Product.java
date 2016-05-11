@@ -14,7 +14,9 @@ import org.hibernate.validator.constraints.NotEmpty;
 @Entity
 @Table(name = "Product")
 public class Product implements Serializable {
-	@Id
+	private static final long serialVersionUID = 1L;
+
+	@javax.persistence.Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 	@NotEmpty
@@ -31,11 +33,21 @@ public class Product implements Serializable {
 	@NotEmpty
 	@Column(name = "CATEGORY", nullable = false)
 	private String category;
-
+	@NotEmpty
+	@Column(name = "Product_Duration", nullable = false)
+	private String productDuration;	
 	@Override
 	public String toString() {
 		return "User [id=" + id + ",refProduct=" + refProduct + ", nameProduct=" + nameProduct + ", priceProduct="
-				+ priceProduct + ",category=" + category + " ]";
+				+ priceProduct + ",category=" + category + " ,productDuration="+ productDuration+"]";
+	}
+
+	public String getProductDuration() {
+		return productDuration;
+	}
+
+	public void setProductDuration(String productDuration) {
+		this.productDuration = productDuration;
 	}
 
 	public String getRefProduct() {

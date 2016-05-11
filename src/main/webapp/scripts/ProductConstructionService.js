@@ -1,15 +1,4 @@
 'use strict';
-/*
-var ressourceResultQuery = $resource('http://localhost:8083/factorymanagment/allProductConstruction/');
-ressourceResultQuery.get(function (value) {
-return value;
-},
-function (error) {
-$window.alert(error);
-});
-
-return ressourceResultQuery;
- */
 productConstructionApp.factory('ProductConstructionService', function ($http, $rootScope, $q, $window, $resource) {
 
 	return {
