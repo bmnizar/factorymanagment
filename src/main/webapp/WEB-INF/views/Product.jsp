@@ -318,7 +318,7 @@
 
 						<!----------------------------   Tableau------------------------------------------------------------------- -->
 
-	<table ng-table="productConstructionTableTableParams" id="productConstructionTable" class="table table-bordered"
+	<table ng-table="productTableTableParams" id="productTable" class="table table-bordered"
 							show-filter="true">
 						<!-- 	<tr>
 							<thead>
