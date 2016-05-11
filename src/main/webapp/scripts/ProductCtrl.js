@@ -1,6 +1,6 @@
 'use strict';
 productApp.controller('ProductCtrl', function($scope, ProductService,
-		$rootScope, UserService, $filter, NgTableParams, $resource, $log,
+		$rootScope,$filter, NgTableParams, $resource, $log,
 		$uibModal, $uibModalStack) {
 
 	var self = this;
@@ -17,14 +17,7 @@ productApp.controller('ProductCtrl', function($scope, ProductService,
 		"productDuration" : ''
 
 	};
-	self.fetchAllProducts = function() {
-		UserService.fetchAllProducts().then(function(dataFromServer) {
-			self.listOfProducts = dataFromServer;
-		}, function(errResponse) {
-			window.alert(errResponse);
-			console.error('Error while fetching Currencies');
-		});
-	};
+	
 	self.fetchAllProduct = function() {
 
 		ProductService.fetchAllProduct().then(
@@ -175,6 +168,6 @@ productApp.controller('ProductCtrl', function($scope, ProductService,
 			self.fetchAllProduct();
 		});
 	};
-	self.fetchAllProducts();
+	self.fetchAllProduct();
 
 });

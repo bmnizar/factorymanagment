@@ -5,7 +5,7 @@ productApp.factory('ProductService', function ($http, $rootScope, $q, $window, $
 
 		fetchAllProduct : function () {
 			return $http
-			.get('http://localhost:8083/factorymanagment/allProduct/')
+			.get('http://localhost:8083/factorymanagment/allProducts/')
 			.then(function (response) {
 				return response.data;
 			}, function (errResponse) {
