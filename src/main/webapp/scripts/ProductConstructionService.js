@@ -1,4 +1,18 @@
 'use strict';
+<<<<<<< HEAD
+=======
+/*
+var ressourceResultQuery = $resource('http://localhost:8083/factorymanagment/allProductConstruction/');
+ressourceResultQuery.get(function (value) {
+return value;
+},
+function (error) {
+$window.alert(error);
+});
+
+return ressourceResultQuery;
+ */
+>>>>>>> b0fbe9dc5436e25d3913f80eea733fc421f1dffb
 productConstructionApp.factory('ProductConstructionService', function ($http, $rootScope, $q, $window, $resource) {
 
 	return {

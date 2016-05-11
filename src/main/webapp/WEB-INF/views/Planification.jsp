@@ -4,7 +4,10 @@
 <!-- <link href="scripts/angular-material.css" rel="stylesheet" /> -->
 <title>Service De Gestion de Commande</title>
 <meta charset="utf-8">
+<<<<<<< HEAD
 
+=======
+>>>>>>> b0fbe9dc5436e25d3913f80eea733fc421f1dffb
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -28,7 +31,11 @@
     <link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
     <link href="http://mattlewis92.github.io/angular-bootstrap-calendar/dist/css/angular-bootstrap-calendar.min.css" rel="stylesheet">
 
+<<<<<<< HEAD
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.css">
+=======
+
+>>>>>>> b0fbe9dc5436e25d3913f80eea733fc421f1dffb
 
 
 <title>Zollner |Service Commande</title>
@@ -80,7 +87,11 @@
 		</nav>
 		<div>
 
+<<<<<<< HEAD
 <div class="well">
+=======
+
+>>>>>>> b0fbe9dc5436e25d3913f80eea733fc421f1dffb
 
 			<!--------------------------------------------------------------Start of Calendar------------------------------------------------------------->
 		<h2 class="text-center">{{ vm.calendarTitle }}</h2>
@@ -255,7 +266,11 @@
 				
 			<!--------------------------------------------------------------End of Calendar------------------------------------------------------------->
 				
+<<<<<<< HEAD
 </div>
+=======
+
+>>>>>>> b0fbe9dc5436e25d3913f80eea733fc421f1dffb
 
 		</div>
 	</div>
