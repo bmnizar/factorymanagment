@@ -6,6 +6,7 @@ import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Transient;
 
@@ -28,7 +29,8 @@ public class ProductConstruction implements Serializable {
 	@JsonSerialize
 	@JsonDeserialize
 	private String relatedProductReference;
-	@OneToOne
+	@JoinColumn(name="relatedProductId")
+	@OneToOne()
 	private Product relatedProduct;
 
 	private String productDuration;

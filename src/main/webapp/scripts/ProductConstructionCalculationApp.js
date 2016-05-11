@@ -1,7 +1,7 @@
 'use strict';
-var ProductConstructionCalculationApp = angular.module('myApp','ProductConstructionApp.js','ProductConstructionCalculationApp', ['mwl.calendar', 'ngCookies',
-		  'ui.bootstrap','ngAnimate'
-		 ]);
+var ProductConstructionCalculationApp = angular.module('ProductConstructionCalculationApp',['myApp','productConstructionApp', 'ngCookies',
+		  'ui.bootstrap','ngAnimate']
+		 );
 
 
 

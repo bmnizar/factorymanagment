@@ -1,4 +1,4 @@
-/*package com.factorymanagement.restfulwebservice;
+package com.factorymanagement.restfulwebservice;
 
 import java.util.List;
 
@@ -16,10 +16,9 @@ import org.springframework.web.util.UriComponentsBuilder;
 import com.factorymanagement.appConfig.ApplicationRole;
 import com.factorymanagement.dao.ProductConstructionOperationDAO;
 import com.factorymanagement.dao.ProductOperation;
-<<<<<<< HEAD
+
 import com.factorymanagement.dao.ProductOperationDAO;
-=======
->>>>>>> b0fbe9dc5436e25d3913f80eea733fc421f1dffb
+
 import com.factorymanagement.model.Product;
 import com.factorymanagement.model.ProductConstruction;
 import com.factorymanagement.model.User;
@@ -99,4 +98,4 @@ public class ProductConstructionRest {
 
 	}
 
-}*/
+}

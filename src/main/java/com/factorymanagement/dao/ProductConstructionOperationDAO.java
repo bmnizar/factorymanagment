@@ -7,6 +7,8 @@ import javax.persistence.PersistenceContext;
 
 import org.apache.commons.lang3.RandomUtils;
 import org.hibernate.Criteria;
+import org.hibernate.Query;
+import org.hibernate.criterion.Restrictions;
 import org.hibernate.internal.SessionImpl;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Propagation;
@@ -62,6 +64,45 @@ public class ProductConstructionOperationDAO {
 		List list = createCriteria.list();
 		return list;
 
+	}
+
+	/**
+	 * @param product
+	 * @return
+	 */
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	public List<ProductConstruction> findRelatedProductConstructions(Product product) {
+		SessionImpl session = (SessionImpl) em.getDelegate();
+		Criteria createCriteria = session.createCriteria(ProductConstruction.class);
+		createCriteria.add(Restrictions.eq("relatedProduct.nameProduct", product.getNameProduct()));
+		List<ProductConstruction> list = createCriteria.list();
+		return list;
+	}
+
+	/**
+	 * @param productName
+	 * @return
+	 */
+	@SuppressWarnings("unchecked")
+	public List<ProductConstruction> findRelatedProductConstructionsByName(String productName) {
+		SessionImpl session = (SessionImpl) em.getDelegate();
+		Criteria createCriteria = session.createCriteria(ProductConstruction.class).createAlias("relatedProduct", "rp");
+		createCriteria.add(Restrictions.eq("rp.nameProduct", productName));
+		List<ProductConstruction> list = createCriteria.list();
+		return list;
+	}
+
+	/**
+	 * @return
+	 */
+	@SuppressWarnings({ "unchecked", "rawtypes", "unused" })
+	public List<Product> getAllProductsHavingAtLeastOneProductConstruction() {
+		SessionImpl session = (SessionImpl) em.getDelegate();
+		Query createQuery = session.createQuery(
+				"select p from Product p where p.id in(select pc.relatedProduct.id from ProductConstruction pc)");
+		List list2 = createQuery.list();  
+
+		return list2;  
 	}
 
 }
