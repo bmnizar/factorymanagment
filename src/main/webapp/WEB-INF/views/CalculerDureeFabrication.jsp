@@ -21,6 +21,7 @@
 <script src="scripts/angular-messages.js"></script>
   <script src="scripts/app.js"></script>
   <script src="scripts/user_service.js"></script>
+<<<<<<< HEAD
     <script src="scripts/ProductApp.js"></script>
   <script src="scripts/ProductService.js"></script>
 <script src="scripts/ProductCalculationApp.js"></script>
@@ -30,6 +31,17 @@
 </head>
 <body ng-app="ProductCalculationApp">
 		<div class="generic-container" ng-controller="ProductCalculationCtrl as ctrl">
+=======
+    <script src="scripts/ProductConstructionApp.js"></script>
+  <script src="scripts/ProductConstructionService.js"></script>
+<script src="scripts/ProductConstructionCalculationApp.js"></script>
+<script src="scripts/ProductConstructionCalculationCtrl.js"></script>
+
+   <title>Zollner |Service De Planification</title>
+</head>
+<body ng-app="ProductConstructionCalculationApp">
+		<div class="generic-container" ng-controller="ProductConstructionCalculationCtrl as ctrl">
+>>>>>>> 8200ac622af7c0c3b9b36a1f364b392966e75113
 <!-- Debut de la barre menu -->
 <nav class="navbar navbar navbar-static" style="background-color:#BBD2E1;" role="navigation" >
 				<div class="container-fluid">
@@ -172,7 +184,11 @@
    <div class="input-group">
             <span class="input-group-btn">
                 <button type="button" class="btn btn-success 
+<<<<<<< HEAD
 "  ng-click="ctrl.calculateProductTime()" >Calculer</button>
+=======
+"  ng-click="ctrl.calculateProductConstructionTime()" >Calculer</button>
+>>>>>>> 8200ac622af7c0c3b9b36a1f364b392966e75113
            
             </span>
             <input type="text" class="form-control" ng-model="ctrl.result" placeholder="Resultat;">
