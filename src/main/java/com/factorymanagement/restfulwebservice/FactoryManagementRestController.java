@@ -12,9 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import com.factorymanagement.dao.ProductOperation;
 import com.factorymanagement.dao.UserOperation;
-import com.factorymanagement.model.Product;
 import com.factorymanagement.model.User;
 
 @RestController
@@ -22,8 +20,8 @@ public class FactoryManagementRestController {
 
 	@Autowired
 	UserOperation userOperation;
-	@Autowired
-	ProductOperation productOperation;
+
+
 	// Service which will do all data
 	// retrieval/manipulation work
 

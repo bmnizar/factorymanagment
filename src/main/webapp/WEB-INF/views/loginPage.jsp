@@ -12,6 +12,7 @@
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <!-- Stylesheets -->
 <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.css">
 <title>Zollner | Accueil</title>
 </head>
 <body onload='document.loginForm.username.focus();'>

@@ -8,12 +8,9 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.css">
 <script src="scripts/jquery-1.12.1.js"></script>
-<link
-	href="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.5.4/bootstrap-select.css"
-	rel="stylesheet" />
-<link rel="stylesheet" href="scripts/bootstrap.css">
+
 <script src="scripts/bootstrap.js"></script>
 <script src="scripts/angular.js"></script>
 <script src="scripts/ui-bootstrap-tpls-1.2.4.js"></script>
@@ -42,7 +39,7 @@
 <script src="scripts/ProductApp.js"></script>
 <script src="scripts/ProductCtrl.js"></script>
 <script src="scripts/ProductService.js"></script>
->
+
 
 
 
@@ -93,7 +90,7 @@
 
 				<ul class="nav navbar-nav navbar-right">
 
-					<li><a href="PagePrincipale.html"><span
+					<li><a href="loginPage"><span
 							class="glyphicon glyphicon-log-out"></span>Déconnexion</a></li>
 				</ul>
 			</div>
@@ -104,26 +101,28 @@
 		<center>
 			<div id="azerty"></div>
 		</center>
-
-		<div class="col-md-5 col-md-6">
+	<div class="row">
+		<div class="col-md-10 col-center-block">
 			<div class="panel panel-default">
-				<div class="panel-heading text-center" style="color: black;">
+				<div class="panel-heading text-center" style="color: black;font-size: 18pt;font-family:Impact, Charcoal, sans-serif;">
 					Ajouter Produit</div>
 				<div class="panel-body">
 					<form name="myForm">
 						<div class="row">
-							<div class="col-md-12">
+							<div class="col-md-4">
 
 								<div class="form-group">
-									<label for="refCommande" class="control-label">Reference
-										Produit</label> <input type="text" ng-model="ctrl.product.refProduct"
-										class="form-control" id="refCommande"
-										placeholder="Reference Produit">
+									<label for="refProduct" class="control-label">Reference
+										Produit</label> 
+										<input type="text" ng-model="ctrl.product.refProduct"
+										class="form-control" id="refProduct" required ng-minlength="4" ng-maxlength="20"/>
+									 <span style="color:red" ng-show="myForm.refProduct.$error.minlength">The login must have at least 6 characters.  .</span>
+										 <!-- <span ng-show="myForm.refProduct.$error.required && myForm.refProduct.$dirty">required</span>--->
 
 								</div>
 							</div>
 
-							<div class="col-md-12">
+							<div class="col-md-4">
 
 
 								<div class="form-group">
@@ -133,12 +132,7 @@
 										placeholder="Nom du Produit">
 								</div>
 							</div>
-						</div>
-
-
-
-						<div class="row">
-							<div class="col-md-12">
+							<div class="col-md-4">
 
 								<div class="form-group">
 									<label for="refCommande" class="control-label">Prix du
@@ -148,7 +142,13 @@
 								</div>
 							</div>
 
-							<div class="col-md-12">
+						</div>
+
+
+
+						<div class="row">
+							
+							<div class="col-md-4">
 
 
 								<div class="form-group">
@@ -157,7 +157,7 @@
 										class="form-control" id="refCommande" placeholder=" Catégorie">
 								</div>
 							</div>
-							<div class="col-md-12">
+							<div class="col-md-4">
 
 
 								<div class="form-group">
@@ -173,18 +173,24 @@
 
 
 						<br> <br>
-						<div class="modal-footer ">
-							<button type="button" class="btn btn-primary btn-lg center-block"
-								ng-click="ctrl.addProduct(ctrl.product)" style="width: 40%;">
-								<span class="glyphicon glyphicon-ok-sign"></span>Ajouter
-							</button>
+						<div class="modal-footer">
+							<div class="text-center"> 
+								<button type="button" class="btn btn-primary btn-lg  "
+									ng-click="ctrl.addProduct(ctrl.product)" style="width:20%;">
+									<span class="glyphicon glyphicon-ok-sign"></span>&nbsp;&nbsp;&nbsp;Ajouter
+								</button>
+								<button type="reset" class="btn btn-warning btn-lg "
+									 style="width:20%;">
+									<span class="glyphicon glyphicon-refresh"></span>&nbsp;&nbsp;&nbsp;Reset
+								</button>
+							</div>
 						</div>
 					</form>
 				</div>
 			</div>
 		</div>
 
-
+	</div>
 
 		<!--//////////////////////////////////////Edit Produit Modal/////////////////////////////////////////-->
 		<div class="modal fade" id="updateProductModalId" role="dialog"
@@ -198,7 +204,7 @@
 						</button>
 						<h4 class="modal-title custom_align"
 							style="font-size: 25px; color: black;" id="Heading">
-							<span class="glyphicon glyphicon-saved"></span> Modification
+							<span class="glyphicon glyphicon-edit"></span> Modification
 							Fabrique Produit
 						</h4>
 					</div>
@@ -271,7 +277,7 @@
 
 		<!--//////////////////////////////////////Delete Product/////////////////////////////////////////-->
 
-		<div class="modal fade" id="deleteProductConstructionModalId"
+		<div class="modal fade" id="deleteProductModalId"
 			role="dialog" aria-labelledby="delete" aria-hidden="true">
 			<div class="modal-dialog">
 				<div class="modal-content">
@@ -307,96 +313,96 @@
 			</div>
 		</div>
 		<!--//////////////////////////////////////Tableau /////////////////////////////////////////-->
+	<div class="row">
+		<div class=" col-md-10 col-center-block">
 
-		<div class="col-md-7 col-md-6">
+		 <div class="panel panel-default" >
+						<div class="panel-heading  text-center" style="color: black;">
+						List Des Produits</div>
+					<div class="panel-body">
+						<div class="col-xs-12">
 
-			<div class="panel panel-default">
-				<div class="panel-heading  text-center" style="color: black;">
-					List Des Produits</div>
-				<div class="panel-body">
-					<div class="col-xs-12">
+											<!----------------------------   Tableau------------------------------------------------------------------- -->
 
-						<!----------------------------   Tableau------------------------------------------------------------------- -->
+								<table ng-table="productTableTableParams" id="productTable" class="table table-bordered"
+												show-filter="true">
+											<!-- 	<tr>
+												<thead>
+													<tr>
 
-	<table ng-table="productTableTableParams" id="productTable" class="table table-bordered"
-							show-filter="true">
-						<!-- 	<tr>
-							<thead>
-								<tr>
+														<th>Reference Produit</th>
+														<th>Nom du Produit</th>
+														<th>Prix du Produit</th>
+														<th>Catégorie</th>
+														<th>Duree du Fabrication</th>
 
-									<th>Reference Produit</th>
-									<th>Nom du Produit</th>
-									<th>Prix du Produit</th>
-									<th>Catégorie</th>
-									<th>Duree du Fabrication</th>
+														<th>Modifier</th>
+														<th>Supprimer</th>
 
-									<th>Modifier</th>
-									<th>Supprimer</th>
-
-								</tr>
-							</thead> -->
+													</tr>
+												</thead> -->
 
 
-							<tbody>
-								<tr ng-repeat="product in $data">
+												<tbody>
+													<tr ng-repeat="product in $data">
 
-								<!-- 	<td sortable="'refProduct'"><span ng-bind="p.refProduct"></span></td>
-									<td sortable="'nameProduct'"><span
-										ng-bind="p.nameProduct"></span></td>
-									<td sortable="'priceProduct"><span
-										ng-bind="p.priceProduct"></span></td>
-									<td sortable="'category'"><span ng-bind="p.category"></span></td>
-									<td sortable="'productDuration'"><span
-										ng-bind="p.productDuration"></span></td>
+													<!-- 	<td sortable="'refProduct'"><span ng-bind="p.refProduct"></span></td>
+														<td sortable="'nameProduct'"><span
+															ng-bind="p.nameProduct"></span></td>
+														<td sortable="'priceProduct"><span
+															ng-bind="p.priceProduct"></span></td>
+														<td sortable="'category'"><span ng-bind="p.category"></span></td>
+														<td sortable="'productDuration'"><span
+															ng-bind="p.productDuration"></span></td>
 
-									<td>
-										<button type="button" ng-click="ctrl.openEditUser(u)"
-											class="btn btn-primary btn center-block">
-											<span class="glyphicon glyphicon-pencil"></span>
-										</button>
-									</td>
-									<td>
-										<button type="button" ng-click="ctrl.openDeleteUser(u)"
-											class="btn btn-danger btn center-block">
-											<span class="glyphicon glyphicon-trash"></span>
-										</button>
-									</td> -->
-				<td  data-title="'Reference de produit'" sortable="'refProduct'"  filter="{refProduct: 'text'}" ><span
-										ng-bind="product.refProduct"></span></td>
-				<td data-title="'Nom de produit'" filter="{nameProduct: 'text'}" sortable="'nameProduct'"><span
-										ng-bind="product.nameProduct"></span></td>
-				<td data-title="'Prix du produit'" filter="{priceProduct: 'text'}" sortable="'priceProduct'"><span
-										ng-bind="product.priceProduct"></span></td>
-				<td data-title="'Categorie'" filter="{category: 'text'}" sortable="'category'"><span
-										ng-bind="product.category"></span></td>
-				<td  data-title="'duree de fabrication'"  filter="{productDuration: 'text'}" sortable="'productDuration'"><span
-										ng-bind="product.productDuration"></span></td>
-										
-				<td><p data-placement="top" data-toggle="tooltip"
-											title="Edit">
-											<button class="btn btn-primary btn center-block" "showUpdateProductModalId"
-												ng-click="ctrl.triggerSelectedProduct(product)"
-												data-title="Edit" data-toggle="modal" data-target="#updateProductModalId" >
-												<span class="glyphicon glyphicon-pencil"></span>
-											</button>
-										</p></td>
-									<td><p data-placement="top" data-toggle="tooltip"
-											title="Delete">
-											<button class="btn btn-danger btn center-block" id="showDeleteProductModalId" ng-click="ctrl.triggerSelectedProduct(product)"
-												
-												data-title="Delete" data-toggle="modal"
-												data-target="#deleteProductModalId">
-												<span class="glyphicon glyphicon-trash"></span>
-											</button>
-										</p></td>
-								</tr>
-							</tbody>
-						</table>
+														<td>
+															<button type="button" ng-click="ctrl.openEditUser(u)"
+																class="btn btn-primary btn center-block">
+																<span class="glyphicon glyphicon-pencil"></span>
+															</button>
+														</td>
+														<td>
+															<button type="button" ng-click="ctrl.openDeleteUser(u)"
+																class="btn btn-danger btn center-block">
+																<span class="glyphicon glyphicon-trash"></span>
+															</button>
+														</td> -->
+												<td  data-title="'Reference de produit'" sortable="'refProduct'"  filter="{refProduct: 'text'}" ><span
+																		ng-bind="product.refProduct"></span></td>
+												<td data-title="'Nom de produit'" filter="{nameProduct: 'text'}" sortable="'nameProduct'"><span
+																		ng-bind="product.nameProduct"></span></td>
+												<td data-title="'Prix du produit'" filter="{priceProduct: 'text'}" sortable="'priceProduct'"><span
+																		ng-bind="product.priceProduct"></span></td>
+												<td data-title="'Categorie'" filter="{category: 'text'}" sortable="'category'"><span
+																		ng-bind="product.category"></span></td>
+												<td  data-title="'duree de fabrication'"  filter="{productDuration: 'text'}" sortable="'productDuration'"><span
+																		ng-bind="product.productDuration"></span></td>
+																		
+												<td><p data-placement="top" data-toggle="tooltip"
+																			title="Edit">
+																			<button class="btn btn-primary btn center-block" "showUpdateProductModalId"
+																				ng-click="ctrl.triggerSelectedProduct(product)"
+																				data-title="Edit" data-toggle="modal" data-target="#updateProductModalId" >
+																				<span class="glyphicon glyphicon-pencil"></span>
+																			</button>
+																		</p></td>
+																	<td><p data-placement="top" data-toggle="tooltip"
+																			title="Delete">
+																			<button class="btn btn-danger btn center-block" id="showDeleteProductModalId" ng-click="ctrl.triggerSelectedProduct(product)"
+																				
+																				data-title="Delete" data-toggle="modal"
+																				data-target="#deleteProductModalId">
+																				<span class="glyphicon glyphicon-trash"></span>
+																			</button>
+																		</p></td>
+																</tr>
+															</tbody>
+								</table>
+						</div>
 					</div>
 				</div>
-			</div>
-
 		</div>
+	</div>
 		<script>
 			$(document).ready(function() {
 				$("#confirmDeleteProductButton").click(function() {

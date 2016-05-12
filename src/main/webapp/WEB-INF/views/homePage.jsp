@@ -41,6 +41,7 @@
 
 
 <title>Zollner |Service Administrative</title>
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.css">
 <link rel="stylesheet" href="css/style.css">
 
 </head>

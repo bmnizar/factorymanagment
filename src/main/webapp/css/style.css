@@ -1,12 +1,12 @@
 
 body { 
-		background: url(../images/img5.jpg);
-	
-		
+    background: url(../images/img5.jpg);
+  
+    
   width: auto;
-		
-		-webkit-font-smoothing: antialiased; Fix for webkit rendering
-		-webkit-text-size-adjust: none;
+    
+    -webkit-font-smoothing: antialiased; Fix for webkit rendering
+    -webkit-text-size-adjust: none;
  }
  
 .navbar-static .nav > li > a:focus,
@@ -14,7 +14,7 @@ body {
 .navbar-static .nav > li.active > a {
   background-color: #BBD2E1;
 }
-	.modal-vertical-centered {
+  .modal-vertical-centered {
   transform: translate(0, 50%) !important;
   -ms-transform: translate(0, 50%) !important; IE 9
   -webkit-transform: translate(0, 50%) !important; Safari and Chrome
@@ -28,15 +28,15 @@ color:black;
 
 }
 .modal-title{
-	padding:3px 10px;
+  padding:3px 10px;
     -webkit-border-top-left-radius: 5px;
     -webkit-border-top-right-radius: 5px;
     -moz-border-radius-topleft: 5px;
     -moz-border-radius-topright: 5px;
-	text-align: center;
-	color:black; 
-	font-size:25px;
-	font-family:Impact, Charcoal, sans-serif;;	  
+  text-align: center;
+  color:black; 
+  font-size:25px;
+  font-family:Impact, Charcoal, sans-serif;;    
   }
 .navbar.brand.logo
 {
@@ -54,7 +54,7 @@ font-size: 17px;
 
 }
 ul li.active a {
-	  background-color: #BBD2E1;
+    background-color: #BBD2E1;
 
 }
 .navbar-static .nav > li.active > a {
@@ -99,14 +99,14 @@ ul:after {
   margin: 0;
 }
 
-.ul li a {
+.nav ul li a {
   color: #ffffff;
   text-decoration: none;
   display: block;
   padding: 15px 25px;
 
 font-family:Impact, Charcoal, sans-serif;
-	text-align: center;
+  text-align: center;
   font-weight: 700;
   text-transform: uppercase;
   font-size: 14px;
@@ -120,17 +120,17 @@ font-family:Impact, Charcoal, sans-serif;
 
 
 ul li a:hover {
-	  background-color: #BBD2E1;
+    background-color: #BBD2E1;
   color: #333333;
 }
 
 
 ul li a:hover:before {
-	
+  
   width: 100%;
 }
 
-ul li a:after {
+.nav ul li a:after {
 
 
   display: block;
@@ -143,7 +143,7 @@ ul li a:after {
   opacity: .5;
 }
 
-ul li a:before {
+ ul li a:before {
 
   content: "";
   display: block; 
@@ -165,28 +165,51 @@ ul li a:before {
 }
 ul li.last > a:after,
 ul li:last-child > a:after {
-	  background-color: #BBD2E1;
+    background-color: #BBD2E1;
   display: none;
 }
 
-ul li.active a {
-	  background-color: #BBD2E1;
+nav ul li.active a {
+    background-color: #BBD2E1;
   color: #333333;
 }
 
 ul li.active a:before {
 
-	
+  
   width: 100%;
 }
 
-ul li {
+nav ul li {
    /*  float: none;
     display: block;
-	 */
-	 float: left;
+   */
+   float: left;
   border-right: 4px solid #0F056B;
   }
+ul li {
+ 
+    display: block;
+   
+   float: left;
+
+  }
+ul li a:before {
+
+  content: "";
+  display: block; 
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  width: 0;
+  background: #333333;
+  -webkit-transition: width .25s;
+  -moz-transition: width .25s;
+  -ms-transition: width .25s;
+  -o-transition: width .25s;
+  transition: width .25s;
+}
   ul li a {
     width: 100%;
     -moz-box-sizing: border-box;
@@ -195,7 +218,7 @@ ul li {
   
   }
   .modal-header {
-	  font-size:18pt;
+    font-size:18pt;
 text-align:center;
 
     background-color: #BBD2E1;
@@ -206,4 +229,10 @@ text-align:center;
 /*   ----------------------------- Login Style----------------------------------------  */
 .table th {
    text-align: center;   
+}
+.col-center-block {
+    float: none;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }

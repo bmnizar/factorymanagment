@@ -4,15 +4,32 @@
   <title>Service de Commande</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-  
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.css">
+  <link href="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.5.4/bootstrap-select.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css">
+  <script src="scripts/angular.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.js"></script>
+<script  src = "https://rawgit.com/esvit/ng-table/master/dist/ng-table.js" > </script >
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-route.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-resource.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/js/bootstrap-select.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.js"></script>
+  <script src="scripts/ui-bootstrap-tpls-1.2.4.js"></script>
+  <script src="scripts/angular-cookies.js"></script>
+  <script src="scripts/angular-animate.js"></script>
+<script src="scripts/angular-aria.js"></script>
+<script src="scripts/angular-messages.js"></script>
+  <script src="scripts/app.js"></script>
+  <script src="scripts/user_service.js"></script>
+    <script src="scripts/ProductApp.js"></script>
+  <script src="scripts/ProductService.js"></script>
+<script src="scripts/ProductCalculationApp.js"></script>
+<script src="scripts/ProductCalculationCtrl.js"></script>
 
    <title>Zollner |Service De Planification</title>
 </head>
-<body>
+<body ng-app="ProductCalculationApp">
+		<div class="generic-container" ng-controller="ProductCalculationCtrl as ctrl">
 <!-- Debut de la barre menu -->
 <nav class="navbar navbar navbar-static" style="background-color:#BBD2E1;" role="navigation" >
 				<div class="container-fluid">
@@ -33,7 +50,7 @@
 							<ul class="nav navbar-nav">
 									<li><a href="PagePrincipaleResponsableProduction.html">Commande</span></a></li>
 									<li class="active">
-										<a href="CalculerDurÃ©eFabrication.html"> DurÃ©e de fabrication</a>
+										<a href="CalculerDuréeFabrication.html"> Durée de fabrication</a>
 									</li>
 									<li>
 										<a href="FicheProduit.html" > Fiche de production</a>
@@ -47,7 +64,7 @@
 							
 								<ul class="nav navbar-nav navbar-right">
 									
-									<li><a href="PagePrincipale.html"><span class="glyphicon glyphicon-log-out"></span>DÃ©connexion</a>
+									<li><a href="PagePrincipale.html"><span class="glyphicon glyphicon-log-out"></span>Déconnexion</a>
 									</li>
 								</ul>
 						</div>
@@ -128,7 +145,7 @@
     
 				<div class="panel panel-info">
 							<div class="panel-heading text-center" style="font-size:20px;color:black;">
-								Caculer DurÃ©e de Fabrication						
+								Caculer Durée de Fabrication						
 							</div>
 						<div class="panel-body style="min-height: 10; max-height: 10;">
 							
@@ -136,31 +153,29 @@
            <form>
 	
 	<div class="form-group"> <!-- Name field -->
-<label for="sel1">Produit (sÃ©lectionner  un produit ):</label>
-      <select class="form-control" id="sel1">
-                    <option>Produit 1</option>
-					<option>Produit 2</option>
-					<option>Produit 3</option>
-					<option>Produit 4</option>
-					<option>Produit 5</option>
+<label for="sel1">Produit (sélectionner  un produit ):</label>
+      <select class="form-control" id="sel1" ng-model="ctrl.selectedProduct" >
+	  <option ng-repeat="option in ctrl.listOfProducts"
+											value="{{option.nameProduct}}">{{option.nameProduct}}</option>
+                
 				</select>
 
 		
 	</div>
 
 	<div class="form-group"> <!-- Name field -->
-		<label class="control-label " for="name">QuantitÃ© de Produit</label>
-		<input class="form-control" id="ref" name="ref" type="text"/>
+		<label class="control-label " for="name">Quantité de Produit</label>
+		<input class="form-control" id="quantityOfProductsId" name="ref" type="text" ng-model="ctrl.quantityOfProducts" />
 	</div>
 		
 <div class="form-group">
    <div class="input-group">
             <span class="input-group-btn">
-                <button type="button" class="btn btn-success
-">Calculer</button>
+                <button type="button" class="btn btn-success 
+"  ng-click="ctrl.calculateProductTime()" >Calculer</button>
            
             </span>
-            <input type="text" class="form-control"  placeholder="Resultat;">
+            <input type="text" class="form-control" ng-model="ctrl.result" placeholder="Resultat;">
         </div>
 
 </div>
@@ -173,31 +188,6 @@
 				</div>
   </div>
  
-
-<script>
-$(document).ready(function(){
-    $("#myBtn").click(function(){
-        $("#myModal").modal();
-    });
-});
-</script>
-<script>
-$(document).ready(function(){
-$("#mytable #checkall").click(function () {
-        if ($("#mytable #checkall").is(':checked')) {
-            $("#mytable input[type=checkbox]").each(function () {
-                $(this).prop("checked", true);
-            });
-
-        } else {
-            $("#mytable input[type=checkbox]").each(function () {
-                $(this).prop("checked", false);
-            });
-        }
-    });
-    
-    $("[data-toggle=tooltip]").tooltip();
-});
-</script>
+</div>
 </body>
 </html>

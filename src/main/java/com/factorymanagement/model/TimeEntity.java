@@ -47,14 +47,10 @@ public class TimeEntity implements Serializable{
 		this.numberOfMinutes = numberOfMinutes;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see java.lang.Object#toString()
-	 */
+
 	@Override
 	public String toString() {
-		// TODO Auto-generated method stub
-		return numberOfDays + "-" + numberOfHours + "-" + numberOfMinutes;
+
+		return numberOfHours + "h" + numberOfMinutes+"m";
 	}
 }
