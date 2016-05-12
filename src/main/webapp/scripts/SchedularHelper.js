@@ -2,7 +2,7 @@ SchedularCalendarApp.factory('alert', function ($uibModal) {
 
 	function show(action, event) {
 		return $uibModal.open({
-			templateUrl : 'SchedularModalContent.jsp',
+			templateUrl : 'SchedularModalContent',
 			controller : function () {
 				var vm = this;
 				vm.action = action;
@@ -17,4 +17,3 @@ SchedularCalendarApp.factory('alert', function ($uibModal) {
 	};
 
 });
-s

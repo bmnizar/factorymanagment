@@ -39,7 +39,7 @@
 
 </head>
 <body ng-app="SchedularCalendarApp">
-
+		<div id="SchedularModalContent.jsp" ng-include="SchedularModalContent"></div>
 
 	<div ng-controller="schedularCalendarCtrl as vm">
 
