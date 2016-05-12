@@ -9,16 +9,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import com.factorymanagement.appConfig.ApplicationRole;
 import com.factorymanagement.dao.ProductConstructionOperationDAO;
-import com.factorymanagement.dao.ProductOperation;
-
 import com.factorymanagement.dao.ProductOperationDAO;
-
 import com.factorymanagement.model.Product;
 import com.factorymanagement.model.ProductConstruction;
 import com.factorymanagement.model.User;
@@ -29,7 +24,7 @@ public class ProductConstructionRest {
 	@Autowired
 	ProductConstructionOperationDAO productConstructionOperationDAO;
 	@Autowired
-	ProductOperation productOperation;
+	ProductOperationDAO productOperation;
 
 	@RequestMapping(value = "/allProductConstruction/", method = RequestMethod.GET)
 	public ResponseEntity<List<ProductConstruction>> getAllProductConstructions() {
@@ -56,7 +51,7 @@ public class ProductConstructionRest {
 		System.out.println("Updating productConstruction ");
 	
 		String relatedProductName = productConstruction.getRelatedProductName();
-		Product relatedProduct = productOperation.findProductByName(relatedProductName);
+		Product relatedProduct = productOperation.findRelatedProductByName(relatedProductName);
 		productConstruction.setRelatedProduct(relatedProduct);
 		productConstructionOperationDAO.saveProductConstruction(productConstruction);
 
@@ -74,7 +69,7 @@ public class ProductConstructionRest {
 		System.out.println("Creating productConstruction ");
 		// User user = new User();
 		String relatedProductName = productConstruction.getRelatedProductName();
-		Product relatedProduct = productOperation.findProductByName(relatedProductName);
+		Product relatedProduct = productOperation.findRelatedProductByName(relatedProductName);
 		productConstruction.setRelatedProduct(relatedProduct);
 		productConstructionOperationDAO.saveProductConstruction(productConstruction);
 
@@ -90,7 +85,7 @@ public class ProductConstructionRest {
 	public ResponseEntity<User> deleteUser(@RequestBody ProductConstruction productConstruction) {
 		System.out.println("Deleting productConstruction ");
 		String relatedProductName = productConstruction.getRelatedProductName();
-		Product relatedProduct = productOperation.findProductByName(relatedProductName);
+		Product relatedProduct = productOperation.findRelatedProductByName(relatedProductName);
 		productConstruction.setRelatedProduct(relatedProduct);
 		productConstructionOperationDAO.deleteProductConstruction(productConstruction);
 

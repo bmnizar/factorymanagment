@@ -63,20 +63,18 @@ public class ProductOperationDAO {
 		return list;
 
 	}
-	 
-	
 
 	/**
-		El mochkla      fel partir hathiiii mafhemtech kiffech ne5demhaa
+	 * El mochkla fel partir hathiiii mafhemtech kiffech ne5demhaa
 	 */
 
 	@SuppressWarnings("unchecked")
-	public List<Product> findRelatedProductByName(String productName) {
+	public Product findRelatedProductByName(String productName) {
 		SessionImpl session = (SessionImpl) em.getDelegate();
-		Criteria createCriteria = session.createCriteria(Product.class).createAlias("refProduct", "rp");
-		createCriteria.add(Restrictions.eq("rp.nameProduct", productName));
+		Criteria createCriteria = session.createCriteria(Product.class);
+		createCriteria.add(Restrictions.eq("nameProduct", productName));
 		List<Product> list = createCriteria.list();
-		return list;
+		return list.get(0);
 	}
 
 	/**
@@ -87,10 +85,9 @@ public class ProductOperationDAO {
 		SessionImpl session = (SessionImpl) em.getDelegate();
 		Query createQuery = session.createQuery(
 				"select p from Product p where p.id in(select pc.relatedProduct.id from ProductConstruction pc)");
-		List list2 = createQuery.list();  
+		List list2 = createQuery.list();
 
-		return list2;  
+		return list2;
 	}
-	
 
 }

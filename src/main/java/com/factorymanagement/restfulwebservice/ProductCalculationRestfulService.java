@@ -42,9 +42,9 @@ public class ProductCalculationRestfulService {
 			UriComponentsBuilder ucBuilder) {
 		String productName = (String) objects[0];
 		String numberOfQuantity = (String) objects[1];
-		List<Product> listProduct = productOperationDAO
+		Product product = productOperationDAO
 				.findRelatedProductByName(productName);
-		Product product = listProduct.get(0);
+		
 		String productDuration = product.getProductDuration();
 		TimeEntity timeEntity = TimeEntityHelper.convertToTimeEntity(productDuration);
 		TimeEntity resultTimeEntity = TimeEntityHelper.multiplyByNumberOfQuantity(timeEntity,

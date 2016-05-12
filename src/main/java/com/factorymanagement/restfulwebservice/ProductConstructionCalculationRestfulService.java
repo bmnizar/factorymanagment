@@ -4,7 +4,6 @@ package com.factorymanagement.restfulwebservice;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -14,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import com.factorymanagement.dao.ProductConstructionOperationDAO;
-import com.factorymanagement.dao.ProductOperation;
+import com.factorymanagement.dao.ProductOperationDAO;
 import com.factorymanagement.model.Product;
 import com.factorymanagement.model.ProductConstruction;
 import com.factorymanagement.model.TimeEntity;
@@ -25,7 +24,7 @@ public class ProductConstructionCalculationRestfulService {
 	@Autowired
 	ProductConstructionOperationDAO productConstructionOperationDAO;
 	@Autowired
-	ProductOperation productOperation;
+	ProductOperationDAO productOperation;
 
 	@RequestMapping(value = "/fetchRelatedProducts/", method = RequestMethod.GET)
 	public ResponseEntity<List<Product>> getRelatedProducts() {
